@@ -13,7 +13,10 @@ namespace ExaminationSystem.Configuration
     {
         public void Configure(EntityTypeBuilder<Exam> builder)
         {
-
+            builder.ToTable("Exam")
+                .HasDiscriminator<string>("ExamType")
+            .HasValue<PracticeExam>("Practice")
+            .HasValue<FinalExam>("Final");
         }
     }
 }
