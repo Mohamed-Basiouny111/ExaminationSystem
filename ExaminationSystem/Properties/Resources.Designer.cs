@@ -63,9 +63,29 @@ namespace ExaminationSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_user__1___1_ {
+            get {
+                object obj = ResourceManager.GetObject("add-user (1) (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap delete__4_ {
             get {
                 object obj = ResourceManager.GetObject("delete (4)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap delete__5_ {
+            get {
+                object obj = ResourceManager.GetObject("delete (5)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -86,6 +106,16 @@ namespace ExaminationSystem.Properties {
         internal static System.Drawing.Bitmap edit__2_ {
             get {
                 object obj = ResourceManager.GetObject("edit (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap edit__2_1 {
+            get {
+                object obj = ResourceManager.GetObject("edit (2)1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

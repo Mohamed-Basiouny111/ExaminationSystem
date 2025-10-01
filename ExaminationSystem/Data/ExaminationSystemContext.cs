@@ -35,7 +35,7 @@ namespace ExaminationSystem.Data
                 string? connection_string = new ConfigurationBuilder().AddJsonFile("Connection.json").Build().GetSection("Connection").Value;
                 if (!string.IsNullOrEmpty(connection_string))
                 {
-                    optionsBuilder.UseLazyLoadingProxies()
+                    optionsBuilder
                      .UseSqlServer(connection_string);
                 }
                 else

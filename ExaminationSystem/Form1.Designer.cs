@@ -563,6 +563,7 @@
             RightToLeftLayout = true;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "سجــل المصروفــات";
+            Load += FormName_Load_1;
             tableLayoutPanel7.ResumeLayout(false);
             tableLayoutPanel3.ResumeLayout(false);
             tableLayoutPanel3.PerformLayout();
