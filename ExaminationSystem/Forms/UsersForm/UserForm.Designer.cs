@@ -133,7 +133,7 @@
             txtPassword.Location = new Point(40, 51);
             txtPassword.Margin = new Padding(40, 3, 20, 3);
             txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(409, 34);
+            txtPassword.Size = new Size(409, 40);
             txtPassword.TabIndex = 11;
             txtPassword.TextAlign = HorizontalAlignment.Center;
             txtPassword.UseSystemPasswordChar = true;
@@ -146,10 +146,10 @@
             label3.AutoSize = true;
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Calibri", 16F, FontStyle.Bold);
-            label3.Location = new Point(184, 5);
+            label3.Location = new Point(173, 5);
             label3.Margin = new Padding(3, 5, 3, 3);
             label3.Name = "label3";
-            label3.Size = new Size(101, 27);
+            label3.Size = new Size(122, 33);
             label3.TabIndex = 10;
             label3.Text = "Password";
             label3.TextAlign = ContentAlignment.MiddleCenter;
@@ -177,7 +177,7 @@
             txtUserName.Location = new Point(20, 51);
             txtUserName.Margin = new Padding(20, 3, 40, 3);
             txtUserName.Name = "txtUserName";
-            txtUserName.Size = new Size(409, 34);
+            txtUserName.Size = new Size(409, 40);
             txtUserName.TabIndex = 13;
             txtUserName.TextAlign = HorizontalAlignment.Center;
             txtUserName.KeyDown += txtUserName_KeyDown;
@@ -189,10 +189,10 @@
             label2.AutoSize = true;
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Calibri", 16F, FontStyle.Bold);
-            label2.Location = new Point(178, 5);
+            label2.Location = new Point(164, 5);
             label2.Margin = new Padding(3, 5, 3, 3);
             label2.Name = "label2";
-            label2.Size = new Size(113, 27);
+            label2.Size = new Size(141, 33);
             label2.TabIndex = 1;
             label2.Text = "User Name";
             label2.TextAlign = ContentAlignment.MiddleCenter;
@@ -271,27 +271,30 @@
             Delete.Frozen = true;
             Delete.HeaderText = "Delete";
             Delete.Image = Properties.Resources.delete__5_;
+            Delete.MinimumWidth = 6;
             Delete.Name = "Delete";
             Delete.ReadOnly = true;
             Delete.Resizable = DataGridViewTriState.False;
             Delete.ToolTipText = "Delete This Product";
-            Delete.Width = 84;
+            Delete.Width = 104;
             // 
             // Edit
             // 
             Edit.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
             Edit.HeaderText = "Edit";
             Edit.Image = Properties.Resources.edit__2_1;
+            Edit.MinimumWidth = 6;
             Edit.Name = "Edit";
             Edit.ReadOnly = true;
             Edit.Resizable = DataGridViewTriState.False;
-            Edit.Width = 58;
+            Edit.Width = 71;
             // 
             // id
             // 
             id.DataPropertyName = "Id";
             id.FillWeight = 65.17767F;
             id.HeaderText = "Id";
+            id.MinimumWidth = 6;
             id.Name = "id";
             id.ReadOnly = true;
             // 
@@ -299,6 +302,7 @@
             // 
             FullName.DataPropertyName = "FullName";
             FullName.HeaderText = "Full Name";
+            FullName.MinimumWidth = 6;
             FullName.Name = "FullName";
             FullName.ReadOnly = true;
             FullName.ToolTipText = "Full Name";
@@ -307,6 +311,7 @@
             // 
             PasswordHash.DataPropertyName = "PasswordHash";
             PasswordHash.HeaderText = "PasswordHash";
+            PasswordHash.MinimumWidth = 6;
             PasswordHash.Name = "PasswordHash";
             PasswordHash.ReadOnly = true;
             PasswordHash.Visible = false;
@@ -315,6 +320,7 @@
             // 
             Role.DataPropertyName = "Role";
             Role.HeaderText = "Role";
+            Role.MinimumWidth = 6;
             Role.Name = "Role";
             Role.ReadOnly = true;
             // 
@@ -379,7 +385,7 @@
             txtSearch.Location = new Point(10, 46);
             txtSearch.Margin = new Padding(10, 3, 10, 3);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(590, 34);
+            txtSearch.Size = new Size(590, 40);
             txtSearch.TabIndex = 2;
             txtSearch.TextAlign = HorizontalAlignment.Center;
             txtSearch.KeyDown += txtSearch_KeyDown;
@@ -391,10 +397,10 @@
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Calibri", 16F, FontStyle.Bold);
-            label1.Location = new Point(200, 5);
+            label1.Location = new Point(176, 5);
             label1.Margin = new Padding(3, 5, 3, 3);
             label1.Name = "label1";
-            label1.Size = new Size(210, 27);
+            label1.Size = new Size(258, 33);
             label1.TabIndex = 1;
             label1.Text = "Search By Name Or Id";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -527,7 +533,7 @@
             cbxUserType.Location = new Point(40, 38);
             cbxUserType.Margin = new Padding(40, 3, 20, 3);
             cbxUserType.Name = "cbxUserType";
-            cbxUserType.Size = new Size(409, 34);
+            cbxUserType.Size = new Size(409, 41);
             cbxUserType.TabIndex = 12;
             cbxUserType.KeyDown += cbxUserType_KeyDown;
             // 
@@ -538,10 +544,10 @@
             label5.AutoSize = true;
             label5.BackColor = Color.Transparent;
             label5.Font = new Font("Calibri", 16F, FontStyle.Bold);
-            label5.Location = new Point(185, 5);
+            label5.Location = new Point(172, 5);
             label5.Margin = new Padding(3, 5, 3, 3);
             label5.Name = "label5";
-            label5.Size = new Size(99, 27);
+            label5.Size = new Size(125, 27);
             label5.TabIndex = 10;
             label5.Text = "User Role";
             label5.TextAlign = ContentAlignment.MiddleCenter;
@@ -569,7 +575,7 @@
             txtFullName.Location = new Point(20, 38);
             txtFullName.Margin = new Padding(20, 3, 40, 3);
             txtFullName.Name = "txtFullName";
-            txtFullName.Size = new Size(409, 34);
+            txtFullName.Size = new Size(409, 40);
             txtFullName.TabIndex = 12;
             txtFullName.TextAlign = HorizontalAlignment.Center;
             txtFullName.KeyDown += txtFullName_KeyDown;
@@ -581,10 +587,10 @@
             lblName.AutoSize = true;
             lblName.BackColor = Color.Transparent;
             lblName.Font = new Font("Calibri", 16F, FontStyle.Bold);
-            lblName.Location = new Point(183, 5);
+            lblName.Location = new Point(170, 5);
             lblName.Margin = new Padding(3, 5, 3, 3);
             lblName.Name = "lblName";
-            lblName.Size = new Size(103, 27);
+            lblName.Size = new Size(128, 27);
             lblName.TabIndex = 1;
             lblName.Text = "Full Name";
             lblName.TextAlign = ContentAlignment.MiddleCenter;
@@ -612,7 +618,7 @@
             // 
             // UserForm
             // 
-            AutoScaleDimensions = new SizeF(14F, 33F);
+            AutoScaleDimensions = new SizeF(17F, 40F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 249, 245);
             ClientSize = new Size(950, 791);
