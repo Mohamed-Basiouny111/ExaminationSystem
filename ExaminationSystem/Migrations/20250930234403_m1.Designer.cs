@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ExaminationSystem.Migrations
 {
     [DbContext(typeof(ExaminationSystemContext))]
-    [Migration("20250930202917_m1")]
+    [Migration("20250930234403_m1")]
     partial class m1
     {
         /// <inheritdoc />
@@ -21,9 +21,6 @@ namespace ExaminationSystem.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "9.0.9")
-                .HasAnnotation("Proxies:ChangeTracking", false)
-                .HasAnnotation("Proxies:CheckEquality", false)
-                .HasAnnotation("Proxies:LazyLoading", true)
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -225,6 +222,11 @@ namespace ExaminationSystem.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("PasswordHash")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Role")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
