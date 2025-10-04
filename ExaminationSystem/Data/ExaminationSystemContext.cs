@@ -50,19 +50,7 @@ namespace ExaminationSystem.Data
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(Exam).Assembly);
 
-            // Question hierarchy
-            modelBuilder.Entity<Question>()
-        .HasDiscriminator<string>("QuestionType")
-        .HasValue<TrueFalseQuestion>("TrueFalseQ")
-        .HasValue<ChooseOneQuestion>("ChooseOneQ")
-        .HasValue<ChooseAllQuestion>("ChooseAllQ");
-
-
-            // Exam hierarchy
-            modelBuilder.Entity<Exam>()
-                .HasDiscriminator<string>("ExamType")
-                .HasValue<FinalExam>("Final")
-                .HasValue<PracticeExam>("Practice");
+         
 
             base.OnModelCreating(modelBuilder);
         }
