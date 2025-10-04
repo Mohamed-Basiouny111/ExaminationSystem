@@ -48,8 +48,11 @@ namespace ExaminationSystem.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //All Assembly
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(Exam).Assembly);
+
+         
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
