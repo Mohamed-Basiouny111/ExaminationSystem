@@ -18,7 +18,23 @@ namespace ExaminationSystem.Forms.Question
         private void ChooseOneQuestionForm_Load(object sender, EventArgs e)
         {
             LoadQuestions();
+            LoadExamComboBox();
         }
+
+        private void LoadExamComboBox()
+        {
+            using (var context = new ExaminationSystemContext())
+            {
+                var exams = context.Exams.ToList();
+                exams.Insert(0, new Exam { Id = 0, Title = "<None>" }); // placeholder
+
+                cmbAssignExam.DisplayMember = "Title";
+                cmbAssignExam.ValueMember = "Id";
+                cmbAssignExam.DataSource = exams;
+                cmbAssignExam.SelectedIndex = 0; // default to <None>
+            }
+        }
+
 
         private void LoadQuestions()
         {
@@ -178,7 +194,8 @@ namespace ExaminationSystem.Forms.Question
                 {
                     Header = txtHeader.Text.Trim(),
                     Body = rtbBody.Text.Trim(),
-                    Marks = marks
+                    Marks = marks,
+                    ExamId = (int)cmbAssignExam.SelectedValue == 0 ? null : (int?)cmbAssignExam.SelectedValue
                 };
 
                 for (int i = 0; i < lstAnswers.Items.Count; i++)
@@ -196,6 +213,7 @@ namespace ExaminationSystem.Forms.Question
                 context.SaveChanges();
             }
 
+
             MessageBox.Show("Choose One Question saved successfully!",
                             "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LoadQuestions();
@@ -204,6 +222,11 @@ namespace ExaminationSystem.Forms.Question
             rtbBody.Clear();
             txtMarks.Clear();
             lstAnswers.Items.Clear();
+            cmbAssignExam.SelectedIndex = 0;
+
         }
+
+
+
     }
 }

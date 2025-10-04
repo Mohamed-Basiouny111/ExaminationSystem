@@ -17,7 +17,26 @@ namespace ExaminationSystem.Forms.Question
         private void TrueFalseQuestionForm_Load(object sender, EventArgs e)
         {
             LoadQuestions();
+            LoadExamComboBox();
+
         }
+
+
+        private void LoadExamComboBox()
+        {
+            using (var context = new ExaminationSystemContext())
+            {
+                var exams = context.Exams.ToList();
+                exams.Insert(0, new Exam { Id = 0, Title = "<None>" }); // placeholder
+
+                cmbAssignExam.DisplayMember = "Title";
+                cmbAssignExam.ValueMember = "Id";
+                cmbAssignExam.DataSource = exams;
+                cmbAssignExam.SelectedIndex = 0; // default to <None>
+            }
+        }
+
+
 
         private void LoadQuestions()
         {
@@ -163,7 +182,8 @@ namespace ExaminationSystem.Forms.Question
                 {
                     Header = txtHeader.Text.Trim(),
                     Body = rtbBody.Text.Trim(),
-                    Marks = marks
+                    Marks = marks,
+                    ExamId = (int)cmbAssignExam.SelectedValue == 0 ? null : (int?)cmbAssignExam.SelectedValue
                 };
 
                 var answerTrue = new Answer
@@ -185,11 +205,22 @@ namespace ExaminationSystem.Forms.Question
 
                 context.Questions.Add(question);
                 context.SaveChanges();
-            }
+            
 
-            MessageBox.Show("True/False question saved successfully!",
+        }
+
+        MessageBox.Show("True/False question saved successfully!",
                             "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LoadQuestions();
+
+
+            txtHeader.Clear();
+            rtbBody.Clear();
+            txtMarks.Clear();
+            rbTrue.Checked = false;
+            rbFalse.Checked = false;
+            cmbAssignExam.SelectedIndex = 0;
         }
+
     }
 }

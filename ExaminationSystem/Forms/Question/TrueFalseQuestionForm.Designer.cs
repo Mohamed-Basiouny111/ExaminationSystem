@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             dgvQs = new DataGridView();
             Display = new DataGridViewButtonColumn();
             Delete = new DataGridViewButtonColumn();
@@ -49,6 +49,8 @@
             label2 = new Label();
             btnadd = new Button();
             tableLayoutPanel1 = new TableLayoutPanel();
+            cmbAssignExam = new ComboBox();
+            label6 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvQs).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
@@ -63,39 +65,39 @@
             dgvQs.BackgroundColor = Color.White;
             dgvQs.BorderStyle = BorderStyle.Fixed3D;
             dgvQs.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = SystemColors.Control;
-            dataGridViewCellStyle4.Font = new Font("Calibri", 18F, FontStyle.Bold);
-            dataGridViewCellStyle4.ForeColor = Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dgvQs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Calibri", 18F, FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvQs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvQs.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvQs.Columns.AddRange(new DataGridViewColumn[] { Display, Delete, Id, Header, Body });
             dgvQs.Cursor = Cursors.Hand;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = SystemColors.Window;
-            dataGridViewCellStyle5.Font = new Font("Calibri", 18F, FontStyle.Bold);
-            dataGridViewCellStyle5.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle5.NullValue = ".........";
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            dgvQs.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Calibri", 18F, FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.NullValue = ".........";
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvQs.DefaultCellStyle = dataGridViewCellStyle2;
             dgvQs.Dock = DockStyle.Bottom;
             dgvQs.GridColor = Color.Black;
             dgvQs.Location = new Point(0, 378);
             dgvQs.Name = "dgvQs";
             dgvQs.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = SystemColors.Control;
-            dataGridViewCellStyle6.Font = new Font("Calibri", 18F, FontStyle.Bold);
-            dataGridViewCellStyle6.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            dgvQs.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Calibri", 18F, FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvQs.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvQs.RowHeadersWidth = 30;
             dgvQs.Size = new Size(950, 413);
             dgvQs.TabIndex = 125;
@@ -282,6 +284,8 @@
             tableLayoutPanel1.Controls.Add(rbTrue, 0, 4);
             tableLayoutPanel1.Controls.Add(rbFalse, 1, 4);
             tableLayoutPanel1.Controls.Add(btnadd, 1, 5);
+            tableLayoutPanel1.Controls.Add(cmbAssignExam, 2, 4);
+            tableLayoutPanel1.Controls.Add(label6, 2, 3);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -295,6 +299,27 @@
             tableLayoutPanel1.Size = new Size(950, 378);
             tableLayoutPanel1.TabIndex = 139;
             // 
+            // cmbAssignExam
+            // 
+            cmbAssignExam.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            cmbAssignExam.Font = new Font("Calibri", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cmbAssignExam.FormattingEnabled = true;
+            cmbAssignExam.Location = new Point(635, 213);
+            cmbAssignExam.Name = "cmbAssignExam";
+            cmbAssignExam.Size = new Size(312, 36);
+            cmbAssignExam.TabIndex = 143;
+            // 
+            // label6
+            // 
+            label6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label6.Font = new Font("Calibri", 16.2F, FontStyle.Bold);
+            label6.Location = new Point(635, 152);
+            label6.Name = "label6";
+            label6.Size = new Size(312, 58);
+            label6.TabIndex = 144;
+            label6.Text = "Assign To Exam";
+            label6.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // TrueFalseQuestionForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -304,7 +329,7 @@
             Controls.Add(dgvQs);
             Name = "TrueFalseQuestionForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "QuestionForm";
+            Text = "TrueFalseQuestionsForm";
             Load += TrueFalseQuestionForm_Load;
             ((System.ComponentModel.ISupportInitialize)dgvQs).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
@@ -332,5 +357,7 @@
         private DataGridViewTextBoxColumn Id;
         private DataGridViewTextBoxColumn Header;
         private DataGridViewTextBoxColumn Body;
+        private ComboBox cmbAssignExam;
+        private Label label6;
     }
 }

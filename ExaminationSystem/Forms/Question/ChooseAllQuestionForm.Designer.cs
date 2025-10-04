@@ -40,10 +40,12 @@
             label2 = new Label();
             rtbBody = new RichTextBox();
             label4 = new Label();
-            btnAddQuestion = new Button();
             txtAnswer = new TextBox();
+            btnAddQuestion = new Button();
             lstAnswers = new ListBox();
             btnAddAnswer = new Button();
+            label6 = new Label();
+            cmbAssignExam = new ComboBox();
             dgvQs = new DataGridView();
             Display = new DataGridViewButtonColumn();
             Delete = new DataGridViewButtonColumn();
@@ -69,20 +71,23 @@
             tableLayoutPanel1.Controls.Add(label2, 2, 1);
             tableLayoutPanel1.Controls.Add(rtbBody, 2, 2);
             tableLayoutPanel1.Controls.Add(label4, 0, 3);
-            tableLayoutPanel1.Controls.Add(btnAddQuestion, 1, 5);
             tableLayoutPanel1.Controls.Add(txtAnswer, 0, 4);
-            tableLayoutPanel1.Controls.Add(lstAnswers, 2, 4);
+            tableLayoutPanel1.Controls.Add(btnAddQuestion, 1, 6);
+            tableLayoutPanel1.Controls.Add(lstAnswers, 0, 5);
             tableLayoutPanel1.Controls.Add(btnAddAnswer, 1, 4);
+            tableLayoutPanel1.Controls.Add(label6, 2, 3);
+            tableLayoutPanel1.Controls.Add(cmbAssignExam, 2, 4);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 6;
+            tableLayoutPanel1.RowCount = 7;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 17.9167557F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10.4445219F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 12.2666664F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 15.343915F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.8148146F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 28.83598F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 17.36111F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.4615383F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 27.6923084F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
             tableLayoutPanel1.Size = new Size(950, 378);
             tableLayoutPanel1.TabIndex = 143;
             // 
@@ -90,9 +95,9 @@
             // 
             label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label1.Font = new Font("Calibri", 16.2F, FontStyle.Bold);
-            label1.Location = new Point(3, 67);
+            label1.Location = new Point(3, 58);
             label1.Name = "label1";
-            label1.Size = new Size(310, 39);
+            label1.Size = new Size(310, 34);
             label1.TabIndex = 132;
             label1.Text = "Header";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -101,9 +106,9 @@
             // 
             label3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label3.Font = new Font("Calibri", 16.2F, FontStyle.Bold);
-            label3.Location = new Point(319, 67);
+            label3.Location = new Point(319, 58);
             label3.Name = "label3";
-            label3.Size = new Size(310, 39);
+            label3.Size = new Size(310, 34);
             label3.TabIndex = 134;
             label3.Text = "Mark";
             label3.TextAlign = ContentAlignment.MiddleCenter;
@@ -114,7 +119,7 @@
             label5.Font = new Font("Calibri", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.Location = new Point(319, 0);
             label5.Name = "label5";
-            label5.Size = new Size(310, 67);
+            label5.Size = new Size(310, 58);
             label5.TabIndex = 137;
             label5.Text = "Choose All Questions";
             label5.TextAlign = ContentAlignment.MiddleCenter;
@@ -123,7 +128,7 @@
             // 
             txtMarks.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtMarks.Font = new Font("Calibri", 16.2F, FontStyle.Bold);
-            txtMarks.Location = new Point(319, 109);
+            txtMarks.Location = new Point(319, 95);
             txtMarks.Name = "txtMarks";
             txtMarks.Size = new Size(310, 40);
             txtMarks.TabIndex = 130;
@@ -133,7 +138,7 @@
             // 
             txtHeader.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtHeader.Font = new Font("Calibri", 16.2F, FontStyle.Bold);
-            txtHeader.Location = new Point(3, 109);
+            txtHeader.Location = new Point(3, 95);
             txtHeader.Name = "txtHeader";
             txtHeader.Size = new Size(310, 40);
             txtHeader.TabIndex = 127;
@@ -143,9 +148,9 @@
             // 
             label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label2.Font = new Font("Calibri", 16.2F, FontStyle.Bold);
-            label2.Location = new Point(635, 67);
+            label2.Location = new Point(635, 58);
             label2.Name = "label2";
-            label2.Size = new Size(312, 39);
+            label2.Size = new Size(312, 34);
             label2.TabIndex = 133;
             label2.Text = "Body";
             label2.TextAlign = ContentAlignment.MiddleCenter;
@@ -154,9 +159,9 @@
             // 
             rtbBody.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             rtbBody.Font = new Font("Calibri", 16.2F, FontStyle.Bold);
-            rtbBody.Location = new Point(635, 109);
+            rtbBody.Location = new Point(635, 95);
             rtbBody.Name = "rtbBody";
-            rtbBody.Size = new Size(312, 40);
+            rtbBody.Size = new Size(312, 34);
             rtbBody.TabIndex = 128;
             rtbBody.Text = "";
             // 
@@ -164,55 +169,77 @@
             // 
             label4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label4.Font = new Font("Calibri", 16.2F, FontStyle.Bold);
-            label4.Location = new Point(3, 152);
+            label4.Location = new Point(3, 132);
             label4.Name = "label4";
-            label4.Size = new Size(310, 58);
+            label4.Size = new Size(310, 56);
             label4.TabIndex = 136;
             label4.Text = "Answer";
             label4.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // btnAddQuestion
-            // 
-            btnAddQuestion.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            btnAddQuestion.Font = new Font("Calibri", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAddQuestion.Location = new Point(319, 296);
-            btnAddQuestion.Name = "btnAddQuestion";
-            btnAddQuestion.Size = new Size(310, 51);
-            btnAddQuestion.TabIndex = 135;
-            btnAddQuestion.Text = "Add new question";
-            btnAddQuestion.UseVisualStyleBackColor = true;
-            btnAddQuestion.Click += btnAddQuestion_Click;
             // 
             // txtAnswer
             // 
             txtAnswer.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtAnswer.Font = new Font("Calibri", 16.2F, FontStyle.Bold);
-            txtAnswer.Location = new Point(3, 213);
+            txtAnswer.Location = new Point(3, 191);
             txtAnswer.Name = "txtAnswer";
             txtAnswer.Size = new Size(310, 40);
             txtAnswer.TabIndex = 138;
             txtAnswer.TextAlign = HorizontalAlignment.Center;
             // 
+            // btnAddQuestion
+            // 
+            btnAddQuestion.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            btnAddQuestion.Font = new Font("Calibri", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAddQuestion.Location = new Point(319, 328);
+            btnAddQuestion.Name = "btnAddQuestion";
+            btnAddQuestion.Size = new Size(310, 47);
+            btnAddQuestion.TabIndex = 135;
+            btnAddQuestion.Text = "Add new question";
+            btnAddQuestion.UseVisualStyleBackColor = true;
+            btnAddQuestion.Click += btnAddQuestion_Click;
+            // 
             // lstAnswers
             // 
             lstAnswers.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            lstAnswers.Font = new Font("Calibri", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lstAnswers.FormattingEnabled = true;
-            lstAnswers.Location = new Point(635, 213);
+            lstAnswers.Location = new Point(3, 238);
             lstAnswers.Name = "lstAnswers";
-            lstAnswers.Size = new Size(312, 44);
+            lstAnswers.Size = new Size(310, 76);
             lstAnswers.TabIndex = 140;
             // 
             // btnAddAnswer
             // 
             btnAddAnswer.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             btnAddAnswer.Font = new Font("Calibri", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAddAnswer.Location = new Point(319, 218);
+            btnAddAnswer.Location = new Point(319, 191);
             btnAddAnswer.Name = "btnAddAnswer";
             btnAddAnswer.Size = new Size(310, 40);
             btnAddAnswer.TabIndex = 139;
             btnAddAnswer.Text = "add option";
             btnAddAnswer.UseVisualStyleBackColor = true;
             btnAddAnswer.Click += btnAddAnswer_Click;
+            // 
+            // label6
+            // 
+            label6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label6.Font = new Font("Calibri", 16.2F, FontStyle.Bold);
+            label6.Location = new Point(635, 132);
+            label6.Name = "label6";
+            label6.Size = new Size(312, 56);
+            label6.TabIndex = 144;
+            label6.Text = "Assign To Exam";
+            label6.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // cmbAssignExam
+            // 
+            cmbAssignExam.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            cmbAssignExam.Font = new Font("Calibri", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cmbAssignExam.FormattingEnabled = true;
+            cmbAssignExam.Location = new Point(635, 191);
+            cmbAssignExam.Name = "cmbAssignExam";
+            cmbAssignExam.Size = new Size(312, 36);
+            cmbAssignExam.TabIndex = 143;
             // 
             // dgvQs
             // 
@@ -343,5 +370,7 @@
         private DataGridViewTextBoxColumn Id;
         private DataGridViewTextBoxColumn Header;
         private DataGridViewTextBoxColumn Body;
+        private Label label6;
+        private ComboBox cmbAssignExam;
     }
 }

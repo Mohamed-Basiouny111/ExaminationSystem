@@ -20,7 +20,7 @@ namespace ExaminationSystem
             ///////
             //Application.Run(new TrueFalseQuestionForm());
             // Application.Run(new ChooseOneQuestionForm());
-           // Application.Run(new ChooseAllQuestionForm());
+           //Application.Run(new ChooseAllQuestionForm());
 
 
         }
