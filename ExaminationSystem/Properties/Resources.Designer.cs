@@ -63,6 +63,16 @@ namespace ExaminationSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap addQ {
+            get {
+                object obj = ResourceManager.GetObject("addQ", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap delete__4_ {
             get {
                 object obj = ResourceManager.GetObject("delete (4)", resourceCulture);
@@ -166,6 +176,16 @@ namespace ExaminationSystem.Properties {
         internal static System.Drawing.Bitmap refresh_page_option__1_1 {
             get {
                 object obj = ResourceManager.GetObject("refresh-page-option (1)1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap teacher {
+            get {
+                object obj = ResourceManager.GetObject("teacher", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
