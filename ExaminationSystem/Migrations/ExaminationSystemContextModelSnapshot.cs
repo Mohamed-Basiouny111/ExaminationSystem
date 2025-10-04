@@ -271,7 +271,7 @@ namespace ExaminationSystem.Migrations
 
                     b.ToTable("Question");
 
-                    b.HasDiscriminator().HasValue("ChooseAllQ");
+                    b.HasDiscriminator().HasValue("ChooseAll");
                 });
 
             modelBuilder.Entity("ExaminationSystem.Models.ChooseOneQuestion", b =>
@@ -280,7 +280,7 @@ namespace ExaminationSystem.Migrations
 
                     b.ToTable("Question");
 
-                    b.HasDiscriminator().HasValue("ChooseOneQ");
+                    b.HasDiscriminator().HasValue("ChooseOne");
                 });
 
             modelBuilder.Entity("ExaminationSystem.Models.TrueFalseQuestion", b =>
@@ -289,7 +289,7 @@ namespace ExaminationSystem.Migrations
 
                     b.ToTable("Question");
 
-                    b.HasDiscriminator().HasValue("TrueFalseQ");
+                    b.HasDiscriminator().HasValue("TrueFalse");
                 });
 
             modelBuilder.Entity("ExaminationSystem.Models.Admin", b =>
