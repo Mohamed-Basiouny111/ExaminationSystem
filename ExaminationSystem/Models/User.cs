@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace ExaminationSystem.Models
 {
     [Table("User")]
-    public abstract class User
+    public class User
     {
         [Key]
         public int Id { get; set; }
@@ -17,6 +17,10 @@ namespace ExaminationSystem.Models
         [Required]
         [MaxLength(50)]
         public string PasswordHash { get; set; }
+        [MaxLength(50)]
+        [Required]
+        public string Role { get; set; }
+      
     }
 
     #region Department
