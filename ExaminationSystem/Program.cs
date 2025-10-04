@@ -1,5 +1,6 @@
 using ExaminationSystem.Forms.UsersForm;
 using ExaminationSystem.Forms;
+using ExaminationSystem.Forms.Question;
 namespace ExaminationSystem
 {
     internal static class Program
@@ -14,6 +15,14 @@ namespace ExaminationSystem
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new UserForm());
+
+
+            ///////
+            //Application.Run(new TrueFalseQuestionForm());
+            // Application.Run(new ChooseOneQuestionForm());
+           //Application.Run(new ChooseAllQuestionForm());
+
+
         }
     }
 }
