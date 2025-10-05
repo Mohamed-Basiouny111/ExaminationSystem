@@ -15,14 +15,6 @@ namespace ExaminationSystem
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new UserForm());
-
-
-            ///////
-            //Application.Run(new TrueFalseQuestionForm());
-            // Application.Run(new ChooseOneQuestionForm());
-           //Application.Run(new ChooseAllQuestionForm());
-
-
         }
     }
 }

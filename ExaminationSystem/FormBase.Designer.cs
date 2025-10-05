@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormBase));
             panelMenu = new Panel();
             btnLogout = new Button();
+            button2 = new Button();
             btnShowResult = new Button();
             btnDeleteorView = new Button();
             btnUpdateQues = new Button();
@@ -40,8 +41,12 @@
             profile = new Button();
             button1 = new Button();
             panel1 = new Panel();
+            bntMinimize = new Button();
+            btnMaximize = new Button();
+            btnClose = new Button();
             LTitle = new Label();
             panelDesktopPane = new Panel();
+            btnCloseChildForm = new Button();
             panelMenu.SuspendLayout();
             panelLogo.SuspendLayout();
             panel1.SuspendLayout();
@@ -51,6 +56,7 @@
             // 
             panelMenu.BackColor = Color.FromArgb(51, 51, 76);
             panelMenu.Controls.Add(btnLogout);
+            panelMenu.Controls.Add(button2);
             panelMenu.Controls.Add(btnShowResult);
             panelMenu.Controls.Add(btnDeleteorView);
             panelMenu.Controls.Add(btnUpdateQues);
@@ -59,7 +65,7 @@
             panelMenu.Dock = DockStyle.Left;
             panelMenu.Location = new Point(0, 0);
             panelMenu.Name = "panelMenu";
-            panelMenu.Size = new Size(220, 581);
+            panelMenu.Size = new Size(220, 753);
             panelMenu.TabIndex = 0;
             // 
             // btnLogout
@@ -71,7 +77,7 @@
             btnLogout.ForeColor = Color.MistyRose;
             btnLogout.Image = (Image)resources.GetObject("btnLogout.Image");
             btnLogout.ImageAlign = ContentAlignment.MiddleLeft;
-            btnLogout.Location = new Point(0, 418);
+            btnLogout.Location = new Point(0, 478);
             btnLogout.Name = "btnLogout";
             btnLogout.Padding = new Padding(17, 0, 0, 0);
             btnLogout.Size = new Size(220, 60);
@@ -81,6 +87,26 @@
             btnLogout.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnLogout.UseVisualStyleBackColor = true;
             btnLogout.Click += btnLogout_Click;
+            // 
+            // button2
+            // 
+            button2.Dock = DockStyle.Top;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold);
+            button2.ForeColor = Color.MistyRose;
+            button2.Image = (Image)resources.GetObject("button2.Image");
+            button2.ImageAlign = ContentAlignment.MiddleLeft;
+            button2.Location = new Point(0, 418);
+            button2.Name = "button2";
+            button2.Padding = new Padding(17, 0, 0, 0);
+            button2.Size = new Size(220, 60);
+            button2.TabIndex = 6;
+            button2.Text = "Users";
+            button2.TextAlign = ContentAlignment.MiddleLeft;
+            button2.TextImageRelation = TextImageRelation.ImageBeforeText;
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // btnShowResult
             // 
@@ -207,13 +233,62 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(210, 193, 182);
+            panel1.BackColor = Color.FromArgb(0, 150, 136);
+            panel1.Controls.Add(btnCloseChildForm);
+            panel1.Controls.Add(bntMinimize);
+            panel1.Controls.Add(btnMaximize);
+            panel1.Controls.Add(btnClose);
             panel1.Controls.Add(LTitle);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(220, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(977, 87);
+            panel1.Size = new Size(1162, 87);
             panel1.TabIndex = 1;
+            // 
+            // bntMinimize
+            // 
+            bntMinimize.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            bntMinimize.FlatAppearance.BorderSize = 0;
+            bntMinimize.FlatStyle = FlatStyle.Flat;
+            bntMinimize.Font = new Font("Microsoft Sans Serif", 17F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            bntMinimize.ForeColor = Color.White;
+            bntMinimize.Location = new Point(1032, 3);
+            bntMinimize.Name = "bntMinimize";
+            bntMinimize.Size = new Size(30, 37);
+            bntMinimize.TabIndex = 3;
+            bntMinimize.Text = "o";
+            bntMinimize.UseVisualStyleBackColor = true;
+            bntMinimize.Click += bntMinimize_Click;
+            // 
+            // btnMaximize
+            // 
+            btnMaximize.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnMaximize.FlatAppearance.BorderSize = 0;
+            btnMaximize.FlatStyle = FlatStyle.Flat;
+            btnMaximize.Font = new Font("Microsoft Sans Serif", 17F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnMaximize.ForeColor = Color.White;
+            btnMaximize.Location = new Point(1068, 3);
+            btnMaximize.Name = "btnMaximize";
+            btnMaximize.Size = new Size(30, 37);
+            btnMaximize.TabIndex = 2;
+            btnMaximize.Text = "o";
+            btnMaximize.UseVisualStyleBackColor = true;
+            btnMaximize.Click += btnMaximize_Click_1;
+            // 
+            // btnClose
+            // 
+            btnClose.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnClose.FlatAppearance.BorderSize = 0;
+            btnClose.FlatStyle = FlatStyle.Flat;
+            btnClose.Font = new Font("Microsoft Sans Serif", 17F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnClose.ForeColor = Color.White;
+            btnClose.Location = new Point(1104, 3);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(30, 37);
+            btnClose.TabIndex = 1;
+            btnClose.Text = "o";
+            btnClose.UseVisualStyleBackColor = true;
+            btnClose.Click += btnClose_Click_1;
             // 
             // LTitle
             // 
@@ -221,7 +296,7 @@
             LTitle.AutoSize = true;
             LTitle.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             LTitle.ForeColor = SystemColors.ButtonFace;
-            LTitle.Location = new Point(451, 26);
+            LTitle.Location = new Point(544, 26);
             LTitle.Name = "LTitle";
             LTitle.Size = new Size(89, 32);
             LTitle.TabIndex = 0;
@@ -232,14 +307,28 @@
             panelDesktopPane.Dock = DockStyle.Fill;
             panelDesktopPane.Location = new Point(220, 87);
             panelDesktopPane.Name = "panelDesktopPane";
-            panelDesktopPane.Size = new Size(977, 494);
+            panelDesktopPane.Size = new Size(1162, 666);
             panelDesktopPane.TabIndex = 2;
+            // 
+            // btnCloseChildForm
+            // 
+            btnCloseChildForm.FlatAppearance.BorderSize = 0;
+            btnCloseChildForm.FlatStyle = FlatStyle.Flat;
+            btnCloseChildForm.Font = new Font("Lucida Sans", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCloseChildForm.ForeColor = Color.White;
+            btnCloseChildForm.Location = new Point(33, 26);
+            btnCloseChildForm.Name = "btnCloseChildForm";
+            btnCloseChildForm.Size = new Size(30, 52);
+            btnCloseChildForm.TabIndex = 4;
+            btnCloseChildForm.Text = "x";
+            btnCloseChildForm.UseVisualStyleBackColor = true;
+            btnCloseChildForm.Click += btnCloseChildForm_Click;
             // 
             // FormBase
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1197, 581);
+            ClientSize = new Size(1382, 753);
             Controls.Add(panelDesktopPane);
             Controls.Add(panel1);
             Controls.Add(panelMenu);
@@ -247,6 +336,7 @@
             Name = "FormBase";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormBaseTeacher";
+            Load += FormBase_Load;
             panelMenu.ResumeLayout(false);
             panelLogo.ResumeLayout(false);
             panelLogo.PerformLayout();
@@ -270,5 +360,10 @@
         private Button button1;
         private Label LName;
         private Panel panelDesktopPane;
+        private Button button2;
+        private Button btnClose;
+        private Button bntMinimize;
+        private Button btnMaximize;
+        private Button btnCloseChildForm;
     }
 }
