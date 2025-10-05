@@ -147,20 +147,6 @@
         +QAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="button2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADIAAAAlCAYAAAAA7LqSAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vAAADrwBlbxySQAAAdhJREFUWEftmDFIw0AYhZsmoaRBStu0NV1KSZcWQShS0aEtDqWgQwY76pjiIoIg
-        iKs4KAgidDFTwEkdFJzrJII4OgsdHBxcnBw0votNIRg3of5wHzzen9ySl/x312uEw+Fw/oKaIAh70L6q
-        qgvDe7SIRqM7sE/I9YUwPdd1BdRkqEEf0CiEr1KptAynAWsl2I8QTJqmncJpgCA92G9BLuA0UBSFtU9o
-        kGq1ugmnQafTEWVZvkYZCJHP5x8cx1FR06Hdbsdyudx2IpG4RTvdVyqVXdu2J4bDnHGixeNxHU5q/xiB
-        OTKF1esOpbcpYoN8TCaT894gIdII8QwPTHZJkt6wahmoaYC3vwELhPCFiX8ApwG+xgksNEg2m2XLMg3Q
-        Qluw0CDFYpHt+jTIZDKTaK9XlIEQ2PHfu93uNGo6pFKpWTz4E0ovBK5fms3mojdIjX6/LzUajRnTNOcG
-        g4EyvM0ZFyK0ghXsHLpEm62z31/fQ3TAswvsABWY7Djq3liWJaOmgSiKS7BACF+FQmENTgN8jSNYaJB0
-        On0GpwGCHMJCg+BwRSdILBZj/2GFBmm1WhacDjiDHMMCIcrl8pXrumw1o4VhGCbOILau6069Xl8lGYLD
-        4fwnIpEvWnCjK5KXE4MAAAAASUVORK5CYII=
-</value>
-  </data>
   <data name="btnShowResult.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAlCAYAAAAA7LqSAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -254,7 +240,7 @@
   <data name="profile.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vAAADrwBlbxySQAAXkhJREFUeF51vXWAH0W67t+7Z889d8+ec1aBxROIu7u728Qmmbi7y8Td3Z2EECAh
+        vgAADr4B6kKxwAAAXkhJREFUeF51vXWAH0W67t+7Z889d8+ec1aBxROIu7u728Qmmbi7y8Td3Z2EECAh
         BEkIgQAJECRoCEFDdDLu7vP83k8NlZ3L794/arr77arqquep11q+E2RkZARxcXFBcnJyIMmVpKSkICYm
         JkhNTXXHBQUF7jyytLS0+7KEhIQgMTExyMnJcbL8/PwgJSUliI+PD9LT04PCwkInp15UVNT9elwzNjbW
         XTc9IysoMllWXn4Qm5gUJKamuf1M6ys9Nze4FxMdJKQkB9m5WUFeQW6QlZkaJCfFBWlJ8UFGZkqQW5Qd

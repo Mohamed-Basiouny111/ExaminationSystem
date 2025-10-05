@@ -355,7 +355,7 @@
             btnSearch.Location = new Point(626, 15);
             btnSearch.Margin = new Padding(10, 15, 3, 3);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(172, 82);
+            btnSearch.Size = new Size(154, 82);
             btnSearch.TabIndex = 56;
             btnSearch.Text = "Search";
             btnSearch.TextImageRelation = TextImageRelation.TextBeforeImage;
