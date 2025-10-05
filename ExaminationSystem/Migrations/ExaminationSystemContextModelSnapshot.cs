@@ -76,9 +76,14 @@ namespace ExaminationSystem.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("SubjectId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Exam", (string)null);
 
@@ -335,7 +340,13 @@ namespace ExaminationSystem.Migrations
                         .WithMany("Exams")
                         .HasForeignKey("SubjectId");
 
+                    b.HasOne("ExaminationSystem.Models.User", "User")
+                        .WithMany("Exam")
+                        .HasForeignKey("UserId");
+
                     b.Navigation("Subject");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("ExaminationSystem.Models.ExamAttempt", b =>
@@ -405,6 +416,11 @@ namespace ExaminationSystem.Migrations
             modelBuilder.Entity("ExaminationSystem.Models.Subject", b =>
                 {
                     b.Navigation("Exams");
+                });
+
+            modelBuilder.Entity("ExaminationSystem.Models.User", b =>
+                {
+                    b.Navigation("Exam");
                 });
 
             modelBuilder.Entity("ExaminationSystem.Models.Student", b =>
