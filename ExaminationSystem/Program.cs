@@ -1,3 +1,4 @@
+using ExaminationSystem.Forms.TeacherForn;
 using ExaminationSystem.Forms.UsersForm;
 using ExaminationSystem.Forms;
 using ExaminationSystem.Forms.Question;
@@ -15,6 +16,8 @@ namespace ExaminationSystem
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new UserForm());
+            //Application.Run(new teacherExam());
+
         }
     }
 }
