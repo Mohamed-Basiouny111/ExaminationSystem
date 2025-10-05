@@ -79,7 +79,7 @@
             txtSearch.Location = new Point(10, 54);
             txtSearch.Margin = new Padding(10, 3, 10, 3);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(553, 40);
+            txtSearch.Size = new Size(553, 48);
             txtSearch.TabIndex = 2;
             txtSearch.TextAlign = HorizontalAlignment.Center;
             // 
@@ -90,10 +90,10 @@
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Calibri", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(185, 5);
+            label1.Location = new Point(157, 5);
             label1.Margin = new Padding(3, 5, 3, 3);
             label1.Name = "label1";
-            label1.Size = new Size(203, 29);
+            label1.Size = new Size(259, 37);
             label1.TabIndex = 1;
             label1.Text = "كود أو بنــد المصروفــات ";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -236,7 +236,7 @@
             txtPrice.Location = new Point(20, 42);
             txtPrice.Margin = new Padding(40, 3, 20, 3);
             txtPrice.Name = "txtPrice";
-            txtPrice.Size = new Size(384, 37);
+            txtPrice.Size = new Size(384, 44);
             txtPrice.TabIndex = 11;
             txtPrice.TextAlign = HorizontalAlignment.Center;
             // 
@@ -247,10 +247,10 @@
             label5.AutoSize = true;
             label5.BackColor = Color.Transparent;
             label5.Font = new Font("Calibri", 17F, FontStyle.Bold);
-            label5.Location = new Point(187, 5);
+            label5.Location = new Point(175, 5);
             label5.Margin = new Padding(3, 5, 3, 3);
             label5.Name = "label5";
-            label5.Size = new Size(70, 28);
+            label5.Size = new Size(95, 31);
             label5.TabIndex = 10;
             label5.Text = "الــقـيمــــــة";
             label5.TextAlign = ContentAlignment.MiddleCenter;
@@ -266,7 +266,7 @@
             cbxExTy.Margin = new Padding(20, 3, 40, 3);
             cbxExTy.Name = "cbxExTy";
             cbxExTy.RightToLeft = RightToLeft.Yes;
-            cbxExTy.Size = new Size(384, 37);
+            cbxExTy.Size = new Size(384, 45);
             cbxExTy.TabIndex = 11;
             // 
             // btnSave
@@ -313,10 +313,10 @@
             label2.AutoSize = true;
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Calibri", 17F, FontStyle.Bold);
-            label2.Location = new Point(243, 10);
+            label2.Location = new Point(230, 10);
             label2.Margin = new Padding(3, 10, 3, 3);
             label2.Name = "label2";
-            label2.Size = new Size(80, 28);
+            label2.Size = new Size(105, 32);
             label2.TabIndex = 62;
             label2.Text = "مـلاحظــــة";
             label2.TextAlign = ContentAlignment.MiddleCenter;
@@ -435,27 +435,30 @@
             Delete.Frozen = true;
             Delete.HeaderText = "حــذف";
             Delete.Image = Properties.Resources.delete__4_;
+            Delete.MinimumWidth = 6;
             Delete.Name = "Delete";
             Delete.ReadOnly = true;
             Delete.Resizable = DataGridViewTriState.False;
             Delete.ToolTipText = "Delete This Product";
-            Delete.Width = 78;
+            Delete.Width = 97;
             // 
             // Edit
             // 
             Edit.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
             Edit.HeaderText = "تعديل";
             Edit.Image = Properties.Resources.edit__2_;
+            Edit.MinimumWidth = 6;
             Edit.Name = "Edit";
             Edit.ReadOnly = true;
             Edit.Resizable = DataGridViewTriState.False;
-            Edit.Width = 77;
+            Edit.Width = 95;
             // 
             // id
             // 
             id.DataPropertyName = "Id";
             id.FillWeight = 65.17767F;
             id.HeaderText = "الكـــود";
+            id.MinimumWidth = 6;
             id.Name = "id";
             id.ReadOnly = true;
             // 
@@ -464,15 +467,17 @@
             colPrice.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             colPrice.DataPropertyName = "UnitPrice";
             colPrice.HeaderText = "الــقـيمــــــة";
+            colPrice.MinimumWidth = 6;
             colPrice.Name = "colPrice";
             colPrice.ReadOnly = true;
             colPrice.ToolTipText = "الــقـيمــــــة";
-            colPrice.Width = 107;
+            colPrice.Width = 137;
             // 
             // colDes
             // 
             colDes.DataPropertyName = "Description";
             colDes.HeaderText = "مـلاحظــــة";
+            colDes.MinimumWidth = 6;
             colDes.Name = "colDes";
             colDes.ReadOnly = true;
             colDes.ToolTipText = "مـلاحظــــة";
@@ -481,6 +486,7 @@
             // 
             colDate.DataPropertyName = "CreatedDate";
             colDate.HeaderText = "التاريــــخ";
+            colDate.MinimumWidth = 6;
             colDate.Name = "colDate";
             colDate.ReadOnly = true;
             colDate.ToolTipText = "التاريــــخ";
@@ -529,10 +535,10 @@
             lblName.AutoSize = true;
             lblName.BackColor = Color.Transparent;
             lblName.Font = new Font("Calibri", 17F, FontStyle.Bold);
-            lblName.Location = new Point(155, 5);
+            lblName.Location = new Point(135, 5);
             lblName.Margin = new Padding(3, 5, 3, 3);
             lblName.Name = "lblName";
-            lblName.Size = new Size(135, 28);
+            lblName.Size = new Size(174, 31);
             lblName.TabIndex = 1;
             lblName.Text = "بنــد المصروفــات";
             lblName.TextAlign = ContentAlignment.MiddleCenter;
@@ -550,7 +556,7 @@
             // 
             // FormName
             // 
-            AutoScaleDimensions = new SizeF(14F, 33F);
+            AutoScaleDimensions = new SizeF(17F, 40F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 249, 245);
             ClientSize = new Size(900, 877);
@@ -563,6 +569,7 @@
             RightToLeftLayout = true;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "سجــل المصروفــات";
+            Load += FormName_Load_1;
             tableLayoutPanel7.ResumeLayout(false);
             tableLayoutPanel3.ResumeLayout(false);
             tableLayoutPanel3.PerformLayout();
