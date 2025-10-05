@@ -34,12 +34,11 @@ namespace ExaminationSystem.Forms.UsersForm
 
         void Clear()
         {
-         
+            dgvUser.ClearSelection();
             cbxUserType.SelectedIndex = 0;
             txtFullName.Text = txtUserName.Text = txtSearch.Text = txtPassword.Text = story = "";
 
             dgvUser.DataSource = UserLayerBL.getAllUsers().OrderByDescending(x => x.Id).Take(50).ToList();
-            dgvUser.ClearSelection();
             userId = 0;
             txtFullName.Focus();
             txtFullName.Select();
@@ -124,7 +123,6 @@ namespace ExaminationSystem.Forms.UsersForm
                     else
                     {
                         MessageBox.Show($"User Name Is Exist ", "InValid Data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    
                     }
                 }
                 else
@@ -143,7 +141,6 @@ namespace ExaminationSystem.Forms.UsersForm
             else
             {
                 MessageBox.Show($"Complete Your Data", "InValid Data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                Clear();
                 return;
             }
             Clear();

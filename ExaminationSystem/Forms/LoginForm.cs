@@ -79,10 +79,5 @@ namespace ExaminationSystem.Forms
                 studentShowandhidecheckbox.Text = "Show password";
             }
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
