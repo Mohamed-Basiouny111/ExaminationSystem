@@ -79,7 +79,7 @@
             btnLogout.ImageAlign = ContentAlignment.MiddleLeft;
             btnLogout.Location = new Point(0, 478);
             btnLogout.Name = "btnLogout";
-            btnLogout.Padding = new Padding(17, 0, 0, 0);
+            btnLogout.Padding = new Padding(20, 0, 0, 0);
             btnLogout.Size = new Size(220, 60);
             btnLogout.TabIndex = 5;
             btnLogout.Text = "Log out";
@@ -99,7 +99,7 @@
             button2.ImageAlign = ContentAlignment.MiddleLeft;
             button2.Location = new Point(0, 418);
             button2.Name = "button2";
-            button2.Padding = new Padding(17, 0, 0, 0);
+            button2.Padding = new Padding(20, 0, 0, 0);
             button2.Size = new Size(220, 60);
             button2.TabIndex = 6;
             button2.Text = "Users";
@@ -119,7 +119,7 @@
             btnShowResult.ImageAlign = ContentAlignment.MiddleLeft;
             btnShowResult.Location = new Point(0, 358);
             btnShowResult.Name = "btnShowResult";
-            btnShowResult.Padding = new Padding(17, 0, 0, 0);
+            btnShowResult.Padding = new Padding(20, 0, 0, 0);
             btnShowResult.Size = new Size(220, 60);
             btnShowResult.TabIndex = 4;
             btnShowResult.Text = "Show Result";
@@ -139,7 +139,7 @@
             btnDeleteorView.ImageAlign = ContentAlignment.MiddleLeft;
             btnDeleteorView.Location = new Point(0, 298);
             btnDeleteorView.Name = "btnDeleteorView";
-            btnDeleteorView.Padding = new Padding(17, 0, 0, 0);
+            btnDeleteorView.Padding = new Padding(20, 0, 0, 0);
             btnDeleteorView.Size = new Size(220, 60);
             btnDeleteorView.TabIndex = 3;
             btnDeleteorView.Text = "Delete  ";
@@ -159,7 +159,7 @@
             btnUpdateQues.ImageAlign = ContentAlignment.MiddleLeft;
             btnUpdateQues.Location = new Point(0, 238);
             btnUpdateQues.Name = "btnUpdateQues";
-            btnUpdateQues.Padding = new Padding(17, 0, 0, 0);
+            btnUpdateQues.Padding = new Padding(20, 0, 0, 0);
             btnUpdateQues.Size = new Size(220, 60);
             btnUpdateQues.TabIndex = 2;
             btnUpdateQues.Text = "Update ";
@@ -179,7 +179,7 @@
             btnAddQues.ImageAlign = ContentAlignment.MiddleLeft;
             btnAddQues.Location = new Point(0, 178);
             btnAddQues.Name = "btnAddQues";
-            btnAddQues.Padding = new Padding(17, 0, 0, 0);
+            btnAddQues.Padding = new Padding(20, 0, 0, 0);
             btnAddQues.Size = new Size(220, 60);
             btnAddQues.TabIndex = 1;
             btnAddQues.Text = "Add Question";
