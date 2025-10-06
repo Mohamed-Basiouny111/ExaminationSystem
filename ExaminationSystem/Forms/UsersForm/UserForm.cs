@@ -34,7 +34,7 @@ namespace ExaminationSystem.Forms.UsersForm
 
         void Clear()
         {
-         
+
             cbxUserType.SelectedIndex = 0;
             txtFullName.Text = txtUserName.Text = txtSearch.Text = txtPassword.Text = story = "";
 
@@ -124,7 +124,7 @@ namespace ExaminationSystem.Forms.UsersForm
                     else
                     {
                         MessageBox.Show($"User Name Is Exist ", "InValid Data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    
+
                     }
                 }
                 else
@@ -250,6 +250,6 @@ namespace ExaminationSystem.Forms.UsersForm
             }
         }
 
-
+       
     }
 }

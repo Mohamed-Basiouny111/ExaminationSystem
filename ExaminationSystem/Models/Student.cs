@@ -8,7 +8,7 @@ namespace ExaminationSystem.Models
 {
     public class Student : User
     {
-        public virtual List<ExamAttempt> Attempts { get; set; } = new List<ExamAttempt>();
+        public virtual List<ExamAttempt> Attempts { get; set; } = new();
     }
 
     #region Department

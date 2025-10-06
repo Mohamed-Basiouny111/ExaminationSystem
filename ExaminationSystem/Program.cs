@@ -3,6 +3,8 @@ using ExaminationSystem.Forms.UsersForm;
 using ExaminationSystem.Forms;
 using ExaminationSystem.Forms.ExamForm;
 using ExaminationSystem.Forms.Question;
+using ExaminationSystem.Models;
+using ExaminationSystem.Forms.ReportForms;
 
 namespace ExaminationSystem
 {

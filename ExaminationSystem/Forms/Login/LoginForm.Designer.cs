@@ -61,17 +61,17 @@
             panel2.Location = new Point(0, 0);
             panel2.Margin = new Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(391, 557);
+            panel2.Size = new Size(391, 555);
             panel2.TabIndex = 11;
             // 
             // pictureBox1
             // 
-            pictureBox1.BackgroundImage = Properties.Resources.love_explode;
+            pictureBox1.BackgroundImage = Properties.Resources.love_explode1;
             pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBox1.Dock = DockStyle.Fill;
             pictureBox1.Location = new Point(0, 0);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(391, 557);
+            pictureBox1.Size = new Size(391, 555);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
@@ -140,7 +140,6 @@
             btnLogin.FlatAppearance.MouseOverBackColor = Color.FromArgb(214, 183, 162);
             btnLogin.FlatStyle = FlatStyle.Flat;
             btnLogin.Font = new Font("Cambria", 18F, FontStyle.Bold);
-            btnLogin.Image = Properties.Resources.login__2_;
             btnLogin.Location = new Point(516, 411);
             btnLogin.Margin = new Padding(3, 8, 3, 4);
             btnLogin.Name = "btnLogin";
@@ -161,7 +160,6 @@
             btnShowPass.FlatStyle = FlatStyle.Flat;
             btnShowPass.Font = new Font("Arial", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnShowPass.ForeColor = Color.Black;
-            btnShowPass.Image = Properties.Resources.eye__1_;
             btnShowPass.Location = new Point(389, 315);
             btnShowPass.Name = "btnShowPass";
             btnShowPass.Padding = new Padding(0, 3, 3, 3);
@@ -176,7 +174,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(780, 557);
+            ClientSize = new Size(780, 555);
             Controls.Add(btnLogin);
             Controls.Add(txtpass);
             Controls.Add(txtUserName);
@@ -188,9 +186,9 @@
             FormBorderStyle = FormBorderStyle.Fixed3D;
             Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
-            MaximumSize = new Size(800, 600);
+            MaximumSize = new Size(800, 598);
             MinimizeBox = false;
-            MinimumSize = new Size(800, 600);
+            MinimumSize = new Size(800, 598);
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
