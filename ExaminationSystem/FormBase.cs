@@ -26,6 +26,11 @@ namespace ExaminationSystem
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
 
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
 
         private void ActivateButton(object btnSender)
         {
@@ -37,6 +42,8 @@ namespace ExaminationSystem
                     currentButton = (Button)btnSender;
                     currentButton.BackColor = Color.FromArgb(0, 150, 136);
                     currentButton.ForeColor = Color.White;
+                    //  this.panelDesktopPane.Controls.Add(childForm);
+                    //this.panelDesktopPane.Tag = childForm;
                     currentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
                 }
 
@@ -109,17 +116,26 @@ namespace ExaminationSystem
         {
             if (activeForm != null)
                 activeForm.Close();
-                Reset();
+            Reset();
 
         }
         private void Reset()
-         {
+        {
             DisableButton();
             LTitle.Text = "HOME";
-         panelLogo.BackColor = Color.FromArgb(39, 39, 58);
-        currentButton = null;
-         btnCloseChildForm.Visible = false;
-         }
+            panelTitleBar.BackColor = Color.FromArgb(0, 150, 136);
+            panelLogo.BackColor = Color.FromArgb(39, 39, 58);
+            currentButton = null;
+            btnCloseChildForm.Visible = false;
+        }
+
+        private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+
+        }
+
 
 
         #region customise btn window state
@@ -141,7 +157,7 @@ namespace ExaminationSystem
         {
 
             this.WindowState = FormWindowState.Minimized;
-        } 
+        }
         #endregion
 
         private void FormBase_Load(object sender, EventArgs e)
@@ -149,13 +165,6 @@ namespace ExaminationSystem
 
         }
 
-      
-
-
-
-
-      
-
-        
+     
     }
 }

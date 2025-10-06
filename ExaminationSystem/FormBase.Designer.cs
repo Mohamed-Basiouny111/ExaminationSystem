@@ -40,16 +40,16 @@
             LName = new Label();
             profile = new Button();
             button1 = new Button();
-            panel1 = new Panel();
+            panelTitleBar = new Panel();
+            btnCloseChildForm = new Button();
             bntMinimize = new Button();
             btnMaximize = new Button();
             btnClose = new Button();
             LTitle = new Label();
             panelDesktopPane = new Panel();
-            btnCloseChildForm = new Button();
             panelMenu.SuspendLayout();
             panelLogo.SuspendLayout();
-            panel1.SuspendLayout();
+            panelTitleBar.SuspendLayout();
             SuspendLayout();
             // 
             // panelMenu
@@ -73,7 +73,7 @@
             btnLogout.Dock = DockStyle.Top;
             btnLogout.FlatAppearance.BorderSize = 0;
             btnLogout.FlatStyle = FlatStyle.Flat;
-            btnLogout.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold);
+            btnLogout.Font = new Font("Cambria", 18F, FontStyle.Bold);
             btnLogout.ForeColor = Color.MistyRose;
             btnLogout.Image = (Image)resources.GetObject("btnLogout.Image");
             btnLogout.ImageAlign = ContentAlignment.MiddleLeft;
@@ -93,7 +93,7 @@
             button2.Dock = DockStyle.Top;
             button2.FlatAppearance.BorderSize = 0;
             button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold);
+            button2.Font = new Font("Cambria", 18F, FontStyle.Bold);
             button2.ForeColor = Color.MistyRose;
             button2.Image = (Image)resources.GetObject("button2.Image");
             button2.ImageAlign = ContentAlignment.MiddleLeft;
@@ -113,7 +113,7 @@
             btnShowResult.Dock = DockStyle.Top;
             btnShowResult.FlatAppearance.BorderSize = 0;
             btnShowResult.FlatStyle = FlatStyle.Flat;
-            btnShowResult.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold);
+            btnShowResult.Font = new Font("Cambria", 18F, FontStyle.Bold);
             btnShowResult.ForeColor = Color.MistyRose;
             btnShowResult.Image = (Image)resources.GetObject("btnShowResult.Image");
             btnShowResult.ImageAlign = ContentAlignment.MiddleLeft;
@@ -133,7 +133,7 @@
             btnDeleteorView.Dock = DockStyle.Top;
             btnDeleteorView.FlatAppearance.BorderSize = 0;
             btnDeleteorView.FlatStyle = FlatStyle.Flat;
-            btnDeleteorView.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold);
+            btnDeleteorView.Font = new Font("Cambria", 18F, FontStyle.Bold);
             btnDeleteorView.ForeColor = Color.MistyRose;
             btnDeleteorView.Image = Properties.Resources.delete__4_;
             btnDeleteorView.ImageAlign = ContentAlignment.MiddleLeft;
@@ -153,7 +153,7 @@
             btnUpdateQues.Dock = DockStyle.Top;
             btnUpdateQues.FlatAppearance.BorderSize = 0;
             btnUpdateQues.FlatStyle = FlatStyle.Flat;
-            btnUpdateQues.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold);
+            btnUpdateQues.Font = new Font("Cambria", 18F, FontStyle.Bold);
             btnUpdateQues.ForeColor = Color.MistyRose;
             btnUpdateQues.Image = (Image)resources.GetObject("btnUpdateQues.Image");
             btnUpdateQues.ImageAlign = ContentAlignment.MiddleLeft;
@@ -173,7 +173,7 @@
             btnAddQues.Dock = DockStyle.Top;
             btnAddQues.FlatAppearance.BorderSize = 0;
             btnAddQues.FlatStyle = FlatStyle.Flat;
-            btnAddQues.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold);
+            btnAddQues.Font = new Font("Cambria", 18F, FontStyle.Bold);
             btnAddQues.ForeColor = Color.MistyRose;
             btnAddQues.Image = (Image)resources.GetObject("btnAddQues.Image");
             btnAddQues.ImageAlign = ContentAlignment.MiddleLeft;
@@ -204,11 +204,11 @@
             // LName
             // 
             LName.AutoSize = true;
-            LName.Font = new Font("Segoe UI Historic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            LName.Font = new Font("Cambria", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             LName.ForeColor = SystemColors.ControlLight;
             LName.Location = new Point(59, 9);
             LName.Name = "LName";
-            LName.Size = new Size(75, 31);
+            LName.Size = new Size(94, 36);
             LName.TabIndex = 2;
             LName.Text = "Name";
             // 
@@ -231,19 +231,34 @@
             button1.Text = "button1";
             button1.UseVisualStyleBackColor = true;
             // 
-            // panel1
+            // panelTitleBar
             // 
-            panel1.BackColor = Color.FromArgb(0, 150, 136);
-            panel1.Controls.Add(btnCloseChildForm);
-            panel1.Controls.Add(bntMinimize);
-            panel1.Controls.Add(btnMaximize);
-            panel1.Controls.Add(btnClose);
-            panel1.Controls.Add(LTitle);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(220, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1162, 87);
-            panel1.TabIndex = 1;
+            panelTitleBar.BackColor = Color.FromArgb(0, 150, 136);
+            panelTitleBar.Controls.Add(btnCloseChildForm);
+            panelTitleBar.Controls.Add(bntMinimize);
+            panelTitleBar.Controls.Add(btnMaximize);
+            panelTitleBar.Controls.Add(btnClose);
+            panelTitleBar.Controls.Add(LTitle);
+            panelTitleBar.Dock = DockStyle.Top;
+            panelTitleBar.Location = new Point(220, 0);
+            panelTitleBar.Name = "panelTitleBar";
+            panelTitleBar.Size = new Size(1162, 87);
+            panelTitleBar.TabIndex = 1;
+            panelTitleBar.MouseDown += panelTitleBar_MouseDown;
+            // 
+            // btnCloseChildForm
+            // 
+            btnCloseChildForm.FlatAppearance.BorderSize = 0;
+            btnCloseChildForm.FlatStyle = FlatStyle.Flat;
+            btnCloseChildForm.Font = new Font("Lucida Sans", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCloseChildForm.ForeColor = Color.White;
+            btnCloseChildForm.Location = new Point(33, 26);
+            btnCloseChildForm.Name = "btnCloseChildForm";
+            btnCloseChildForm.Size = new Size(30, 52);
+            btnCloseChildForm.TabIndex = 4;
+            btnCloseChildForm.Text = "x";
+            btnCloseChildForm.UseVisualStyleBackColor = true;
+            btnCloseChildForm.Click += btnCloseChildForm_Click;
             // 
             // bntMinimize
             // 
@@ -294,11 +309,11 @@
             // 
             LTitle.Anchor = AnchorStyles.None;
             LTitle.AutoSize = true;
-            LTitle.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            LTitle.Font = new Font("Cambria", 18F, FontStyle.Bold);
             LTitle.ForeColor = SystemColors.ButtonFace;
             LTitle.Location = new Point(544, 26);
             LTitle.Name = "LTitle";
-            LTitle.Size = new Size(89, 32);
+            LTitle.Size = new Size(97, 36);
             LTitle.TabIndex = 0;
             LTitle.Text = "Home";
             // 
@@ -310,27 +325,13 @@
             panelDesktopPane.Size = new Size(1162, 666);
             panelDesktopPane.TabIndex = 2;
             // 
-            // btnCloseChildForm
-            // 
-            btnCloseChildForm.FlatAppearance.BorderSize = 0;
-            btnCloseChildForm.FlatStyle = FlatStyle.Flat;
-            btnCloseChildForm.Font = new Font("Lucida Sans", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCloseChildForm.ForeColor = Color.White;
-            btnCloseChildForm.Location = new Point(33, 26);
-            btnCloseChildForm.Name = "btnCloseChildForm";
-            btnCloseChildForm.Size = new Size(30, 52);
-            btnCloseChildForm.TabIndex = 4;
-            btnCloseChildForm.Text = "x";
-            btnCloseChildForm.UseVisualStyleBackColor = true;
-            btnCloseChildForm.Click += btnCloseChildForm_Click;
-            // 
             // FormBase
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1382, 753);
             Controls.Add(panelDesktopPane);
-            Controls.Add(panel1);
+            Controls.Add(panelTitleBar);
             Controls.Add(panelMenu);
             MinimumSize = new Size(1000, 628);
             Name = "FormBase";
@@ -340,8 +341,8 @@
             panelMenu.ResumeLayout(false);
             panelLogo.ResumeLayout(false);
             panelLogo.PerformLayout();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            panelTitleBar.ResumeLayout(false);
+            panelTitleBar.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -354,7 +355,7 @@
         private Button btnShowResult;
         private Button btnDeleteorView;
         private Button btnUpdateQues;
-        private Panel panel1;
+        private Panel panelTitleBar;
         private Label LTitle;
         private Button profile;
         private Button button1;
