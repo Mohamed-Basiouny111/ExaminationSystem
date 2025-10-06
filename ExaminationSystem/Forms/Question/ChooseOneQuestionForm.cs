@@ -43,7 +43,7 @@ namespace ExaminationSystem.Forms.Question
             using (var context = new ExaminationSystemContext())
             {
                 var exams = context.Exams.ToList();
-                exams.Insert(0, new Exam { Id = 0, Title = "<None>" }); 
+                exams.Insert(0, new Exam { Id = 0, Title = "<None>" });
 
                 if (dgvQs.Columns["AddToExam"] == null)
                 {
@@ -227,6 +227,86 @@ namespace ExaminationSystem.Forms.Question
         }
 
 
+        private void SearchQuestions(string searchText)
+        {
+            dgvQs.Rows.Clear();
 
+            using (var context = new ExaminationSystemContext())
+            {
+                var exams = context.Exams.ToList();
+                exams.Insert(0, new Exam { Id = 0, Title = "<None>" });
+
+                // Always reuse the existing column, don't create new ones
+                DataGridViewComboBoxColumn examColumn;
+                if (dgvQs.Columns["AddToExam"] == null)
+                {
+                    examColumn = new DataGridViewComboBoxColumn
+                    {
+                        Name = "AddToExam",
+                        HeaderText = "Assign to Exam",
+                        DisplayMember = "Title",
+                        ValueMember = "Id",
+                        DataSource = exams,
+                        FlatStyle = FlatStyle.Standard,
+                        DefaultCellStyle = { NullValue = "<None>" }
+                    };
+                    dgvQs.Columns.Insert(2, examColumn);
+                }
+                else
+                {
+                    examColumn = (DataGridViewComboBoxColumn)dgvQs.Columns["AddToExam"];
+                    examColumn.DataSource = exams;
+                }
+
+                var query = context.Questions
+                    .OfType<ChooseOneQuestion>()
+                    .Include(q => q.Answers)
+                    .Include(q => q.Exam)
+                    .AsQueryable();
+
+                if (!string.IsNullOrWhiteSpace(searchText))
+                {
+                    searchText = searchText.Trim().ToLower();
+                    query = query.Where(q => q.Header.ToLower().Contains(searchText) || q.Body.ToLower().Contains(searchText));
+                }
+
+                var questions = query.Select(q => new
+                {
+                    q.Id,
+                    q.Header,
+                    q.Body,
+                    ExamId = q.ExamId
+                }).ToList();
+
+                foreach (var q in questions)
+                {
+                    int rowIndex = dgvQs.Rows.Add("Display", "Delete", null, q.Id, q.Header, q.Body);
+                    dgvQs.Rows[rowIndex].Cells["AddToExam"].Value = q.ExamId;
+                }
+
+                if (dgvQs.Columns["Id"] != null)
+                    dgvQs.Columns["Id"].Visible = false;
+            }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string searchText = txtSearch.Text;
+            SearchQuestions(searchText);
+        }
+
+        private void btnResetSearch_Click(object sender, EventArgs e)
+        {
+            txtSearch.Clear();
+            LoadQuestions();
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
+
+
+   
