@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows.Forms;
 using ExaminationSystem.Data;
 using ExaminationSystem.Models;
+using ExaminationSystem.Forms.ExamForm;
 
 namespace ExaminationSystem.Forms.ExamForm
 {
@@ -15,7 +16,7 @@ namespace ExaminationSystem.Forms.ExamForm
         private ExaminationSystemContext db = new ExaminationSystemContext();
 
         private Exam _exam;
-        private List<Question> _questions = new List<Question>();
+        private List<Models.Question> _questions = new List<Models.Question>();
         private int _currentIndex = 0;
         private ExamAttempt _currentAttempt;
 
@@ -39,32 +40,32 @@ namespace ExaminationSystem.Forms.ExamForm
 
         private void LoadExamAndQuestions()
         {
-           _exam = db.Exams
-                .Where(e => e.Id == _examId)
-                .Select(e => new Exam
-                {
-                    Id = e.Id,
-                    Title = e.Title,
-                    NumberOfQuestions = e.NumberOfQuestions,
-                    Duration = e.Duration,
-                    Mode = e.Mode,
-                    SubjectId = e.SubjectId,
-                    Questions = e.Questions.OrderBy(q => q.Id).Select(q => new Question
-                    {
-                        Id = q.Id,
-                        Header = q.Header,
-                        Body = q.Body,
-                        Marks = q.Marks,
-                        Answers = q.Answers.Select(a => new Answer
-                        {
-                            Id = a.Id,
-                            Text = a.Text,
-                            IsCorrect = a.IsCorrect,
-                            QuestionId = a.QuestionId
-                        }).ToList()
-                    }).ToList()
-                })
-                .FirstOrDefault();
+            _exam = db.Exams
+                 .Where(e => e.Id == _examId)
+                 .Select(e => new Exam
+                 {
+                     Id = e.Id,
+                     Title = e.Title,
+                     NumberOfQuestions = e.NumberOfQuestions,
+                     Duration = e.Duration,
+                     Mode = e.Mode,
+                     SubjectId = e.SubjectId,
+                     Questions = e.Questions.OrderBy(q => q.Id).Select(q => new ExaminationSystem.Models.Question
+                     {
+                         Id = q.Id,
+                         Header = q.Header,
+                         Body = q.Body,
+                         Marks = q.Marks,
+                         Answers = q.Answers.Select(a => new Answer
+                         {
+                             Id = a.Id,
+                             Text = a.Text,
+                             IsCorrect = a.IsCorrect,
+                             QuestionId = a.QuestionId
+                         }).ToList()
+                     }).ToList()
+                 })
+                 .FirstOrDefault();
 
             if (_exam == null)
             {
@@ -73,7 +74,7 @@ namespace ExaminationSystem.Forms.ExamForm
                 return;
             }
 
-            _questions = _exam.Questions ?? new List<Question>();
+            _questions = _exam.Questions ?? new List<Models.Question>();
 
           
             lblExamTitle.Text = _exam.Title;
