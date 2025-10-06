@@ -196,7 +196,13 @@ namespace ExaminationSystem.Properties {
         internal static System.Drawing.Bitmap icons8_add_50 {
             get {
                 object obj = ResourceManager.GetObject("icons8-add-50", resourceCulture);
-
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap login__2_ {
             get {
                 object obj = ResourceManager.GetObject("login (2)", resourceCulture);
@@ -277,15 +283,19 @@ namespace ExaminationSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-
         internal static System.Drawing.Bitmap tick_box_32 {
             get {
                 object obj = ResourceManager.GetObject("tick-box-32", resourceCulture);
-
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap top_view_neat_desk_design {
             get {
                 object obj = ResourceManager.GetObject("top-view-neat-desk-design", resourceCulture);
-
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
