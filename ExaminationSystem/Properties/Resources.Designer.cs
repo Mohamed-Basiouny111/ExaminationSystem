@@ -163,6 +163,16 @@ namespace ExaminationSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_add_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-add-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap magnifying_glass__1_ {
             get {
                 object obj = ResourceManager.GetObject("magnifying-glass (1)", resourceCulture);
@@ -183,6 +193,16 @@ namespace ExaminationSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap option {
+            get {
+                object obj = ResourceManager.GetObject("option", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap refresh_page_option__1_ {
             get {
                 object obj = ResourceManager.GetObject("refresh-page-option (1)", resourceCulture);
@@ -196,6 +216,16 @@ namespace ExaminationSystem.Properties {
         internal static System.Drawing.Bitmap refresh_page_option__1_1 {
             get {
                 object obj = ResourceManager.GetObject("refresh-page-option (1)1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tick_box_32 {
+            get {
+                object obj = ResourceManager.GetObject("tick-box-32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
