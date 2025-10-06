@@ -345,11 +345,11 @@
             // 
             btnSearch.AccessibleName = "Search";
             btnSearch.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            btnSearch.BackColor = Color.FromArgb(255, 249, 245);
+            btnSearch.BackColor = Color.FromArgb(0, 150, 136);
             btnSearch.Cursor = Cursors.Hand;
             btnSearch.FlatAppearance.BorderColor = Color.FromArgb(255, 249, 245);
             btnSearch.FlatAppearance.BorderSize = 10;
-            btnSearch.Font = new Font("Cambria", 18F, FontStyle.Bold);
+            btnSearch.Font = new Font("Cambria", 16F, FontStyle.Bold);
             btnSearch.Image = Properties.Resources.magnifying_glass__1_;
             btnSearch.ImageAlign = ContentAlignment.MiddleLeft;
             btnSearch.Location = new Point(626, 13);
@@ -430,11 +430,11 @@
             // 
             btnPrev.AccessibleName = "Previous";
             btnPrev.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnPrev.BackColor = Color.FromArgb(255, 249, 245);
+            btnPrev.BackColor = Color.FromArgb(0, 150, 136);
             btnPrev.Cursor = Cursors.Hand;
             btnPrev.FlatAppearance.BorderColor = Color.FromArgb(255, 249, 245);
             btnPrev.FlatAppearance.BorderSize = 10;
-            btnPrev.Font = new Font("Cambria", 18F, FontStyle.Bold);
+            btnPrev.Font = new Font("Cambria", 16F, FontStyle.Bold);
             btnPrev.Image = Properties.Resources.fast_forward_double_right_arrows_symbol__3_;
             btnPrev.ImageAlign = ContentAlignment.MiddleLeft;
             btnPrev.Location = new Point(246, 3);
@@ -451,11 +451,11 @@
             // 
             btnNext.AccessibleName = "Next";
             btnNext.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnNext.BackColor = Color.FromArgb(255, 249, 245);
+            btnNext.BackColor = Color.FromArgb(0, 150, 136);
             btnNext.Cursor = Cursors.Hand;
             btnNext.FlatAppearance.BorderColor = Color.FromArgb(255, 249, 245);
             btnNext.FlatAppearance.BorderSize = 10;
-            btnNext.Font = new Font("Cambria", 18F, FontStyle.Bold);
+            btnNext.Font = new Font("Cambria", 16F, FontStyle.Bold);
             btnNext.Image = Properties.Resources.fast_forward_double_right_arrows_symbol__2___1_1;
             btnNext.ImageAlign = ContentAlignment.MiddleLeft;
             btnNext.Location = new Point(60, 3);
@@ -472,11 +472,11 @@
             // 
             btnRef.AccessibleName = "Refresh";
             btnRef.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnRef.BackColor = Color.FromArgb(255, 249, 245);
+            btnRef.BackColor = Color.FromArgb(0, 150, 136);
             btnRef.Cursor = Cursors.Hand;
             btnRef.FlatAppearance.BorderColor = Color.FromArgb(255, 249, 245);
             btnRef.FlatAppearance.BorderSize = 10;
-            btnRef.Font = new Font("Cambria", 18F, FontStyle.Bold);
+            btnRef.Font = new Font("Cambria", 16F, FontStyle.Bold);
             btnRef.Image = Properties.Resources.refresh_page_option__1_1;
             btnRef.ImageAlign = ContentAlignment.MiddleLeft;
             btnRef.Location = new Point(472, 3);
@@ -599,17 +599,17 @@
             // 
             btnSave.AccessibleName = "Add Employee";
             btnSave.Anchor = AnchorStyles.Top;
-            btnSave.BackColor = Color.FromArgb(255, 249, 245);
+            btnSave.BackColor = Color.FromArgb(0, 150, 136);
             tableLayoutPanel1.SetColumnSpan(btnSave, 2);
             btnSave.Cursor = Cursors.Hand;
             btnSave.FlatAppearance.BorderColor = Color.FromArgb(255, 249, 245);
             btnSave.FlatAppearance.BorderSize = 10;
-            btnSave.Font = new Font("Cambria", 18F, FontStyle.Bold);
+            btnSave.Font = new Font("Cambria", 16F, FontStyle.Bold);
             btnSave.Image = Properties.Resources.add_user__1___1_;
             btnSave.Location = new Point(370, 187);
             btnSave.Margin = new Padding(3, 8, 3, 4);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(209, 54);
+            btnSave.Size = new Size(209, 55);
             btnSave.TabIndex = 52;
             btnSave.Text = "Save";
             btnSave.TextImageRelation = TextImageRelation.TextBeforeImage;

@@ -5,6 +5,8 @@ using System.Linq;
 using System.Windows.Forms;
 using ExaminationSystem.Data;
 using ExaminationSystem.Models;
+using QuestionModel = ExaminationSystem.Models.Question;
+
 
 namespace ExaminationSystem.Forms.ExamForm
 {
@@ -15,7 +17,7 @@ namespace ExaminationSystem.Forms.ExamForm
         private ExaminationSystemContext db = new ExaminationSystemContext();
 
         private Exam _exam;
-        private List<Question> _questions = new List<Question>();
+        private List<QuestionModel> _questions = new List<QuestionModel>();
         private int _currentIndex = 0;
         private ExamAttempt _currentAttempt;
 
@@ -49,7 +51,7 @@ namespace ExaminationSystem.Forms.ExamForm
                     Duration = e.Duration,
                     Mode = e.Mode,
                     SubjectId = e.SubjectId,
-                    Questions = e.Questions.OrderBy(q => q.Id).Select(q => new Question
+                    Questions = e.Questions.OrderBy(q => q.Id).Select(q => new QuestionModel
                     {
                         Id = q.Id,
                         Header = q.Header,
@@ -73,7 +75,7 @@ namespace ExaminationSystem.Forms.ExamForm
                 return;
             }
 
-            _questions = _exam.Questions ?? new List<Question>();
+            _questions = _exam.Questions ?? new List<QuestionModel>();
 
           
             lblExamTitle.Text = _exam.Title;
