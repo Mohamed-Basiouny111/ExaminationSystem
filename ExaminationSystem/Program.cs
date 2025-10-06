@@ -18,7 +18,7 @@ namespace ExaminationSystem
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new UserForm());
-            //Application.Run(new teacherExam());
+            Application.Run(new teacherExam());
 
         }
     }
