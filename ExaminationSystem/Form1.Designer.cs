@@ -128,7 +128,6 @@
             btnPrev.FlatAppearance.BorderColor = Color.FromArgb(255, 249, 245);
             btnPrev.FlatAppearance.BorderSize = 10;
             btnPrev.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnPrev.Image = Properties.Resources.fast_forward_double_right_arrows_symbol__2___1_1;
             btnPrev.ImageAlign = ContentAlignment.MiddleLeft;
             btnPrev.Location = new Point(480, 9);
             btnPrev.Margin = new Padding(10, 3, 3, 3);
@@ -167,7 +166,6 @@
             btnRef.FlatAppearance.BorderColor = Color.FromArgb(255, 249, 245);
             btnRef.FlatAppearance.BorderSize = 10;
             btnRef.Font = new Font("Calibri", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnRef.Image = Properties.Resources.refresh_page_option__1_1;
             btnRef.ImageAlign = ContentAlignment.MiddleLeft;
             btnRef.Location = new Point(267, 9);
             btnRef.Margin = new Padding(0, 3, 3, 3);
@@ -181,7 +179,6 @@
             // btnDSave
             // 
             btnDSave.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnDSave.BackgroundImage = Properties.Resources.download;
             btnDSave.BackgroundImageLayout = ImageLayout.Stretch;
             btnDSave.Cursor = Cursors.Hand;
             btnDSave.FlatAppearance.BorderSize = 0;
@@ -202,7 +199,6 @@
             btnSearch.FlatAppearance.BorderColor = Color.FromArgb(255, 249, 245);
             btnSearch.FlatAppearance.BorderSize = 10;
             btnSearch.Font = new Font("Calibri", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSearch.Image = Properties.Resources.magnifying_glass__1_;
             btnSearch.ImageAlign = ContentAlignment.MiddleLeft;
             btnSearch.Location = new Point(51, 15);
             btnSearch.Margin = new Padding(10, 15, 3, 3);
@@ -279,7 +275,6 @@
             btnSave.FlatAppearance.BorderColor = Color.FromArgb(255, 249, 245);
             btnSave.FlatAppearance.BorderSize = 10;
             btnSave.Font = new Font("Calibri", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSave.Image = Properties.Resources.menu__3_;
             btnSave.ImageAlign = ContentAlignment.MiddleLeft;
             btnSave.Location = new Point(311, 217);
             btnSave.Margin = new Padding(3, 10, 3, 5);
@@ -434,7 +429,6 @@
             Delete.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
             Delete.Frozen = true;
             Delete.HeaderText = "حــذف";
-            Delete.Image = Properties.Resources.delete__4_;
             Delete.MinimumWidth = 6;
             Delete.Name = "Delete";
             Delete.ReadOnly = true;
@@ -446,7 +440,6 @@
             // 
             Edit.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
             Edit.HeaderText = "تعديل";
-            Edit.Image = Properties.Resources.edit__2_;
             Edit.MinimumWidth = 6;
             Edit.Name = "Edit";
             Edit.ReadOnly = true;
