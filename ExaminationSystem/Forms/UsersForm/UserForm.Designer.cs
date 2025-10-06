@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             panel1 = new Panel();
             tableLayoutPanel1 = new TableLayoutPanel();
             tableLayoutPanel9 = new TableLayoutPanel();
@@ -209,8 +209,8 @@
             tableLayoutPanel4.Location = new Point(3, 249);
             tableLayoutPanel4.Name = "tableLayoutPanel4";
             tableLayoutPanel4.RowCount = 3;
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 20.20202F));
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 14.7474747F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 17.8997612F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 16.7064438F));
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 65.05051F));
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 17F));
             tableLayoutPanel4.Size = new Size(944, 419);
@@ -226,40 +226,40 @@
             dgvUser.BackgroundColor = Color.White;
             dgvUser.BorderStyle = BorderStyle.Fixed3D;
             dgvUser.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Cambria", 18F, FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = SystemColors.Control;
+            dataGridViewCellStyle4.Font = new Font("Cambria", 18F, FontStyle.Bold);
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgvUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dgvUser.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvUser.Columns.AddRange(new DataGridViewColumn[] { Delete, Edit, id, FullName, PasswordHash, Role });
             dgvUser.Cursor = Cursors.Hand;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Cambria", 18F, FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.NullValue = ".........";
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvUser.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = SystemColors.Window;
+            dataGridViewCellStyle5.Font = new Font("Cambria", 18F, FontStyle.Bold);
+            dataGridViewCellStyle5.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle5.NullValue = ".........";
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            dgvUser.DefaultCellStyle = dataGridViewCellStyle5;
             dgvUser.Dock = DockStyle.Fill;
             dgvUser.GridColor = Color.Black;
             dgvUser.Location = new Point(3, 148);
             dgvUser.Name = "dgvUser";
             dgvUser.ReadOnly = true;
             dgvUser.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Cambria", 18F, FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgvUser.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = SystemColors.Control;
+            dataGridViewCellStyle6.Font = new Font("Cambria", 18F, FontStyle.Bold);
+            dataGridViewCellStyle6.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            dgvUser.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             dgvUser.RowHeadersWidth = 30;
             dgvUser.Size = new Size(938, 268);
             dgvUser.TabIndex = 120;
@@ -338,24 +338,24 @@
             tableLayoutPanel5.RowCount = 1;
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 85F));
-            tableLayoutPanel5.Size = new Size(844, 84);
+            tableLayoutPanel5.Size = new Size(844, 75);
             tableLayoutPanel5.TabIndex = 1;
             // 
             // btnSearch
             // 
             btnSearch.AccessibleName = "Search";
             btnSearch.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            btnSearch.BackColor = Color.FromArgb(255, 249, 245);
+            btnSearch.BackColor = Color.FromArgb(0, 150, 136);
             btnSearch.Cursor = Cursors.Hand;
             btnSearch.FlatAppearance.BorderColor = Color.FromArgb(255, 249, 245);
             btnSearch.FlatAppearance.BorderSize = 10;
-            btnSearch.Font = new Font("Cambria", 18F, FontStyle.Bold);
+            btnSearch.Font = new Font("Cambria", 16F, FontStyle.Bold);
             btnSearch.Image = Properties.Resources.magnifying_glass__1_;
             btnSearch.ImageAlign = ContentAlignment.MiddleLeft;
             btnSearch.Location = new Point(626, 13);
             btnSearch.Margin = new Padding(10, 13, 3, 3);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(191, 68);
+            btnSearch.Size = new Size(190, 59);
             btnSearch.TabIndex = 56;
             btnSearch.Text = "Search";
             btnSearch.TextImageRelation = TextImageRelation.TextBeforeImage;
@@ -375,14 +375,14 @@
             tableLayoutPanel6.RowCount = 2;
             tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 44.44F));
             tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 55.56F));
-            tableLayoutPanel6.Size = new Size(610, 81);
+            tableLayoutPanel6.Size = new Size(610, 72);
             tableLayoutPanel6.TabIndex = 55;
             // 
             // txtSearch
             // 
             txtSearch.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtSearch.Font = new Font("Cambria", 15.75F, FontStyle.Bold);
-            txtSearch.Location = new Point(10, 38);
+            txtSearch.Location = new Point(10, 34);
             txtSearch.Margin = new Padding(10, 3, 10, 3);
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(590, 32);
@@ -400,7 +400,7 @@
             label1.Location = new Point(193, 4);
             label1.Margin = new Padding(3, 4, 3, 3);
             label1.Name = "label1";
-            label1.Size = new Size(223, 25);
+            label1.Size = new Size(223, 24);
             label1.TabIndex = 1;
             label1.Text = "Search By Name Or Id";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -418,29 +418,29 @@
             tableLayoutPanel7.Controls.Add(btnRef, 2, 0);
             tableLayoutPanel7.Controls.Add(btnDSave, 3, 0);
             tableLayoutPanel7.Dock = DockStyle.Fill;
-            tableLayoutPanel7.Location = new Point(0, 84);
+            tableLayoutPanel7.Location = new Point(0, 75);
             tableLayoutPanel7.Margin = new Padding(0);
             tableLayoutPanel7.Name = "tableLayoutPanel7";
             tableLayoutPanel7.RowCount = 1;
             tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel7.Size = new Size(944, 61);
+            tableLayoutPanel7.Size = new Size(944, 70);
             tableLayoutPanel7.TabIndex = 2;
             // 
             // btnPrev
             // 
             btnPrev.AccessibleName = "Previous";
             btnPrev.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnPrev.BackColor = Color.FromArgb(255, 249, 245);
+            btnPrev.BackColor = Color.FromArgb(0, 150, 136);
             btnPrev.Cursor = Cursors.Hand;
             btnPrev.FlatAppearance.BorderColor = Color.FromArgb(255, 249, 245);
             btnPrev.FlatAppearance.BorderSize = 10;
-            btnPrev.Font = new Font("Cambria", 18F, FontStyle.Bold);
+            btnPrev.Font = new Font("Cambria", 16F, FontStyle.Bold);
             btnPrev.Image = Properties.Resources.fast_forward_double_right_arrows_symbol__3_;
             btnPrev.ImageAlign = ContentAlignment.MiddleLeft;
             btnPrev.Location = new Point(246, 3);
             btnPrev.Margin = new Padding(10, 3, 3, 3);
             btnPrev.Name = "btnPrev";
-            btnPrev.Size = new Size(183, 55);
+            btnPrev.Size = new Size(193, 64);
             btnPrev.TabIndex = 55;
             btnPrev.Text = "Previous";
             btnPrev.TextImageRelation = TextImageRelation.TextBeforeImage;
@@ -451,17 +451,17 @@
             // 
             btnNext.AccessibleName = "Next";
             btnNext.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnNext.BackColor = Color.FromArgb(255, 249, 245);
+            btnNext.BackColor = Color.FromArgb(0, 150, 136);
             btnNext.Cursor = Cursors.Hand;
             btnNext.FlatAppearance.BorderColor = Color.FromArgb(255, 249, 245);
             btnNext.FlatAppearance.BorderSize = 10;
-            btnNext.Font = new Font("Cambria", 18F, FontStyle.Bold);
+            btnNext.Font = new Font("Cambria", 16F, FontStyle.Bold);
             btnNext.Image = Properties.Resources.fast_forward_double_right_arrows_symbol__2___1_1;
             btnNext.ImageAlign = ContentAlignment.MiddleLeft;
-            btnNext.Location = new Point(60, 3);
+            btnNext.Location = new Point(50, 3);
             btnNext.Margin = new Padding(10, 3, 10, 3);
             btnNext.Name = "btnNext";
-            btnNext.Size = new Size(166, 55);
+            btnNext.Size = new Size(176, 64);
             btnNext.TabIndex = 54;
             btnNext.Text = "Next";
             btnNext.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -472,17 +472,17 @@
             // 
             btnRef.AccessibleName = "Refresh";
             btnRef.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnRef.BackColor = Color.FromArgb(255, 249, 245);
+            btnRef.BackColor = Color.FromArgb(0, 150, 136);
             btnRef.Cursor = Cursors.Hand;
             btnRef.FlatAppearance.BorderColor = Color.FromArgb(255, 249, 245);
             btnRef.FlatAppearance.BorderSize = 10;
-            btnRef.Font = new Font("Cambria", 18F, FontStyle.Bold);
+            btnRef.Font = new Font("Cambria", 16F, FontStyle.Bold);
             btnRef.Image = Properties.Resources.refresh_page_option__1_1;
             btnRef.ImageAlign = ContentAlignment.MiddleLeft;
             btnRef.Location = new Point(472, 3);
             btnRef.Margin = new Padding(0, 3, 3, 3);
             btnRef.Name = "btnRef";
-            btnRef.Size = new Size(200, 55);
+            btnRef.Size = new Size(210, 64);
             btnRef.TabIndex = 56;
             btnRef.Text = "Refresh";
             btnRef.TextImageRelation = TextImageRelation.TextBeforeImage;
@@ -492,6 +492,7 @@
             // btnDSave
             // 
             btnDSave.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnDSave.BackColor = Color.FromArgb(0, 150, 136);
             btnDSave.BackgroundImage = Properties.Resources.download;
             btnDSave.BackgroundImageLayout = ImageLayout.Stretch;
             btnDSave.Cursor = Cursors.Hand;
@@ -500,9 +501,9 @@
             btnDSave.Location = new Point(883, 3);
             btnDSave.Margin = new Padding(10, 3, 3, 3);
             btnDSave.Name = "btnDSave";
-            btnDSave.Size = new Size(58, 55);
+            btnDSave.Size = new Size(58, 64);
             btnDSave.TabIndex = 57;
-            btnDSave.UseVisualStyleBackColor = true;
+            btnDSave.UseVisualStyleBackColor = false;
             btnDSave.Click += btnDSave_Click;
             // 
             // tableLayoutPanel3
@@ -599,17 +600,16 @@
             // 
             btnSave.AccessibleName = "Add Employee";
             btnSave.Anchor = AnchorStyles.Top;
-            btnSave.BackColor = Color.FromArgb(255, 249, 245);
+            btnSave.BackColor = Color.FromArgb(0, 150, 136);
             tableLayoutPanel1.SetColumnSpan(btnSave, 2);
             btnSave.Cursor = Cursors.Hand;
             btnSave.FlatAppearance.BorderColor = Color.FromArgb(255, 249, 245);
             btnSave.FlatAppearance.BorderSize = 10;
-            btnSave.Font = new Font("Cambria", 18F, FontStyle.Bold);
+            btnSave.Font = new Font("Cambria", 16F, FontStyle.Bold);
             btnSave.Image = Properties.Resources.add_user__1___1_;
-            btnSave.Location = new Point(370, 187);
-            btnSave.Margin = new Padding(3, 8, 3, 4);
+            btnSave.Location = new Point(370, 182);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(209, 54);
+            btnSave.Size = new Size(209, 61);
             btnSave.TabIndex = 52;
             btnSave.Text = "Save";
             btnSave.TextImageRelation = TextImageRelation.TextBeforeImage;
