@@ -73,6 +73,16 @@ namespace ExaminationSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap colorful_paper_clips_spiral_notebook_with_pen_adhesive_notes_white_background {
+            get {
+                object obj = ResourceManager.GetObject("colorful-paper-clips-spiral-notebook-with-pen-adhesive-notes-white-background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap delete__4_ {
             get {
                 object obj = ResourceManager.GetObject("delete (4)", resourceCulture);
@@ -123,6 +133,26 @@ namespace ExaminationSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap eye__1_ {
+            get {
+                object obj = ResourceManager.GetObject("eye (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap eye__2___1_ {
+            get {
+                object obj = ResourceManager.GetObject("eye (2) (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap fast_forward_double_right_arrows_symbol__2___1_ {
             get {
                 object obj = ResourceManager.GetObject("fast-forward-double-right-arrows-symbol (2) (1)", resourceCulture);
@@ -163,6 +193,26 @@ namespace ExaminationSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap login__2_ {
+            get {
+                object obj = ResourceManager.GetObject("login (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap love_explode {
+            get {
+                object obj = ResourceManager.GetObject("love explode", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap magnifying_glass__1_ {
             get {
                 object obj = ResourceManager.GetObject("magnifying-glass (1)", resourceCulture);
@@ -196,6 +246,16 @@ namespace ExaminationSystem.Properties {
         internal static System.Drawing.Bitmap refresh_page_option__1_1 {
             get {
                 object obj = ResourceManager.GetObject("refresh-page-option (1)1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap top_view_neat_desk_design {
+            get {
+                object obj = ResourceManager.GetObject("top-view-neat-desk-design", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
