@@ -84,42 +84,42 @@ namespace ExaminationSystem.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string username = studentusernametb.Text.Trim();
-            string password = teacherpasswordtb.Text;
+            //string username = studentusernametb.Text.Trim();
+            //string password = teacherpasswordtb.Text;
 
-            wronglabel.Visible = false;
+            //wronglabel.Visible = false;
 
-            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
-            {
-                wronglabel.Text = "Please enter both username and password.";
-                wronglabel.Visible = true;
-                return;
-            }
+            //if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+            //{
+            //    wronglabel.Text = "Please enter both username and password.";
+            //    wronglabel.Visible = true;
+            //    return;
+            //}
 
-            User authenticatedUser = UserLayerBL.AuthenticateUser(username, password);
+            //User authenticatedUser = UserLayerBL.AuthenticateUser(username, password);
 
-            if (authenticatedUser != null)
-            {
-                GlobalData.CurrentUserId = authenticatedUser.Id.ToString();
-                GlobalData.UserMission = authenticatedUser.Role; // Sets to "Admin" or "Teacher"
+            //if (authenticatedUser != null)
+            //{
+            //    GlobalData.CurrentUserId = authenticatedUser.Id.ToString();
+            //    GlobalData.UserMission = authenticatedUser.Role; // Sets to "Admin" or "Teacher"
 
-                if (authenticatedUser.Role == "Admin" || authenticatedUser.Role == "Teacher")
-                {
-                    TeacherForn.teacherExam teacherForm = new TeacherForn.teacherExam();
-                    teacherForm.Show();
-                    this.Hide();
-                }
-                else
-                {
-                    wronglabel.Text = "Your role is not authorized for this application.";
-                    wronglabel.Visible = true;
-                }
-            }
-            else
-            {
-                wronglabel.Text = "Wrong username or password.";
-                wronglabel.Visible = true;
-            }
+            //    if (authenticatedUser.Role == "Admin" || authenticatedUser.Role == "Teacher")
+            //    {
+            //        TeacherForn.teacherExam teacherForm = new TeacherForn.teacherExam();
+            //        teacherForm.Show();
+            //        this.Hide();
+            //    }
+            //    else
+            //    {
+            //        wronglabel.Text = "Your role is not authorized for this application.";
+            //        wronglabel.Visible = true;
+            //    }
+            //}
+            //else
+            //{
+            //    wronglabel.Text = "Wrong username or password.";
+            //    wronglabel.Visible = true;
+            //}
         }
     }
 }
