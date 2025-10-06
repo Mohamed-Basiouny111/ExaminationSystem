@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panel1 = new Panel();
             label4 = new Label();
             txtExamTitle = new TextBox();
@@ -226,11 +228,27 @@
             // dgvExams
             // 
             dgvExams.BackgroundColor = SystemColors.ControlLightLight;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Cambria", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvExams.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvExams.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvExams.Location = new Point(286, 372);
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Cambria", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvExams.DefaultCellStyle = dataGridViewCellStyle2;
+            dgvExams.Location = new Point(122, 372);
             dgvExams.Name = "dgvExams";
             dgvExams.RowHeadersWidth = 51;
-            dgvExams.Size = new Size(651, 473);
+            dgvExams.Size = new Size(887, 473);
             dgvExams.TabIndex = 3;
             dgvExams.DoubleClick += dgvExams_DoubleClick;
             // 
@@ -273,7 +291,7 @@
             Controls.Add(panel1);
             Name = "teacherExam";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "AddExamForm";
+            Text = "Add Exam";
             Load += teacherExam_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
