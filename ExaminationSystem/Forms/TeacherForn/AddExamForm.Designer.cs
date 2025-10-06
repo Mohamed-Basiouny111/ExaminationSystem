@@ -60,7 +60,7 @@
             panel1.Controls.Add(txtExamTitle);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(647, 125);
+            panel1.Size = new Size(531, 125);
             panel1.TabIndex = 0;
             // 
             // label4
@@ -95,7 +95,7 @@
             panel2.Controls.Add(cmbSubject);
             panel2.Location = new Point(0, 131);
             panel2.Name = "panel2";
-            panel2.Size = new Size(973, 204);
+            panel2.Size = new Size(957, 125);
             panel2.TabIndex = 0;
             // 
             // Nquestions
@@ -114,7 +114,7 @@
             Duration.AutoSize = true;
             Duration.BackColor = SystemColors.HighlightText;
             Duration.Font = new Font("Cambria", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Duration.Location = new Point(433, 154);
+            Duration.Location = new Point(433, 78);
             Duration.Name = "Duration";
             Duration.Size = new Size(273, 36);
             Duration.TabIndex = 29;
@@ -131,7 +131,7 @@
             // 
             // numQuestionCount
             // 
-            numQuestionCount.Location = new Point(787, 163);
+            numQuestionCount.Location = new Point(787, 87);
             numQuestionCount.Name = "numQuestionCount";
             numQuestionCount.Size = new Size(150, 27);
             numQuestionCount.TabIndex = 27;
@@ -169,7 +169,7 @@
             panel3.Controls.Add(rbFinal);
             panel3.Controls.Add(rbPractice);
             panel3.Controls.Add(label1);
-            panel3.Location = new Point(0, 341);
+            panel3.Location = new Point(537, 12);
             panel3.Name = "panel3";
             panel3.Size = new Size(758, 110);
             panel3.TabIndex = 1;
@@ -179,7 +179,7 @@
             rbFinal.AutoSize = true;
             rbFinal.BackColor = Color.White;
             rbFinal.Font = new Font("Cambria", 18F, FontStyle.Bold);
-            rbFinal.Location = new Point(542, 35);
+            rbFinal.Location = new Point(467, 31);
             rbFinal.Name = "rbFinal";
             rbFinal.Size = new Size(188, 40);
             rbFinal.TabIndex = 26;
@@ -192,7 +192,7 @@
             rbPractice.AutoSize = true;
             rbPractice.BackColor = Color.White;
             rbPractice.Font = new Font("Cambria", 18F, FontStyle.Bold);
-            rbPractice.Location = new Point(257, 35);
+            rbPractice.Location = new Point(209, 31);
             rbPractice.Name = "rbPractice";
             rbPractice.Size = new Size(230, 40);
             rbPractice.TabIndex = 25;
@@ -215,7 +215,7 @@
             // 
             btnSaveExam.BackColor = Color.FromArgb(0, 150, 136);
             btnSaveExam.Font = new Font("Cambria", 18F, FontStyle.Bold);
-            btnSaveExam.Location = new Point(85, 507);
+            btnSaveExam.Location = new Point(24, 273);
             btnSaveExam.Name = "btnSaveExam";
             btnSaveExam.Size = new Size(208, 79);
             btnSaveExam.TabIndex = 2;
@@ -227,10 +227,10 @@
             // 
             dgvExams.BackgroundColor = SystemColors.ControlLightLight;
             dgvExams.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvExams.Location = new Point(1011, 35);
+            dgvExams.Location = new Point(286, 372);
             dgvExams.Name = "dgvExams";
             dgvExams.RowHeadersWidth = 51;
-            dgvExams.Size = new Size(651, 544);
+            dgvExams.Size = new Size(651, 473);
             dgvExams.TabIndex = 3;
             dgvExams.DoubleClick += dgvExams_DoubleClick;
             // 
@@ -238,7 +238,7 @@
             // 
             btnDelete.BackColor = Color.FromArgb(0, 150, 136);
             btnDelete.Font = new Font("Cambria", 18F, FontStyle.Bold);
-            btnDelete.Location = new Point(572, 507);
+            btnDelete.Location = new Point(491, 273);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(215, 79);
             btnDelete.TabIndex = 5;
@@ -250,7 +250,7 @@
             // 
             btnCancel.BackColor = Color.FromArgb(0, 150, 136);
             btnCancel.Font = new Font("Cambria", 18F, FontStyle.Bold);
-            btnCancel.Location = new Point(323, 507);
+            btnCancel.Location = new Point(258, 273);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(208, 79);
             btnCancel.TabIndex = 6;
@@ -263,7 +263,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 249, 245);
-            ClientSize = new Size(1734, 896);
+            ClientSize = new Size(1202, 896);
             Controls.Add(btnCancel);
             Controls.Add(btnDelete);
             Controls.Add(dgvExams);
