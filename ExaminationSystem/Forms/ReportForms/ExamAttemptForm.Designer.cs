@@ -35,6 +35,14 @@
             btnRef = new Button();
             btnDSave = new Button();
             dgvUser = new DataGridView();
+            id = new DataGridViewTextBoxColumn();
+            StudentId = new DataGridViewTextBoxColumn();
+            colExam = new DataGridViewTextBoxColumn();
+            Column4 = new DataGridViewTextBoxColumn();
+            ExamType = new DataGridViewTextBoxColumn();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
+            Column3 = new DataGridViewTextBoxColumn();
             btnPrev = new Button();
             tableLayoutPanel7 = new TableLayoutPanel();
             tableLayoutPanel4 = new TableLayoutPanel();
@@ -45,13 +53,6 @@
             label1 = new Label();
             panel1 = new Panel();
             tableLayoutPanel1 = new TableLayoutPanel();
-            id = new DataGridViewTextBoxColumn();
-            StudentName = new DataGridViewTextBoxColumn();
-            colExam = new DataGridViewTextBoxColumn();
-            ExamType = new DataGridViewTextBoxColumn();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvUser).BeginInit();
             tableLayoutPanel7.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
@@ -80,6 +81,7 @@
             btnNext.Text = "Next";
             btnNext.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnNext.UseVisualStyleBackColor = false;
+            btnNext.Click += btnNext_Click;
             // 
             // btnRef
             // 
@@ -100,6 +102,7 @@
             btnRef.Text = "Refresh";
             btnRef.TextImageRelation = TextImageRelation.TextBeforeImage;
             btnRef.UseVisualStyleBackColor = false;
+            btnRef.Click += btnRef_Click;
             // 
             // btnDSave
             // 
@@ -116,6 +119,7 @@
             btnDSave.Size = new Size(58, 64);
             btnDSave.TabIndex = 57;
             btnDSave.UseVisualStyleBackColor = false;
+            btnDSave.Click += btnDSave_Click;
             // 
             // dgvUser
             // 
@@ -136,7 +140,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvUser.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvUser.Columns.AddRange(new DataGridViewColumn[] { id, StudentName, colExam, ExamType, Column1, Column2, Column3 });
+            dgvUser.Columns.AddRange(new DataGridViewColumn[] { id, StudentId, colExam, Column4, ExamType, Column1, Column2, Column3 });
             dgvUser.Cursor = Cursors.Hand;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
@@ -165,6 +169,76 @@
             dgvUser.Size = new Size(1007, 526);
             dgvUser.TabIndex = 120;
             // 
+            // id
+            // 
+            id.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            id.DataPropertyName = "Id";
+            id.FillWeight = 65.17767F;
+            id.HeaderText = "Id";
+            id.MinimumWidth = 6;
+            id.Name = "id";
+            id.ReadOnly = true;
+            id.Width = 59;
+            // 
+            // StudentId
+            // 
+            StudentId.DataPropertyName = "StudentName";
+            StudentId.HeaderText = "Student Name";
+            StudentId.MinimumWidth = 6;
+            StudentId.Name = "StudentId";
+            StudentId.ReadOnly = true;
+            StudentId.ToolTipText = "Student Name";
+            // 
+            // colExam
+            // 
+            colExam.DataPropertyName = "ExamTitle";
+            colExam.HeaderText = "Exam";
+            colExam.MinimumWidth = 6;
+            colExam.Name = "colExam";
+            colExam.ReadOnly = true;
+            colExam.ToolTipText = "Exam";
+            // 
+            // Column4
+            // 
+            Column4.DataPropertyName = "Teacher";
+            Column4.HeaderText = "Teacher";
+            Column4.Name = "Column4";
+            Column4.ReadOnly = true;
+            Column4.ToolTipText = "Teacher";
+            // 
+            // ExamType
+            // 
+            ExamType.DataPropertyName = "ExamType";
+            ExamType.HeaderText = "Exam Type";
+            ExamType.MinimumWidth = 6;
+            ExamType.Name = "ExamType";
+            ExamType.ReadOnly = true;
+            ExamType.ToolTipText = "ExamType";
+            // 
+            // Column1
+            // 
+            Column1.DataPropertyName = "Score";
+            Column1.HeaderText = "Student Score";
+            Column1.Name = "Column1";
+            Column1.ReadOnly = true;
+            Column1.ToolTipText = "Student Score";
+            // 
+            // Column2
+            // 
+            Column2.DataPropertyName = "StartedAt";
+            Column2.HeaderText = "StartedAt";
+            Column2.Name = "Column2";
+            Column2.ReadOnly = true;
+            Column2.ToolTipText = "StartedAt";
+            // 
+            // Column3
+            // 
+            Column3.DataPropertyName = "FinishedAt";
+            Column3.HeaderText = "FinishedAt";
+            Column3.Name = "Column3";
+            Column3.ReadOnly = true;
+            Column3.ToolTipText = "FinishedAt";
+            // 
             // btnPrev
             // 
             btnPrev.AccessibleName = "Previous";
@@ -184,6 +258,7 @@
             btnPrev.Text = "Previous";
             btnPrev.TextImageRelation = TextImageRelation.TextBeforeImage;
             btnPrev.UseVisualStyleBackColor = false;
+            btnPrev.Click += btnPrev_Click;
             // 
             // tableLayoutPanel7
             // 
@@ -261,6 +336,7 @@
             btnSearch.Text = "Search";
             btnSearch.TextImageRelation = TextImageRelation.TextBeforeImage;
             btnSearch.UseVisualStyleBackColor = false;
+            btnSearch.Click += btnSearch_Click;
             // 
             // tableLayoutPanel6
             // 
@@ -288,6 +364,7 @@
             txtSearch.Size = new Size(671, 32);
             txtSearch.TabIndex = 2;
             txtSearch.TextAlign = HorizontalAlignment.Center;
+            txtSearch.KeyDown += txtSearch_KeyDown;
             // 
             // label1
             // 
@@ -330,68 +407,6 @@
             tableLayoutPanel1.Size = new Size(1019, 730);
             tableLayoutPanel1.TabIndex = 2;
             // 
-            // id
-            // 
-            id.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            id.DataPropertyName = "Id";
-            id.FillWeight = 65.17767F;
-            id.HeaderText = "Id";
-            id.MinimumWidth = 6;
-            id.Name = "id";
-            id.ReadOnly = true;
-            id.Width = 59;
-            // 
-            // StudentName
-            // 
-            StudentName.DataPropertyName = "StudentName";
-            StudentName.HeaderText = "Student Name";
-            StudentName.MinimumWidth = 6;
-            StudentName.Name = "StudentName";
-            StudentName.ReadOnly = true;
-            StudentName.ToolTipText = "Student Name";
-            // 
-            // colExam
-            // 
-            colExam.DataPropertyName = "Exam";
-            colExam.HeaderText = "Exam";
-            colExam.MinimumWidth = 6;
-            colExam.Name = "colExam";
-            colExam.ReadOnly = true;
-            colExam.ToolTipText = "Exam";
-            // 
-            // ExamType
-            // 
-            ExamType.DataPropertyName = "ExamType";
-            ExamType.HeaderText = "Exam Type";
-            ExamType.MinimumWidth = 6;
-            ExamType.Name = "ExamType";
-            ExamType.ReadOnly = true;
-            ExamType.ToolTipText = "ExamType";
-            // 
-            // Column1
-            // 
-            Column1.DataPropertyName = "Score";
-            Column1.HeaderText = "Student Score";
-            Column1.Name = "Column1";
-            Column1.ReadOnly = true;
-            Column1.ToolTipText = "Student Score";
-            // 
-            // Column2
-            // 
-            Column2.DataPropertyName = "StartedAt";
-            Column2.HeaderText = "StartedAt";
-            Column2.Name = "Column2";
-            Column2.ReadOnly = true;
-            Column2.ToolTipText = "StartedAt";
-            // 
-            // Column3
-            // 
-            Column3.DataPropertyName = "FinishedAt";
-            Column3.HeaderText = "FinishedAt";
-            Column3.Name = "Column3";
-            Column3.ReadOnly = true;
-            Column3.ToolTipText = "FinishedAt";
-            // 
             // ExamAttemptForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -428,8 +443,9 @@
         private TextBox txtSearch;
         private Label label1;
         private DataGridViewTextBoxColumn id;
-        private DataGridViewTextBoxColumn StudentName;
+        private DataGridViewTextBoxColumn StudentId;
         private DataGridViewTextBoxColumn colExam;
+        private DataGridViewTextBoxColumn Column4;
         private DataGridViewTextBoxColumn ExamType;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;

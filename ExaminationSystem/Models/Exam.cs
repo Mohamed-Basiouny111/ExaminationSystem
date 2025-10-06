@@ -29,5 +29,6 @@ namespace ExaminationSystem.Models
         public int? UserId { get; set; }
         public virtual User? User { get; set; }
 
+        public virtual List<ExamAttempt> ExamAttempts { get; set; } = new List<ExamAttempt>();
     }
 }

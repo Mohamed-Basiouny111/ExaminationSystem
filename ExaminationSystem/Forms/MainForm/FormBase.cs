@@ -1,4 +1,7 @@
-﻿using ExaminationSystem.Forms.UsersForm;
+﻿using ExaminationSystem.Forms;
+using ExaminationSystem.Forms.ReportForms;
+using ExaminationSystem.Forms.UsersForm;
+using ExaminationSystem.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,6 +27,7 @@ namespace ExaminationSystem
             this.Text = string.Empty;
             this.ControlBox = false;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+            LName.Text = LoginForm.UserName;
         }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -100,11 +104,14 @@ namespace ExaminationSystem
         private void btnShowResult_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
+            OpenChildForm(new ExamAttemptForm(), sender);
+
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
+            this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -160,11 +167,28 @@ namespace ExaminationSystem
         }
         #endregion
 
+
+
+
         private void FormBase_Load(object sender, EventArgs e)
         {
+            if (LoginForm.UserMission == "Admin")
+            {
+                //Example For Condition
+               
+            }
+            else if (LoginForm.UserMission == "Teacher")
+            {
+                button2.Visible = false;
+            }
+            else if (LoginForm.UserMission == "Student")
+            {
+                button2.Visible = false;
+            }
+
+
+
 
         }
-
-     
     }
 }
