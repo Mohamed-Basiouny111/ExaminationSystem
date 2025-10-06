@@ -169,7 +169,7 @@
             panel3.Controls.Add(rbFinal);
             panel3.Controls.Add(rbPractice);
             panel3.Controls.Add(label1);
-            panel3.Location = new Point(0, 399);
+            panel3.Location = new Point(0, 341);
             panel3.Name = "panel3";
             panel3.Size = new Size(758, 110);
             panel3.TabIndex = 1;
@@ -213,20 +213,21 @@
             // 
             // btnSaveExam
             // 
+            btnSaveExam.BackColor = Color.FromArgb(0, 150, 136);
             btnSaveExam.Font = new Font("Cambria", 18F, FontStyle.Bold);
-            btnSaveExam.Location = new Point(24, 551);
+            btnSaveExam.Location = new Point(85, 507);
             btnSaveExam.Name = "btnSaveExam";
             btnSaveExam.Size = new Size(208, 79);
             btnSaveExam.TabIndex = 2;
             btnSaveExam.Text = "Save";
-            btnSaveExam.UseVisualStyleBackColor = true;
+            btnSaveExam.UseVisualStyleBackColor = false;
             btnSaveExam.Click += btnSaveExam_Click;
             // 
             // dgvExams
             // 
             dgvExams.BackgroundColor = SystemColors.ControlLightLight;
             dgvExams.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvExams.Location = new Point(1042, 38);
+            dgvExams.Location = new Point(1011, 35);
             dgvExams.Name = "dgvExams";
             dgvExams.RowHeadersWidth = 51;
             dgvExams.Size = new Size(651, 544);
@@ -235,24 +236,26 @@
             // 
             // btnDelete
             // 
+            btnDelete.BackColor = Color.FromArgb(0, 150, 136);
             btnDelete.Font = new Font("Cambria", 18F, FontStyle.Bold);
-            btnDelete.Location = new Point(497, 551);
+            btnDelete.Location = new Point(572, 507);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(215, 79);
             btnDelete.TabIndex = 5;
             btnDelete.Text = "Delete";
-            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.UseVisualStyleBackColor = false;
             btnDelete.Click += btnDelete_Click;
             // 
             // btnCancel
             // 
+            btnCancel.BackColor = Color.FromArgb(0, 150, 136);
             btnCancel.Font = new Font("Cambria", 18F, FontStyle.Bold);
-            btnCancel.Location = new Point(257, 551);
+            btnCancel.Location = new Point(323, 507);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(208, 79);
             btnCancel.TabIndex = 6;
             btnCancel.Text = "Cancel";
-            btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.UseVisualStyleBackColor = false;
             btnCancel.Click += btnCancel_Click;
             // 
             // teacherExam

@@ -24,7 +24,7 @@ namespace ExaminationSystem.Models
         public int? SubjectId { get; set; }
         public virtual Subject? Subject { get; set; }
         public virtual List<Question> Questions { get; set; } = new List<Question>();
-
+      
         [ForeignKey("User")]
         public int? UserId { get; set; }
         public virtual User? User { get; set; }

@@ -2,12 +2,7 @@
 using ExaminationSystem.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.EntityFrameworkCore;
 
@@ -19,6 +14,9 @@ namespace ExaminationSystem.Forms.TeacherForn
         private int ExamToEditId = -1;
         private int CurrentUserId = -1;
 
+        private const string AdminRole = "Admin";
+        private string CurrentUserRole = string.Empty;
+
         public teacherExam()
         {
             InitializeComponent();
@@ -29,6 +27,8 @@ namespace ExaminationSystem.Forms.TeacherForn
             {
                 this.CurrentUserId = userId;
             }
+
+            this.CurrentUserRole = GlobalData.UserMission;
 
             txtExamTitle.KeyDown += txtExamTitle_KeyDown;
             cmbSubject.KeyDown += cmbSubject_KeyDown;
@@ -56,6 +56,7 @@ namespace ExaminationSystem.Forms.TeacherForn
             LoadExams();
             SetFormMode(false);
         }
+
         private void SetFormMode(bool isEditing)
         {
             IsEditing = isEditing;
@@ -87,6 +88,7 @@ namespace ExaminationSystem.Forms.TeacherForn
             txtExamTitle.Focus();
             SetFormMode(false);
         }
+
         private bool IsDuplicateTitle(string title, int subjectId, int examIdToIgnore = -1)
         {
             try
@@ -105,6 +107,7 @@ namespace ExaminationSystem.Forms.TeacherForn
                 return true;
             }
         }
+
         void LoadSubjects()
         {
             try
@@ -116,8 +119,8 @@ namespace ExaminationSystem.Forms.TeacherForn
                         .ToList();
 
                     cmbSubject.DataSource = subjects;
-                    cmbSubject.DisplayMember = "Name"; 
-                    cmbSubject.ValueMember = "Id";  
+                    cmbSubject.DisplayMember = "Name";
+                    cmbSubject.ValueMember = "Id";
 
                     if (subjects.Any())
                     {
@@ -144,8 +147,14 @@ namespace ExaminationSystem.Forms.TeacherForn
             {
                 using (var context = new ExaminationSystemContext())
                 {
-                    var exams = context.Exams
-                        .Where(e => e.UserId == this.CurrentUserId)
+                    IQueryable<Exam> examsQuery = context.Exams;
+
+                    if (this.CurrentUserRole != AdminRole)
+                    {
+                        examsQuery = examsQuery.Where(e => e.UserId == this.CurrentUserId);
+                    }
+
+                    var exams = examsQuery
                         .Select(e => new
                         {
                             Id = e.Id,
@@ -172,6 +181,7 @@ namespace ExaminationSystem.Forms.TeacherForn
                 MessageBox.Show($"Error loading exams: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (dgvExams.SelectedRows.Count == 0)
@@ -193,7 +203,7 @@ namespace ExaminationSystem.Forms.TeacherForn
                     {
                         var examToDelete = context.Exams.FirstOrDefault(e => e.Id == examIdToDelete);
 
-                        if (examToDelete != null && examToDelete.UserId != this.CurrentUserId)
+                        if (examToDelete != null && examToDelete.UserId != this.CurrentUserId && this.CurrentUserRole != AdminRole)
                         {
                             MessageBox.Show("You can only delete exams that you created.", "Permission Denied", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                             return;
@@ -228,10 +238,9 @@ namespace ExaminationSystem.Forms.TeacherForn
                 {
                     using (var context = new ExaminationSystemContext())
                     {
-                        var exam = context.Exams
-                                         .FirstOrDefault(e => e.Id == id);
+                        var exam = context.Exams.FirstOrDefault(e => e.Id == id);
 
-                        if (exam != null && exam.UserId != this.CurrentUserId)
+                        if (exam != null && exam.UserId != this.CurrentUserId && this.CurrentUserRole != AdminRole)
                         {
                             MessageBox.Show("You can only edit exams that you created.", "Permission Denied", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                             return;
@@ -271,6 +280,7 @@ namespace ExaminationSystem.Forms.TeacherForn
         {
             ClearFields();
         }
+
         private void UpdateExamInDatabase(Exam updatedExam)
         {
             if (this.CurrentUserId <= 0) return;
@@ -362,6 +372,7 @@ namespace ExaminationSystem.Forms.TeacherForn
                 txtExamTitle.Focus();
                 return;
             }
+
             Exam exam;
             if (rbPractice.Checked)
             {
@@ -395,6 +406,7 @@ namespace ExaminationSystem.Forms.TeacherForn
                 SaveExamToDatabase(exam);
             }
         }
+
         private void PerformFocus(object sender, EventArgs e)
         {
             NumericUpDown nud = sender as NumericUpDown;
@@ -417,8 +429,5 @@ namespace ExaminationSystem.Forms.TeacherForn
             if (e.KeyData == Keys.Enter) { e.SuppressKeyPress = true; btnSaveExam.PerformClick(); }
         }
     }
-    public static class GlobalData
-    {     
-        public static string CurrentUserId { get; set; } = "1";
-    }
 }
+//testgit
