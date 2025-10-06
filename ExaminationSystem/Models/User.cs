@@ -20,7 +20,8 @@ namespace ExaminationSystem.Models
         [MaxLength(50)]
         [Required]
         public string Role { get; set; }
-      
+
+        public virtual List<Exam> Exam { get; set; } = new List<Exam>();
     }
 
     #region Department

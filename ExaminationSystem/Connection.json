@@ -1,4 +1,8 @@
 {
-  //"Connection": "Server=HAIDY\\SQLEXPRESS;Database=ExaminationSystemDB;Integrated Security=True;TrustServerCertificate=True"
+//  //"Connection": "Server=HAIDY\\SQLEXPRESS;Database=ExaminationSystemDB;Integrated Security=True;TrustServerCertificate=True"
   "Connection": "Server=.;Database=ExaminationSystemDB;Integrated Security=True;TrustServerCertificate=True"
 }
+
+//{
+//  //"Connection": "Server = .\\SQLEXPRESS;Database=ExaminationSystemDB;Integrated Security=True;TrustServerCertificate=True"
+//}

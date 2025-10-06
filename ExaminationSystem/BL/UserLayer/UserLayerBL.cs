@@ -48,6 +48,16 @@ namespace ExaminationSystem.BL.UserLayer
                 return db.Users.FirstOrDefault(c => c.Id == id);
             }
         }
+
+        public static User AuthenticateUser(string username, string password)
+        {
+            using (var db = new ExaminationSystemContext())
+            {
+                string hashedPassword = Encrypt(password); // استخدمي نفس دالة التشفير
+
+                return db.Users.FirstOrDefault(u => u.UserName == username && u.PasswordHash == hashedPassword);
+            }
+        }
         public static string Encrypt(string password)
         {
             string strmsg = string.Empty;
@@ -149,6 +159,5 @@ namespace ExaminationSystem.BL.UserLayer
                 return 0;
             }
         }
-
     }
 }
