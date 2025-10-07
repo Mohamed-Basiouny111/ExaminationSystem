@@ -273,7 +273,6 @@
             label1.TabIndex = 1;
             label1.Text = "Search By Subject Name";
             label1.TextAlign = ContentAlignment.MiddleCenter;
-            label1.Click += label1_Click;
             // 
             // btnSearch
             // 
@@ -433,7 +432,6 @@
             txtSubjectName.Size = new Size(749, 32);
             txtSubjectName.TabIndex = 12;
             txtSubjectName.TextAlign = HorizontalAlignment.Center;
-            txtSubjectName.TextChanged += txtFullName_TextChanged;
             txtSubjectName.KeyDown += txtSubjectName_KeyDown;
             // 
             // panel1

@@ -47,13 +47,6 @@ namespace ExaminationSystem.Forms.Subject
             txtSubjectName.SelectAll();
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-
-
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtSubjectName.Text) || txtSubjectName.Text == "")
@@ -99,15 +92,6 @@ namespace ExaminationSystem.Forms.Subject
             Clear();
         }
 
-        private void txtFullName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
