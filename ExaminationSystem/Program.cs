@@ -20,7 +20,7 @@ namespace ExaminationSystem
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
            
-            Application.Run(new ChooseAllQuestionForm());
+            Application.Run(new LoginForm());
 
 
         }
