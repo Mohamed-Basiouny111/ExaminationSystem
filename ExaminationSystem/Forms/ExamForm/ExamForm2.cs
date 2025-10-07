@@ -1,10 +1,11 @@
-﻿using System;
+﻿using ExaminationSystem.Data;
+using ExaminationSystem.Models;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
-using ExaminationSystem.Data;
-using ExaminationSystem.Models;
 using QuestionModel = ExaminationSystem.Models.Question;
 
 
@@ -41,32 +42,10 @@ namespace ExaminationSystem.Forms.ExamForm
 
         private void LoadExamAndQuestions()
         {
-           _exam = db.Exams
-                .Where(e => e.Id == _examId)
-                .Select(e => new Exam
-                {
-                    Id = e.Id,
-                    Title = e.Title,
-                    NumberOfQuestions = e.NumberOfQuestions,
-                    Duration = e.Duration,
-                    Mode = e.Mode,
-                    SubjectId = e.SubjectId,
-                    Questions = e.Questions.OrderBy(q => q.Id).Select(q => new QuestionModel
-                    {
-                        Id = q.Id,
-                        Header = q.Header,
-                        Body = q.Body,
-                        Marks = q.Marks,
-                        Answers = q.Answers.Select(a => new Answer
-                        {
-                            Id = a.Id,
-                            Text = a.Text,
-                            IsCorrect = a.IsCorrect,
-                            QuestionId = a.QuestionId
-                        }).ToList()
-                    }).ToList()
-                })
-                .FirstOrDefault();
+            _exam = db.Exams
+        .Include(e => e.Questions)
+            .ThenInclude(q => q.Answers)
+        .FirstOrDefault(e => e.Id == _examId);
 
             if (_exam == null)
             {
@@ -280,13 +259,22 @@ namespace ExaminationSystem.Forms.ExamForm
             var message = $"Exam submitted successfully.\nScore: {_currentAttempt.Score} / {totalMarks}";
             MessageBox.Show(message, "Exam Submitted", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            
+           
+        
+
             if (_exam is PracticeExam)
             {
-                ShowCorrectAnswersDetails();
+                
+                var resultForm = new PracticeExamResult(_currentAttempt.Id);
+                this.Hide();
+                resultForm.ShowDialog();
+                this.Close(); 
             }
-
-            this.Close();
+            else
+            {
+                this.Close();
+            }
+               
         }
 
         private void CalculateScoreAndFinish()
@@ -314,43 +302,43 @@ namespace ExaminationSystem.Forms.ExamForm
             db.SaveChanges();
         }
 
-        private void ShowCorrectAnswersDetails()
-        {
-            var sb = new System.Text.StringBuilder();
+        //private void ShowCorrectAnswersDetails()
+        //{
+        //    var sb = new System.Text.StringBuilder();
 
-            foreach (var q in _questions)
-            {
-                sb.AppendLine($"Q: {q.Header}");
-                var correct = q.Answers.Where(a => a.IsCorrect).Select(a => a.Text).ToList();
-                sb.AppendLine("Correct: " + string.Join(", ", correct));
+        //    foreach (var q in _questions)
+        //    {
+        //        sb.AppendLine($"Q: {q.Header}");
+        //        var correct = q.Answers.Where(a => a.IsCorrect).Select(a => a.Text).ToList();
+        //        sb.AppendLine("Correct: " + string.Join(", ", correct));
 
-                var studentAns = db.StudentAnswers
-                    .Where(sa => sa.ExamAttemptId == _currentAttempt.Id && sa.QuestionId == q.Id && sa.AnswerId != null)
-                    .Select(sa => sa.Answer.Text)
-                    .ToList();
+        //        var studentAns = db.StudentAnswers
+        //            .Where(sa => sa.ExamAttemptId == _currentAttempt.Id && sa.QuestionId == q.Id && sa.AnswerId != null)
+        //            .Select(sa => sa.Answer.Text)
+        //            .ToList();
 
-                sb.AppendLine("Your Answer: " + (studentAns.Any() ? string.Join(", ", studentAns) : "(no answer)"));
-                sb.AppendLine(new string('-', 30));
-            }
+        //        sb.AppendLine("Your Answer: " + (studentAns.Any() ? string.Join(", ", studentAns) : "(no answer)"));
+        //        sb.AppendLine(new string('-', 30));
+        //    }
 
-            var detailsForm = new Form
-            {
-                Text = "Practice - Correct Answers",
-                Width = 600,
-                Height = 600,
-                StartPosition = FormStartPosition.CenterParent
-            };
-            var txt = new TextBox
-            {
-                Multiline = true,
-                ReadOnly = true,
-                Dock = DockStyle.Fill,
-                ScrollBars = ScrollBars.Both,
-                Text = sb.ToString()
-            };
-            detailsForm.Controls.Add(txt);
-            detailsForm.ShowDialog();
-        }
+        //    var detailsForm = new Form
+        //    {
+        //        Text = "Practice - Correct Answers",
+        //        Width = 600,
+        //        Height = 600,
+        //        StartPosition = FormStartPosition.CenterParent
+        //    };
+        //    var txt = new TextBox
+        //    {
+        //        Multiline = true,
+        //        ReadOnly = true,
+        //        Dock = DockStyle.Fill,
+        //        ScrollBars = ScrollBars.Both,
+        //        Text = sb.ToString()
+        //    };
+        //    detailsForm.Controls.Add(txt);
+        //    detailsForm.ShowDialog();
+        //}
 
         private void StartTimer()
         {
@@ -370,12 +358,20 @@ namespace ExaminationSystem.Forms.ExamForm
                     SaveCurrentSelection();
                     CalculateScoreAndFinish();
 
+                   
+
+
                     if (_exam is PracticeExam)
                     {
-                        ShowCorrectAnswersDetails();
+                        var resultForm = new PracticeExamResult(_currentAttempt.Id);
+                        this.Hide(); 
+                        resultForm.ShowDialog();
+                        this.Close(); 
                     }
-
-                    this.Close();
+                    else
+                    {
+                        this.Close();
+                    }
                 }
             };
             _timer.Start();
