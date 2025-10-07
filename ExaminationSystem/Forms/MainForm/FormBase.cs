@@ -1,4 +1,7 @@
-﻿using ExaminationSystem.Forms.UsersForm;
+﻿using ExaminationSystem.Forms;
+using ExaminationSystem.Forms.ReportForms;
+using ExaminationSystem.Forms.UsersForm;
+using ExaminationSystem.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,7 +27,13 @@ namespace ExaminationSystem
             this.Text = string.Empty;
             this.ControlBox = false;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+            LName.Text = LoginForm.UserName;
         }
+
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
 
         private void ActivateButton(object btnSender)
@@ -37,6 +46,8 @@ namespace ExaminationSystem
                     currentButton = (Button)btnSender;
                     currentButton.BackColor = Color.FromArgb(0, 150, 136);
                     currentButton.ForeColor = Color.White;
+                    //  this.panelDesktopPane.Controls.Add(childForm);
+                    //this.panelDesktopPane.Tag = childForm;
                     currentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
                 }
 
@@ -93,11 +104,14 @@ namespace ExaminationSystem
         private void btnShowResult_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
+            OpenChildForm(new ExamAttemptForm(), sender);
+
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
+            this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -109,17 +123,26 @@ namespace ExaminationSystem
         {
             if (activeForm != null)
                 activeForm.Close();
-                Reset();
+            Reset();
 
         }
         private void Reset()
-         {
+        {
             DisableButton();
             LTitle.Text = "HOME";
-         panelLogo.BackColor = Color.FromArgb(39, 39, 58);
-        currentButton = null;
-         btnCloseChildForm.Visible = false;
-         }
+            panelTitleBar.BackColor = Color.FromArgb(0, 150, 136);
+            panelLogo.BackColor = Color.FromArgb(39, 39, 58);
+            currentButton = null;
+            btnCloseChildForm.Visible = false;
+        }
+
+        private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+
+        }
+
 
 
         #region customise btn window state
@@ -141,21 +164,31 @@ namespace ExaminationSystem
         {
 
             this.WindowState = FormWindowState.Minimized;
-        } 
+        }
         #endregion
+
+
+
 
         private void FormBase_Load(object sender, EventArgs e)
         {
+            if (LoginForm.UserMission == "Admin")
+            {
+                //Example For Condition
+               
+            }
+            else if (LoginForm.UserMission == "Teacher")
+            {
+                button2.Visible = false;
+            }
+            else if (LoginForm.UserMission == "Student")
+            {
+                button2.Visible = false;
+            }
+
+
+
 
         }
-
-      
-
-
-
-
-      
-
-        
     }
 }

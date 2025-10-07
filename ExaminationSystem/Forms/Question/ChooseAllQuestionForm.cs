@@ -20,7 +20,7 @@ namespace ExaminationSystem.Forms.Question
             InitializeComponent();
             lstAnswers.SelectionMode = SelectionMode.MultiSimple;
 
-            
+
 
 
         }
@@ -41,7 +41,7 @@ namespace ExaminationSystem.Forms.Question
                 cmbAssignExam.DisplayMember = "Title";
                 cmbAssignExam.ValueMember = "Id";
                 cmbAssignExam.DataSource = exams;
-                cmbAssignExam.SelectedIndex = 0; 
+                cmbAssignExam.SelectedIndex = 0;
             }
         }
 
@@ -165,12 +165,18 @@ namespace ExaminationSystem.Forms.Question
                 }
                 else if (colName == "Delete")
                 {
-                    context.Answers.RemoveRange(question.Answers);
-                    context.Questions.Remove(question);
-                    context.SaveChanges();
-                    LoadQuestions();
+                    DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this question ?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        context.Answers.RemoveRange(question.Answers);
+                        context.Questions.Remove(question);
+                        context.SaveChanges();
+                        LoadQuestions();
+                    }
+
+
                 }
-               
+
             }
         }
 
@@ -245,5 +251,81 @@ namespace ExaminationSystem.Forms.Question
             cmbAssignExam.SelectedIndex = 0;
 
         }
+
+
+
+        private void SearchQuestions(string searchText)
+        {
+            dgvQs.Rows.Clear();
+
+            using (var context = new ExaminationSystemContext())
+            {
+                var exams = context.Exams.ToList();
+                exams.Insert(0, new Exam { Id = 0, Title = "<None>" });
+
+                if (dgvQs.Columns["AddToExam"] == null)
+                {
+                    var examColumn = new DataGridViewComboBoxColumn
+                    {
+                        Name = "AddToExam",
+                        HeaderText = "Assign to Exam",
+                        DisplayMember = "Title",
+                        ValueMember = "Id",
+                        DataSource = exams,
+                        FlatStyle = FlatStyle.Standard,
+                        DefaultCellStyle = { NullValue = "<None>" }
+                    };
+
+                    dgvQs.Columns.Insert(2, examColumn);
+                }
+                else
+                {
+                    ((DataGridViewComboBoxColumn)dgvQs.Columns["AddToExam"]).DataSource = exams;
+                }
+
+                var query = context.Questions
+                    .OfType<ChooseAllQuestion>()
+                    .Include(q => q.Answers)
+                    .Include(q => q.Exam)
+                    .AsQueryable();
+
+                if (!string.IsNullOrWhiteSpace(searchText))
+                {
+                    searchText = searchText.Trim().ToLower();
+                    query = query.Where(q => q.Header.ToLower().Contains(searchText) || q.Body.ToLower().Contains(searchText));
+                }
+
+                var questions = query.Select(q => new
+                {
+                    q.Id,
+                    q.Header,
+                    q.Body,
+                    ExamId = q.ExamId
+                }).ToList();
+
+                foreach (var q in questions)
+                {
+                    int rowIndex = dgvQs.Rows.Add("Display", "Delete", null, q.Id, q.Header, q.Body);
+                    dgvQs.Rows[rowIndex].Cells["AddToExam"].Value = q.ExamId;
+                }
+
+                if (dgvQs.Columns["Id"] != null)
+                    dgvQs.Columns["Id"].Visible = false;
+            }
+        }
+
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string searchText = txtSearch.Text;
+            SearchQuestions(searchText);
+        }
+
+        private void btnResetSearch_Click(object sender, EventArgs e)
+        {
+            txtSearch.Clear();
+            LoadQuestions();
+        }
+
     }
 }

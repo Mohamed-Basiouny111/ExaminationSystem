@@ -85,7 +85,7 @@
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(950, 671);
+            panel1.Size = new Size(950, 863);
             panel1.TabIndex = 5;
             // 
             // tableLayoutPanel1
@@ -107,7 +107,7 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 15.4235144F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10.11378F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 63.2111244F));
-            tableLayoutPanel1.Size = new Size(950, 671);
+            tableLayoutPanel1.Size = new Size(950, 863);
             tableLayoutPanel1.TabIndex = 2;
             // 
             // tableLayoutPanel9
@@ -117,20 +117,20 @@
             tableLayoutPanel9.Controls.Add(txtPassword, 0, 1);
             tableLayoutPanel9.Controls.Add(label3, 0, 0);
             tableLayoutPanel9.Dock = DockStyle.Fill;
-            tableLayoutPanel9.Location = new Point(478, 79);
+            tableLayoutPanel9.Location = new Point(478, 101);
             tableLayoutPanel9.Name = "tableLayoutPanel9";
             tableLayoutPanel9.RowCount = 2;
             tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 41.97531F));
             tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 58.02469F));
             tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Absolute, 17F));
-            tableLayoutPanel9.Size = new Size(469, 97);
+            tableLayoutPanel9.Size = new Size(469, 126);
             tableLayoutPanel9.TabIndex = 60;
             // 
             // txtPassword
             // 
             txtPassword.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtPassword.Font = new Font("Cambria", 15.75F, FontStyle.Bold);
-            txtPassword.Location = new Point(40, 43);
+            txtPassword.Location = new Point(40, 55);
             txtPassword.Margin = new Padding(40, 3, 20, 3);
             txtPassword.Name = "txtPassword";
             txtPassword.Size = new Size(409, 38);
@@ -161,20 +161,20 @@
             tableLayoutPanel8.Controls.Add(txtUserName, 0, 1);
             tableLayoutPanel8.Controls.Add(label2, 0, 0);
             tableLayoutPanel8.Dock = DockStyle.Fill;
-            tableLayoutPanel8.Location = new Point(3, 79);
+            tableLayoutPanel8.Location = new Point(3, 101);
             tableLayoutPanel8.Name = "tableLayoutPanel8";
             tableLayoutPanel8.RowCount = 2;
             tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Percent, 41.97531F));
             tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Percent, 58.02469F));
             tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Absolute, 17F));
-            tableLayoutPanel8.Size = new Size(469, 97);
+            tableLayoutPanel8.Size = new Size(469, 126);
             tableLayoutPanel8.TabIndex = 59;
             // 
             // txtUserName
             // 
             txtUserName.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtUserName.Font = new Font("Cambria", 15.75F, FontStyle.Bold);
-            txtUserName.Location = new Point(20, 43);
+            txtUserName.Location = new Point(20, 55);
             txtUserName.Margin = new Padding(20, 3, 40, 3);
             txtUserName.Name = "txtUserName";
             txtUserName.Size = new Size(409, 38);
@@ -206,14 +206,14 @@
             tableLayoutPanel4.Controls.Add(tableLayoutPanel5, 0, 0);
             tableLayoutPanel4.Controls.Add(tableLayoutPanel7, 0, 1);
             tableLayoutPanel4.Dock = DockStyle.Fill;
-            tableLayoutPanel4.Location = new Point(3, 249);
+            tableLayoutPanel4.Location = new Point(3, 320);
             tableLayoutPanel4.Name = "tableLayoutPanel4";
             tableLayoutPanel4.RowCount = 3;
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 20.20202F));
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 14.7474747F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 17.8997612F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 16.7064438F));
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 65.05051F));
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 17F));
-            tableLayoutPanel4.Size = new Size(944, 419);
+            tableLayoutPanel4.Size = new Size(944, 540);
             tableLayoutPanel4.TabIndex = 56;
             // 
             // dgvUser
@@ -248,7 +248,7 @@
             dgvUser.DefaultCellStyle = dataGridViewCellStyle2;
             dgvUser.Dock = DockStyle.Fill;
             dgvUser.GridColor = Color.Black;
-            dgvUser.Location = new Point(3, 148);
+            dgvUser.Location = new Point(3, 189);
             dgvUser.Name = "dgvUser";
             dgvUser.ReadOnly = true;
             dgvUser.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
@@ -261,7 +261,7 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             dgvUser.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvUser.RowHeadersWidth = 30;
-            dgvUser.Size = new Size(938, 268);
+            dgvUser.Size = new Size(938, 348);
             dgvUser.TabIndex = 120;
             dgvUser.CellClick += dgvUser_CellClick;
             // 
@@ -338,7 +338,7 @@
             tableLayoutPanel5.RowCount = 1;
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 85F));
-            tableLayoutPanel5.Size = new Size(844, 84);
+            tableLayoutPanel5.Size = new Size(844, 96);
             tableLayoutPanel5.TabIndex = 1;
             // 
             // btnSearch
@@ -355,7 +355,7 @@
             btnSearch.Location = new Point(626, 13);
             btnSearch.Margin = new Padding(10, 13, 3, 3);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(191, 68);
+            btnSearch.Size = new Size(190, 80);
             btnSearch.TabIndex = 56;
             btnSearch.Text = "Search";
             btnSearch.TextImageRelation = TextImageRelation.TextBeforeImage;
@@ -375,14 +375,14 @@
             tableLayoutPanel6.RowCount = 2;
             tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 44.44F));
             tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 55.56F));
-            tableLayoutPanel6.Size = new Size(610, 81);
+            tableLayoutPanel6.Size = new Size(610, 93);
             tableLayoutPanel6.TabIndex = 55;
             // 
             // txtSearch
             // 
             txtSearch.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtSearch.Font = new Font("Cambria", 15.75F, FontStyle.Bold);
-            txtSearch.Location = new Point(10, 38);
+            txtSearch.Location = new Point(10, 44);
             txtSearch.Margin = new Padding(10, 3, 10, 3);
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(590, 38);
@@ -400,7 +400,7 @@
             label1.Location = new Point(165, 4);
             label1.Margin = new Padding(3, 4, 3, 3);
             label1.Name = "label1";
-            label1.Size = new Size(279, 28);
+            label1.Size = new Size(279, 32);
             label1.TabIndex = 1;
             label1.Text = "Search By Name Or Id";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -418,12 +418,12 @@
             tableLayoutPanel7.Controls.Add(btnRef, 2, 0);
             tableLayoutPanel7.Controls.Add(btnDSave, 3, 0);
             tableLayoutPanel7.Dock = DockStyle.Fill;
-            tableLayoutPanel7.Location = new Point(0, 84);
+            tableLayoutPanel7.Location = new Point(0, 96);
             tableLayoutPanel7.Margin = new Padding(0);
             tableLayoutPanel7.Name = "tableLayoutPanel7";
             tableLayoutPanel7.RowCount = 1;
             tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel7.Size = new Size(944, 61);
+            tableLayoutPanel7.Size = new Size(944, 90);
             tableLayoutPanel7.TabIndex = 2;
             // 
             // btnPrev
@@ -437,10 +437,10 @@
             btnPrev.Font = new Font("Cambria", 16F, FontStyle.Bold);
             btnPrev.Image = Properties.Resources.fast_forward_double_right_arrows_symbol__3_;
             btnPrev.ImageAlign = ContentAlignment.MiddleLeft;
-            btnPrev.Location = new Point(246, 3);
+            btnPrev.Location = new Point(246, 23);
             btnPrev.Margin = new Padding(10, 3, 3, 3);
             btnPrev.Name = "btnPrev";
-            btnPrev.Size = new Size(183, 55);
+            btnPrev.Size = new Size(193, 64);
             btnPrev.TabIndex = 55;
             btnPrev.Text = "Previous";
             btnPrev.TextImageRelation = TextImageRelation.TextBeforeImage;
@@ -458,10 +458,10 @@
             btnNext.Font = new Font("Cambria", 16F, FontStyle.Bold);
             btnNext.Image = Properties.Resources.fast_forward_double_right_arrows_symbol__2___1_1;
             btnNext.ImageAlign = ContentAlignment.MiddleLeft;
-            btnNext.Location = new Point(60, 3);
+            btnNext.Location = new Point(50, 23);
             btnNext.Margin = new Padding(10, 3, 10, 3);
             btnNext.Name = "btnNext";
-            btnNext.Size = new Size(166, 55);
+            btnNext.Size = new Size(176, 64);
             btnNext.TabIndex = 54;
             btnNext.Text = "Next";
             btnNext.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -479,10 +479,10 @@
             btnRef.Font = new Font("Cambria", 16F, FontStyle.Bold);
             btnRef.Image = Properties.Resources.refresh_page_option__1_1;
             btnRef.ImageAlign = ContentAlignment.MiddleLeft;
-            btnRef.Location = new Point(472, 3);
+            btnRef.Location = new Point(472, 23);
             btnRef.Margin = new Padding(0, 3, 3, 3);
             btnRef.Name = "btnRef";
-            btnRef.Size = new Size(200, 55);
+            btnRef.Size = new Size(210, 64);
             btnRef.TabIndex = 56;
             btnRef.Text = "Refresh";
             btnRef.TextImageRelation = TextImageRelation.TextBeforeImage;
@@ -492,17 +492,18 @@
             // btnDSave
             // 
             btnDSave.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnDSave.BackColor = Color.FromArgb(0, 150, 136);
             btnDSave.BackgroundImage = Properties.Resources.download;
             btnDSave.BackgroundImageLayout = ImageLayout.Stretch;
             btnDSave.Cursor = Cursors.Hand;
             btnDSave.FlatAppearance.BorderSize = 0;
             btnDSave.FlatStyle = FlatStyle.Popup;
-            btnDSave.Location = new Point(883, 3);
+            btnDSave.Location = new Point(883, 23);
             btnDSave.Margin = new Padding(10, 3, 3, 3);
             btnDSave.Name = "btnDSave";
-            btnDSave.Size = new Size(58, 55);
+            btnDSave.Size = new Size(58, 64);
             btnDSave.TabIndex = 57;
-            btnDSave.UseVisualStyleBackColor = true;
+            btnDSave.UseVisualStyleBackColor = false;
             btnDSave.Click += btnDSave_Click;
             // 
             // tableLayoutPanel3
@@ -518,7 +519,7 @@
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 41.97531F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 58.02469F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 17F));
-            tableLayoutPanel3.Size = new Size(469, 70);
+            tableLayoutPanel3.Size = new Size(469, 92);
             tableLayoutPanel3.TabIndex = 55;
             // 
             // cbxUserType
@@ -530,7 +531,7 @@
             cbxUserType.Font = new Font("Cambria", 15.75F, FontStyle.Bold);
             cbxUserType.FormattingEnabled = true;
             cbxUserType.Items.AddRange(new object[] { "Student", "Teacher", "Admin" });
-            cbxUserType.Location = new Point(40, 32);
+            cbxUserType.Location = new Point(40, 41);
             cbxUserType.Margin = new Padding(40, 3, 20, 3);
             cbxUserType.Name = "cbxUserType";
             cbxUserType.Size = new Size(409, 39);
@@ -547,7 +548,7 @@
             label5.Location = new Point(169, 4);
             label5.Margin = new Padding(3, 4, 3, 3);
             label5.Name = "label5";
-            label5.Size = new Size(131, 22);
+            label5.Size = new Size(131, 31);
             label5.TabIndex = 10;
             label5.Text = "User Role";
             label5.TextAlign = ContentAlignment.MiddleCenter;
@@ -565,14 +566,14 @@
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 41.97531F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 58.02469F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 17F));
-            tableLayoutPanel2.Size = new Size(469, 70);
+            tableLayoutPanel2.Size = new Size(469, 92);
             tableLayoutPanel2.TabIndex = 0;
             // 
             // txtFullName
             // 
             txtFullName.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtFullName.Font = new Font("Cambria", 15.75F, FontStyle.Bold);
-            txtFullName.Location = new Point(20, 32);
+            txtFullName.Location = new Point(20, 41);
             txtFullName.Margin = new Padding(20, 3, 40, 3);
             txtFullName.Name = "txtFullName";
             txtFullName.Size = new Size(409, 38);
@@ -590,7 +591,7 @@
             lblName.Location = new Point(166, 4);
             lblName.Margin = new Padding(3, 4, 3, 3);
             lblName.Name = "lblName";
-            lblName.Size = new Size(137, 22);
+            lblName.Size = new Size(137, 31);
             lblName.TabIndex = 1;
             lblName.Text = "Full Name";
             lblName.TextAlign = ContentAlignment.MiddleCenter;
@@ -606,10 +607,9 @@
             btnSave.FlatAppearance.BorderSize = 10;
             btnSave.Font = new Font("Cambria", 16F, FontStyle.Bold);
             btnSave.Image = Properties.Resources.add_user__1___1_;
-            btnSave.Location = new Point(370, 187);
-            btnSave.Margin = new Padding(3, 8, 3, 4);
+            btnSave.Location = new Point(370, 233);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(209, 55);
+            btnSave.Size = new Size(209, 61);
             btnSave.TabIndex = 52;
             btnSave.Text = "Save";
             btnSave.TextImageRelation = TextImageRelation.TextBeforeImage;
@@ -621,7 +621,7 @@
             AutoScaleDimensions = new SizeF(17F, 36F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 249, 245);
-            ClientSize = new Size(950, 671);
+            ClientSize = new Size(950, 863);
             Controls.Add(panel1);
             Font = new Font("Cambria", 18F, FontStyle.Bold);
             Margin = new Padding(6);

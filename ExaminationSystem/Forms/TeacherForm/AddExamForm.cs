@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using Microsoft.EntityFrameworkCore;
+using ExaminationSystem.Forms;
 
 namespace ExaminationSystem.Forms.TeacherForn
 {
@@ -12,23 +13,21 @@ namespace ExaminationSystem.Forms.TeacherForn
     {
         private bool IsEditing = false;
         private int ExamToEditId = -1;
-        private int CurrentUserId = -1;
+        private int CurrentUserId = -1; // سيتم تحميل قيمته من LoginForm
 
         private const string AdminRole = "Admin";
-        private string CurrentUserRole = string.Empty;
+        private string CurrentUserRole = string.Empty; // سيتم تحميل قيمته من LoginForm
 
         public teacherExam()
         {
             InitializeComponent();
 
+            this.CurrentUserId = LoginForm.UserId;
+            this.CurrentUserRole = LoginForm.UserMission;
+
+            // --------------------------------------------------------------------------------
+
             this.Load += new EventHandler(teacherExam_Load);
-
-            if (int.TryParse(GlobalData.CurrentUserId, out int userId))
-            {
-                this.CurrentUserId = userId;
-            }
-
-            this.CurrentUserRole = GlobalData.UserMission;
 
             txtExamTitle.KeyDown += txtExamTitle_KeyDown;
             cmbSubject.KeyDown += cmbSubject_KeyDown;
@@ -97,8 +96,8 @@ namespace ExaminationSystem.Forms.TeacherForn
                 {
                     return context.Exams
                                   .Any(ex => ex.Title == title.Trim()
-                                             && ex.SubjectId == subjectId
-                                             && ex.Id != examIdToIgnore);
+                                           && ex.SubjectId == subjectId
+                                           && ex.Id != examIdToIgnore);
                 }
             }
             catch (Exception ex)
@@ -430,4 +429,3 @@ namespace ExaminationSystem.Forms.TeacherForn
         }
     }
 }
-//testgit

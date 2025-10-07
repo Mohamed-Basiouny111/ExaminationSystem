@@ -51,6 +51,9 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             cmbAssignExam = new ComboBox();
             label6 = new Label();
+            btnSearch = new Button();
+            btnResetSearch = new Button();
+            txtSearch = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvQs).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
@@ -86,8 +89,9 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dgvQs.DefaultCellStyle = dataGridViewCellStyle2;
             dgvQs.Dock = DockStyle.Bottom;
+            dgvQs.EditMode = DataGridViewEditMode.EditOnEnter;
             dgvQs.GridColor = Color.Black;
-            dgvQs.Location = new Point(0, 378);
+            dgvQs.Location = new Point(0, 417);
             dgvQs.Name = "dgvQs";
             dgvQs.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -99,9 +103,11 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             dgvQs.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvQs.RowHeadersWidth = 30;
-            dgvQs.Size = new Size(950, 413);
+            dgvQs.Size = new Size(950, 374);
             dgvQs.TabIndex = 125;
             dgvQs.CellContentClick += dgvQs_CellContentClick;
+            dgvQs.CellValueChanged += dgvQs_CellValueChanged;
+            dgvQs.CurrentCellDirtyStateChanged += dgvQs_CurrentCellDirtyStateChanged;
             // 
             // Display
             // 
@@ -147,7 +153,7 @@
             // 
             txtHeader.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtHeader.Font = new Font("Calibri", 16.2F, FontStyle.Bold);
-            txtHeader.Location = new Point(3, 109);
+            txtHeader.Location = new Point(3, 99);
             txtHeader.Name = "txtHeader";
             txtHeader.Size = new Size(310, 40);
             txtHeader.TabIndex = 127;
@@ -157,7 +163,7 @@
             // 
             txtMarks.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtMarks.Font = new Font("Calibri", 16.2F, FontStyle.Bold);
-            txtMarks.Location = new Point(319, 109);
+            txtMarks.Location = new Point(319, 99);
             txtMarks.Name = "txtMarks";
             txtMarks.Size = new Size(310, 40);
             txtMarks.TabIndex = 130;
@@ -167,9 +173,9 @@
             // 
             rtbBody.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             rtbBody.Font = new Font("Calibri", 16.2F, FontStyle.Bold);
-            rtbBody.Location = new Point(635, 109);
+            rtbBody.Location = new Point(635, 99);
             rtbBody.Name = "rtbBody";
-            rtbBody.Size = new Size(312, 40);
+            rtbBody.Size = new Size(312, 35);
             rtbBody.TabIndex = 128;
             rtbBody.Text = "";
             // 
@@ -179,7 +185,7 @@
             label5.Font = new Font("Calibri", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.Location = new Point(319, 0);
             label5.Name = "label5";
-            label5.Size = new Size(310, 67);
+            label5.Size = new Size(310, 61);
             label5.TabIndex = 137;
             label5.Text = "TrueFalse Questions";
             label5.TextAlign = ContentAlignment.MiddleCenter;
@@ -188,9 +194,9 @@
             // 
             label3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label3.Font = new Font("Calibri", 16.2F, FontStyle.Bold);
-            label3.Location = new Point(319, 67);
+            label3.Location = new Point(319, 61);
             label3.Name = "label3";
-            label3.Size = new Size(310, 39);
+            label3.Size = new Size(310, 35);
             label3.TabIndex = 134;
             label3.Text = "Mark";
             label3.TextAlign = ContentAlignment.MiddleCenter;
@@ -199,9 +205,9 @@
             // 
             label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label1.Font = new Font("Calibri", 16.2F, FontStyle.Bold);
-            label1.Location = new Point(3, 67);
+            label1.Location = new Point(3, 61);
             label1.Name = "label1";
-            label1.Size = new Size(310, 39);
+            label1.Size = new Size(310, 35);
             label1.TabIndex = 132;
             label1.Text = "Header";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -210,9 +216,9 @@
             // 
             label4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label4.Font = new Font("Calibri", 16.2F, FontStyle.Bold);
-            label4.Location = new Point(3, 152);
+            label4.Location = new Point(3, 137);
             label4.Name = "label4";
-            label4.Size = new Size(310, 58);
+            label4.Size = new Size(310, 52);
             label4.TabIndex = 136;
             label4.Text = "Answer";
             label4.TextAlign = ContentAlignment.MiddleCenter;
@@ -222,7 +228,7 @@
             rbFalse.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             rbFalse.AutoSize = true;
             rbFalse.Font = new Font("Calibri", 16.2F, FontStyle.Bold);
-            rbFalse.Location = new Point(427, 213);
+            rbFalse.Location = new Point(427, 192);
             rbFalse.Name = "rbFalse";
             rbFalse.Size = new Size(94, 50);
             rbFalse.TabIndex = 131;
@@ -235,7 +241,7 @@
             rbTrue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             rbTrue.AutoSize = true;
             rbTrue.Font = new Font("Calibri", 16.2F, FontStyle.Bold);
-            rbTrue.Location = new Point(114, 213);
+            rbTrue.Location = new Point(114, 192);
             rbTrue.Name = "rbTrue";
             rbTrue.Size = new Size(88, 50);
             rbTrue.TabIndex = 129;
@@ -247,9 +253,9 @@
             // 
             label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label2.Font = new Font("Calibri", 16.2F, FontStyle.Bold);
-            label2.Location = new Point(635, 67);
+            label2.Location = new Point(635, 61);
             label2.Name = "label2";
-            label2.Size = new Size(312, 39);
+            label2.Size = new Size(312, 35);
             label2.TabIndex = 133;
             label2.Text = "Body";
             label2.TextAlign = ContentAlignment.MiddleCenter;
@@ -257,13 +263,18 @@
             // btnadd
             // 
             btnadd.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            btnadd.BackColor = SystemColors.ControlLightLight;
             btnadd.Font = new Font("Calibri", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnadd.Location = new Point(319, 296);
+            btnadd.Image = Properties.Resources.icons8_add_50;
+            btnadd.ImageAlign = ContentAlignment.MiddleRight;
+            btnadd.Location = new Point(319, 258);
             btnadd.Name = "btnadd";
-            btnadd.Size = new Size(310, 51);
+            btnadd.Padding = new Padding(0, 0, 10, 0);
+            btnadd.Size = new Size(310, 67);
             btnadd.TabIndex = 135;
             btnadd.Text = "Add new question";
-            btnadd.UseVisualStyleBackColor = true;
+            btnadd.TextImageRelation = TextImageRelation.TextBeforeImage;
+            btnadd.UseVisualStyleBackColor = false;
             btnadd.Click += btnAdd_Click;
             // 
             // tableLayoutPanel1
@@ -283,28 +294,33 @@
             tableLayoutPanel1.Controls.Add(label4, 0, 3);
             tableLayoutPanel1.Controls.Add(rbTrue, 0, 4);
             tableLayoutPanel1.Controls.Add(rbFalse, 1, 4);
-            tableLayoutPanel1.Controls.Add(btnadd, 1, 5);
             tableLayoutPanel1.Controls.Add(cmbAssignExam, 2, 4);
             tableLayoutPanel1.Controls.Add(label6, 2, 3);
+            tableLayoutPanel1.Controls.Add(btnadd, 1, 5);
+            tableLayoutPanel1.Controls.Add(btnSearch, 2, 6);
+            tableLayoutPanel1.Controls.Add(btnResetSearch, 0, 6);
+            tableLayoutPanel1.Controls.Add(txtSearch, 1, 6);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 6;
+            tableLayoutPanel1.RowCount = 7;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 17.9167557F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10.4445219F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 12.2666664F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 15.343915F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.8148146F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 28.83598F));
-            tableLayoutPanel1.Size = new Size(950, 378);
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 16.5644169F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 27.6073627F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 75F));
+            tableLayoutPanel1.Size = new Size(950, 417);
             tableLayoutPanel1.TabIndex = 139;
             // 
             // cmbAssignExam
             // 
             cmbAssignExam.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            cmbAssignExam.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbAssignExam.Font = new Font("Calibri", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             cmbAssignExam.FormattingEnabled = true;
-            cmbAssignExam.Location = new Point(635, 213);
+            cmbAssignExam.Location = new Point(635, 192);
             cmbAssignExam.Name = "cmbAssignExam";
             cmbAssignExam.Size = new Size(312, 36);
             cmbAssignExam.TabIndex = 143;
@@ -313,12 +329,56 @@
             // 
             label6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label6.Font = new Font("Calibri", 16.2F, FontStyle.Bold);
-            label6.Location = new Point(635, 152);
+            label6.Location = new Point(635, 137);
             label6.Name = "label6";
-            label6.Size = new Size(312, 58);
+            label6.Size = new Size(312, 52);
             label6.TabIndex = 144;
             label6.Text = "Assign To Exam";
             label6.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // btnSearch
+            // 
+            btnSearch.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            btnSearch.BackColor = SystemColors.ControlLightLight;
+            btnSearch.Font = new Font("Calibri", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSearch.Image = Properties.Resources.magnifying_glass__1_;
+            btnSearch.ImageAlign = ContentAlignment.MiddleRight;
+            btnSearch.Location = new Point(635, 348);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Padding = new Padding(0, 0, 10, 0);
+            btnSearch.Size = new Size(312, 60);
+            btnSearch.TabIndex = 145;
+            btnSearch.Text = "Search";
+            btnSearch.TextImageRelation = TextImageRelation.TextBeforeImage;
+            btnSearch.UseVisualStyleBackColor = false;
+            btnSearch.Click += btnSearch_Click;
+            // 
+            // btnResetSearch
+            // 
+            btnResetSearch.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            btnResetSearch.BackColor = SystemColors.ControlLightLight;
+            btnResetSearch.Font = new Font("Calibri", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnResetSearch.Image = Properties.Resources.refresh_page_option__1_;
+            btnResetSearch.ImageAlign = ContentAlignment.MiddleRight;
+            btnResetSearch.Location = new Point(3, 348);
+            btnResetSearch.Name = "btnResetSearch";
+            btnResetSearch.Padding = new Padding(0, 0, 10, 0);
+            btnResetSearch.Size = new Size(310, 60);
+            btnResetSearch.TabIndex = 146;
+            btnResetSearch.Text = "Refresh";
+            btnResetSearch.TextImageRelation = TextImageRelation.TextBeforeImage;
+            btnResetSearch.UseVisualStyleBackColor = false;
+            btnResetSearch.Click += btnResetSearch_Click;
+            // 
+            // txtSearch
+            // 
+            txtSearch.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            txtSearch.Font = new Font("Calibri", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtSearch.Location = new Point(319, 354);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(310, 48);
+            txtSearch.TabIndex = 147;
+            txtSearch.TextAlign = HorizontalAlignment.Center;
             // 
             // TrueFalseQuestionForm
             // 
@@ -359,5 +419,8 @@
         private DataGridViewTextBoxColumn Body;
         private ComboBox cmbAssignExam;
         private Label label6;
+        private Button btnSearch;
+        private Button btnResetSearch;
+        private TextBox txtSearch;
     }
 }

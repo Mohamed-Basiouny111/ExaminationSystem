@@ -4,6 +4,7 @@ using ExaminationSystem.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ExaminationSystem.Migrations
 {
     [DbContext(typeof(ExaminationSystemContext))]
-    partial class ExaminationSystemContextModelSnapshot : ModelSnapshot
+    [Migration("20251006173739_m2")]
+    partial class m2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -103,9 +106,6 @@ namespace ExaminationSystem.Migrations
                     b.Property<int>("ExamId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ExamId1")
-                        .HasColumnType("int");
-
                     b.Property<DateTime?>("FinishedAt")
                         .HasColumnType("datetime2");
 
@@ -121,8 +121,6 @@ namespace ExaminationSystem.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("ExamId");
-
-                    b.HasIndex("ExamId1");
 
                     b.HasIndex("StudentId");
 
@@ -362,10 +360,6 @@ namespace ExaminationSystem.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ExaminationSystem.Models.Exam", null)
-                        .WithMany("ExamAttempts")
-                        .HasForeignKey("ExamId1");
-
                     b.HasOne("ExaminationSystem.Models.Student", "Student")
                         .WithMany("Attempts")
                         .HasForeignKey("StudentId")
@@ -410,8 +404,6 @@ namespace ExaminationSystem.Migrations
 
             modelBuilder.Entity("ExaminationSystem.Models.Exam", b =>
                 {
-                    b.Navigation("ExamAttempts");
-
                     b.Navigation("Questions");
                 });
 
