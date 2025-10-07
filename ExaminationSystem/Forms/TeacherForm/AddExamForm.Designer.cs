@@ -95,7 +95,7 @@
             panel2.Controls.Add(numQuestionCount);
             panel2.Controls.Add(label6);
             panel2.Controls.Add(cmbSubject);
-            panel2.Location = new Point(0, 131);
+            panel2.Location = new Point(86, 131);
             panel2.Name = "panel2";
             panel2.Size = new Size(957, 125);
             panel2.TabIndex = 0;
@@ -217,7 +217,7 @@
             // 
             btnSaveExam.BackColor = Color.FromArgb(0, 150, 136);
             btnSaveExam.Font = new Font("Cambria", 18F, FontStyle.Bold);
-            btnSaveExam.Location = new Point(24, 273);
+            btnSaveExam.Location = new Point(228, 273);
             btnSaveExam.Name = "btnSaveExam";
             btnSaveExam.Size = new Size(208, 79);
             btnSaveExam.TabIndex = 2;
@@ -227,7 +227,14 @@
             // 
             // dgvExams
             // 
-            dgvExams.BackgroundColor = SystemColors.ControlLightLight;
+            dgvExams.AllowUserToAddRows = false;
+            dgvExams.AllowUserToDeleteRows = false;
+            dgvExams.AllowUserToOrderColumns = true;
+            dgvExams.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvExams.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgvExams.BackgroundColor = Color.White;
+            dgvExams.BorderStyle = BorderStyle.Fixed3D;
+            dgvExams.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
             dataGridViewCellStyle1.Font = new Font("Cambria", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -237,6 +244,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvExams.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvExams.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvExams.Cursor = Cursors.Hand;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("Cambria", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -245,18 +253,22 @@
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dgvExams.DefaultCellStyle = dataGridViewCellStyle2;
-            dgvExams.Location = new Point(122, 372);
+            dgvExams.GridColor = Color.Black;
+            dgvExams.Location = new Point(86, 372);
+            dgvExams.Margin = new Padding(3, 4, 3, 4);
             dgvExams.Name = "dgvExams";
-            dgvExams.RowHeadersWidth = 51;
-            dgvExams.Size = new Size(887, 473);
-            dgvExams.TabIndex = 3;
+            dgvExams.ReadOnly = true;
+            dgvExams.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dgvExams.RowHeadersWidth = 30;
+            dgvExams.Size = new Size(985, 473);
+            dgvExams.TabIndex = 120;
             dgvExams.DoubleClick += dgvExams_DoubleClick;
             // 
             // btnDelete
             // 
             btnDelete.BackColor = Color.FromArgb(0, 150, 136);
             btnDelete.Font = new Font("Cambria", 18F, FontStyle.Bold);
-            btnDelete.Location = new Point(491, 273);
+            btnDelete.Location = new Point(742, 273);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(215, 79);
             btnDelete.TabIndex = 5;
@@ -268,7 +280,7 @@
             // 
             btnCancel.BackColor = Color.FromArgb(0, 150, 136);
             btnCancel.Font = new Font("Cambria", 18F, FontStyle.Bold);
-            btnCancel.Location = new Point(258, 273);
+            btnCancel.Location = new Point(486, 273);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(208, 79);
             btnCancel.TabIndex = 6;
