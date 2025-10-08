@@ -95,8 +95,8 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 17.9167557F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10.4445219F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.02439F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 12.666667F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 15F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 11F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 16.666666F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 30F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 76F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 65F));
@@ -107,7 +107,7 @@
             // label1
             // 
             label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label1.Font = new Font("Calibri", 16.2F, FontStyle.Bold);
+            label1.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
             label1.Location = new Point(3, 54);
             label1.Name = "label1";
             label1.Size = new Size(310, 31);
@@ -118,7 +118,7 @@
             // label3
             // 
             label3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label3.Font = new Font("Calibri", 16.2F, FontStyle.Bold);
+            label3.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
             label3.Location = new Point(319, 54);
             label3.Name = "label3";
             label3.Size = new Size(310, 31);
@@ -129,7 +129,7 @@
             // label5
             // 
             label5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label5.Font = new Font("Calibri", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
             label5.Location = new Point(319, 0);
             label5.Name = "label5";
             label5.Size = new Size(310, 54);
@@ -140,27 +140,27 @@
             // txtMarks
             // 
             txtMarks.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            txtMarks.Font = new Font("Calibri", 16.2F, FontStyle.Bold);
+            txtMarks.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
             txtMarks.Location = new Point(319, 88);
             txtMarks.Name = "txtMarks";
-            txtMarks.Size = new Size(310, 40);
+            txtMarks.Size = new Size(310, 39);
             txtMarks.TabIndex = 130;
             txtMarks.TextAlign = HorizontalAlignment.Center;
             // 
             // txtHeader
             // 
             txtHeader.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            txtHeader.Font = new Font("Calibri", 16.2F, FontStyle.Bold);
+            txtHeader.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
             txtHeader.Location = new Point(3, 88);
             txtHeader.Name = "txtHeader";
-            txtHeader.Size = new Size(310, 40);
+            txtHeader.Size = new Size(310, 39);
             txtHeader.TabIndex = 127;
             txtHeader.TextAlign = HorizontalAlignment.Center;
             // 
             // label2
             // 
             label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label2.Font = new Font("Calibri", 16.2F, FontStyle.Bold);
+            label2.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
             label2.Location = new Point(635, 54);
             label2.Name = "label2";
             label2.Size = new Size(312, 31);
@@ -171,7 +171,7 @@
             // rtbBody
             // 
             rtbBody.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            rtbBody.Font = new Font("Calibri", 16.2F, FontStyle.Bold);
+            rtbBody.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
             rtbBody.Location = new Point(635, 88);
             rtbBody.Name = "rtbBody";
             rtbBody.Size = new Size(312, 36);
@@ -181,10 +181,10 @@
             // label4
             // 
             label4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label4.Font = new Font("Calibri", 16.2F, FontStyle.Bold);
+            label4.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
             label4.Location = new Point(3, 127);
             label4.Name = "label4";
-            label4.Size = new Size(310, 38);
+            label4.Size = new Size(310, 33);
             label4.TabIndex = 136;
             label4.Text = "Answer";
             label4.TextAlign = ContentAlignment.MiddleCenter;
@@ -192,18 +192,18 @@
             // txtAnswer
             // 
             txtAnswer.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            txtAnswer.Font = new Font("Calibri", 16.2F, FontStyle.Bold);
-            txtAnswer.Location = new Point(3, 168);
+            txtAnswer.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
+            txtAnswer.Location = new Point(3, 163);
             txtAnswer.Name = "txtAnswer";
-            txtAnswer.Size = new Size(310, 40);
+            txtAnswer.Size = new Size(310, 39);
             txtAnswer.TabIndex = 138;
             txtAnswer.TextAlign = HorizontalAlignment.Center;
             // 
             // btnAddQuestion
             // 
             btnAddQuestion.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            btnAddQuestion.BackColor = SystemColors.ControlLightLight;
-            btnAddQuestion.Font = new Font("Calibri", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAddQuestion.BackColor = Color.FromArgb(0, 150, 136);
+            btnAddQuestion.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
             btnAddQuestion.Image = Properties.Resources.icons8_add_50;
             btnAddQuestion.Location = new Point(319, 305);
             btnAddQuestion.Name = "btnAddQuestion";
@@ -218,30 +218,30 @@
             // 
             cmbAssignExam.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             cmbAssignExam.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbAssignExam.Font = new Font("Calibri", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cmbAssignExam.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
             cmbAssignExam.FormattingEnabled = true;
-            cmbAssignExam.Location = new Point(635, 168);
+            cmbAssignExam.Location = new Point(635, 163);
             cmbAssignExam.Name = "cmbAssignExam";
-            cmbAssignExam.Size = new Size(312, 36);
+            cmbAssignExam.Size = new Size(312, 40);
             cmbAssignExam.TabIndex = 141;
             // 
             // lstAnswers
             // 
             lstAnswers.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            lstAnswers.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            lstAnswers.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
             lstAnswers.FormattingEnabled = true;
             lstAnswers.Location = new Point(3, 213);
             lstAnswers.Name = "lstAnswers";
-            lstAnswers.Size = new Size(310, 76);
+            lstAnswers.Size = new Size(310, 68);
             lstAnswers.TabIndex = 140;
             // 
             // label6
             // 
             label6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label6.Font = new Font("Calibri", 16.2F, FontStyle.Bold);
+            label6.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
             label6.Location = new Point(635, 127);
             label6.Name = "label6";
-            label6.Size = new Size(312, 38);
+            label6.Size = new Size(312, 33);
             label6.TabIndex = 142;
             label6.Text = "Assign To Exam";
             label6.TextAlign = ContentAlignment.MiddleCenter;
@@ -249,8 +249,8 @@
             // btnSearch
             // 
             btnSearch.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            btnSearch.BackColor = SystemColors.ControlLightLight;
-            btnSearch.Font = new Font("Calibri", 16.2F, FontStyle.Bold);
+            btnSearch.BackColor = Color.FromArgb(0, 150, 136);
+            btnSearch.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
             btnSearch.Image = Properties.Resources.magnifying_glass__1_;
             btnSearch.Location = new Point(635, 381);
             btnSearch.Name = "btnSearch";
@@ -264,18 +264,18 @@
             // txtSearch
             // 
             txtSearch.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            txtSearch.Font = new Font("Calibri", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtSearch.Location = new Point(319, 385);
+            txtSearch.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
+            txtSearch.Location = new Point(319, 390);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(310, 48);
+            txtSearch.Size = new Size(310, 39);
             txtSearch.TabIndex = 149;
             txtSearch.TextAlign = HorizontalAlignment.Center;
             // 
             // btnResetSearch
             // 
             btnResetSearch.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            btnResetSearch.BackColor = SystemColors.ControlLightLight;
-            btnResetSearch.Font = new Font("Calibri", 16.2F, FontStyle.Bold);
+            btnResetSearch.BackColor = Color.FromArgb(0, 150, 136);
+            btnResetSearch.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
             btnResetSearch.Image = Properties.Resources.refresh_page_option__1_;
             btnResetSearch.Location = new Point(3, 381);
             btnResetSearch.Name = "btnResetSearch";
@@ -288,13 +288,13 @@
             // 
             // btnAddAnswer
             // 
-            btnAddAnswer.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            btnAddAnswer.BackColor = SystemColors.ControlLightLight;
-            btnAddAnswer.Font = new Font("Calibri", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAddAnswer.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnAddAnswer.BackColor = Color.FromArgb(0, 150, 136);
+            btnAddAnswer.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
             btnAddAnswer.Image = Properties.Resources.tick_box_32;
-            btnAddAnswer.Location = new Point(319, 168);
+            btnAddAnswer.Location = new Point(319, 163);
             btnAddAnswer.Name = "btnAddAnswer";
-            btnAddAnswer.Size = new Size(310, 39);
+            btnAddAnswer.Size = new Size(310, 44);
             btnAddAnswer.TabIndex = 139;
             btnAddAnswer.Text = "add option";
             btnAddAnswer.TextImageRelation = TextImageRelation.TextBeforeImage;
@@ -313,7 +313,7 @@
             dgvQs.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Calibri", 18F, FontStyle.Bold);
+            dataGridViewCellStyle1.Font = new Font("Cambria", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle1.ForeColor = Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
@@ -324,7 +324,7 @@
             dgvQs.Cursor = Cursors.Hand;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Calibri", 18F, FontStyle.Bold);
+            dataGridViewCellStyle2.Font = new Font("Cambria", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
             dataGridViewCellStyle2.NullValue = ".........";
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;

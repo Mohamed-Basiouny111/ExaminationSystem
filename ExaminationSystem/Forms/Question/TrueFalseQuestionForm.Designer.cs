@@ -30,7 +30,6 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             dgvQs = new DataGridView();
             Display = new DataGridViewButtonColumn();
             Delete = new DataGridViewButtonColumn();
@@ -70,7 +69,7 @@
             dgvQs.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Calibri", 18F, FontStyle.Bold);
+            dataGridViewCellStyle1.Font = new Font("Cambria", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle1.ForeColor = Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
@@ -81,7 +80,7 @@
             dgvQs.Cursor = Cursors.Hand;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Calibri", 18F, FontStyle.Bold);
+            dataGridViewCellStyle2.Font = new Font("Cambria", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
             dataGridViewCellStyle2.NullValue = ".........";
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
@@ -91,17 +90,9 @@
             dgvQs.Dock = DockStyle.Bottom;
             dgvQs.EditMode = DataGridViewEditMode.EditOnEnter;
             dgvQs.GridColor = Color.Black;
-            dgvQs.Location = new Point(0, 417);
+            dgvQs.Location = new Point(0, 407);
             dgvQs.Name = "dgvQs";
             dgvQs.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Calibri", 18F, FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgvQs.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvQs.RowHeadersWidth = 30;
             dgvQs.Size = new Size(950, 374);
             dgvQs.TabIndex = 125;
@@ -152,40 +143,40 @@
             // txtHeader
             // 
             txtHeader.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            txtHeader.Font = new Font("Calibri", 16.2F, FontStyle.Bold);
-            txtHeader.Location = new Point(3, 99);
+            txtHeader.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
+            txtHeader.Location = new Point(3, 96);
             txtHeader.Name = "txtHeader";
-            txtHeader.Size = new Size(310, 40);
+            txtHeader.Size = new Size(310, 39);
             txtHeader.TabIndex = 127;
             txtHeader.TextAlign = HorizontalAlignment.Center;
             // 
             // txtMarks
             // 
             txtMarks.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            txtMarks.Font = new Font("Calibri", 16.2F, FontStyle.Bold);
-            txtMarks.Location = new Point(319, 99);
+            txtMarks.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
+            txtMarks.Location = new Point(319, 96);
             txtMarks.Name = "txtMarks";
-            txtMarks.Size = new Size(310, 40);
+            txtMarks.Size = new Size(310, 39);
             txtMarks.TabIndex = 130;
             txtMarks.TextAlign = HorizontalAlignment.Center;
             // 
             // rtbBody
             // 
             rtbBody.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            rtbBody.Font = new Font("Calibri", 16.2F, FontStyle.Bold);
-            rtbBody.Location = new Point(635, 99);
+            rtbBody.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
+            rtbBody.Location = new Point(635, 96);
             rtbBody.Name = "rtbBody";
-            rtbBody.Size = new Size(312, 35);
+            rtbBody.Size = new Size(312, 34);
             rtbBody.TabIndex = 128;
             rtbBody.Text = "";
             // 
             // label5
             // 
             label5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label5.Font = new Font("Calibri", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
             label5.Location = new Point(319, 0);
             label5.Name = "label5";
-            label5.Size = new Size(310, 61);
+            label5.Size = new Size(310, 59);
             label5.TabIndex = 137;
             label5.Text = "TrueFalse Questions";
             label5.TextAlign = ContentAlignment.MiddleCenter;
@@ -193,10 +184,10 @@
             // label3
             // 
             label3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label3.Font = new Font("Calibri", 16.2F, FontStyle.Bold);
-            label3.Location = new Point(319, 61);
+            label3.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
+            label3.Location = new Point(319, 59);
             label3.Name = "label3";
-            label3.Size = new Size(310, 35);
+            label3.Size = new Size(310, 34);
             label3.TabIndex = 134;
             label3.Text = "Mark";
             label3.TextAlign = ContentAlignment.MiddleCenter;
@@ -204,10 +195,10 @@
             // label1
             // 
             label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label1.Font = new Font("Calibri", 16.2F, FontStyle.Bold);
-            label1.Location = new Point(3, 61);
+            label1.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
+            label1.Location = new Point(3, 59);
             label1.Name = "label1";
-            label1.Size = new Size(310, 35);
+            label1.Size = new Size(310, 34);
             label1.TabIndex = 132;
             label1.Text = "Header";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -215,10 +206,10 @@
             // label4
             // 
             label4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label4.Font = new Font("Calibri", 16.2F, FontStyle.Bold);
-            label4.Location = new Point(3, 137);
+            label4.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
+            label4.Location = new Point(3, 133);
             label4.Name = "label4";
-            label4.Size = new Size(310, 52);
+            label4.Size = new Size(310, 50);
             label4.TabIndex = 136;
             label4.Text = "Answer";
             label4.TextAlign = ContentAlignment.MiddleCenter;
@@ -227,10 +218,10 @@
             // 
             rbFalse.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             rbFalse.AutoSize = true;
-            rbFalse.Font = new Font("Calibri", 16.2F, FontStyle.Bold);
-            rbFalse.Location = new Point(427, 192);
+            rbFalse.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
+            rbFalse.Location = new Point(423, 186);
             rbFalse.Name = "rbFalse";
-            rbFalse.Size = new Size(94, 50);
+            rbFalse.Size = new Size(102, 48);
             rbFalse.TabIndex = 131;
             rbFalse.TabStop = true;
             rbFalse.Text = "False";
@@ -240,10 +231,10 @@
             // 
             rbTrue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             rbTrue.AutoSize = true;
-            rbTrue.Font = new Font("Calibri", 16.2F, FontStyle.Bold);
-            rbTrue.Location = new Point(114, 192);
+            rbTrue.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
+            rbTrue.Location = new Point(109, 186);
             rbTrue.Name = "rbTrue";
-            rbTrue.Size = new Size(88, 50);
+            rbTrue.Size = new Size(98, 48);
             rbTrue.TabIndex = 129;
             rbTrue.TabStop = true;
             rbTrue.Text = "True";
@@ -252,10 +243,10 @@
             // label2
             // 
             label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label2.Font = new Font("Calibri", 16.2F, FontStyle.Bold);
-            label2.Location = new Point(635, 61);
+            label2.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
+            label2.Location = new Point(635, 59);
             label2.Name = "label2";
-            label2.Size = new Size(312, 35);
+            label2.Size = new Size(312, 34);
             label2.TabIndex = 133;
             label2.Text = "Body";
             label2.TextAlign = ContentAlignment.MiddleCenter;
@@ -263,13 +254,12 @@
             // btnadd
             // 
             btnadd.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            btnadd.BackColor = SystemColors.ControlLightLight;
-            btnadd.Font = new Font("Calibri", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnadd.BackColor = Color.FromArgb(0, 150, 136);
+            btnadd.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
             btnadd.Image = Properties.Resources.icons8_add_50;
             btnadd.ImageAlign = ContentAlignment.MiddleRight;
-            btnadd.Location = new Point(319, 258);
+            btnadd.Location = new Point(319, 249);
             btnadd.Name = "btnadd";
-            btnadd.Padding = new Padding(0, 0, 10, 0);
             btnadd.Size = new Size(310, 67);
             btnadd.TabIndex = 135;
             btnadd.Text = "Add new question";
@@ -311,7 +301,7 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 16.5644169F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 27.6073627F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 75F));
-            tableLayoutPanel1.Size = new Size(950, 417);
+            tableLayoutPanel1.Size = new Size(950, 407);
             tableLayoutPanel1.TabIndex = 139;
             // 
             // cmbAssignExam
@@ -320,7 +310,7 @@
             cmbAssignExam.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbAssignExam.Font = new Font("Calibri", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             cmbAssignExam.FormattingEnabled = true;
-            cmbAssignExam.Location = new Point(635, 192);
+            cmbAssignExam.Location = new Point(635, 186);
             cmbAssignExam.Name = "cmbAssignExam";
             cmbAssignExam.Size = new Size(312, 36);
             cmbAssignExam.TabIndex = 143;
@@ -328,10 +318,10 @@
             // label6
             // 
             label6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label6.Font = new Font("Calibri", 16.2F, FontStyle.Bold);
-            label6.Location = new Point(635, 137);
+            label6.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
+            label6.Location = new Point(635, 133);
             label6.Name = "label6";
-            label6.Size = new Size(312, 52);
+            label6.Size = new Size(312, 50);
             label6.TabIndex = 144;
             label6.Text = "Assign To Exam";
             label6.TextAlign = ContentAlignment.MiddleCenter;
@@ -339,11 +329,11 @@
             // btnSearch
             // 
             btnSearch.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            btnSearch.BackColor = SystemColors.ControlLightLight;
-            btnSearch.Font = new Font("Calibri", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSearch.BackColor = Color.FromArgb(0, 150, 136);
+            btnSearch.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
             btnSearch.Image = Properties.Resources.magnifying_glass__1_;
             btnSearch.ImageAlign = ContentAlignment.MiddleRight;
-            btnSearch.Location = new Point(635, 348);
+            btnSearch.Location = new Point(635, 337);
             btnSearch.Name = "btnSearch";
             btnSearch.Padding = new Padding(0, 0, 10, 0);
             btnSearch.Size = new Size(312, 60);
@@ -356,11 +346,11 @@
             // btnResetSearch
             // 
             btnResetSearch.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            btnResetSearch.BackColor = SystemColors.ControlLightLight;
-            btnResetSearch.Font = new Font("Calibri", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnResetSearch.BackColor = Color.FromArgb(0, 150, 136);
+            btnResetSearch.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
             btnResetSearch.Image = Properties.Resources.refresh_page_option__1_;
             btnResetSearch.ImageAlign = ContentAlignment.MiddleRight;
-            btnResetSearch.Location = new Point(3, 348);
+            btnResetSearch.Location = new Point(3, 337);
             btnResetSearch.Name = "btnResetSearch";
             btnResetSearch.Padding = new Padding(0, 0, 10, 0);
             btnResetSearch.Size = new Size(310, 60);
@@ -373,10 +363,10 @@
             // txtSearch
             // 
             txtSearch.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            txtSearch.Font = new Font("Calibri", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtSearch.Location = new Point(319, 354);
+            txtSearch.Font = new Font("Cambria", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtSearch.Location = new Point(319, 348);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(310, 48);
+            txtSearch.Size = new Size(310, 39);
             txtSearch.TabIndex = 147;
             txtSearch.TextAlign = HorizontalAlignment.Center;
             // 
@@ -384,7 +374,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(950, 791);
+            ClientSize = new Size(950, 781);
             Controls.Add(tableLayoutPanel1);
             Controls.Add(dgvQs);
             Name = "TrueFalseQuestionForm";
