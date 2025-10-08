@@ -9,32 +9,70 @@ namespace ExaminationSystem.Forms.Question
 {
     public partial class ChooseOneQuestionForm : Form
     {
+        private readonly int CurrentUserId;
+        private readonly string CurrentUserRole;
+        private const string AdminRole = "Admin";
+        private const string TeacherRole = "Teacher";
+        private const string StudentRole = "Student";
+
+        private bool accessDenied = false;
+
         public ChooseOneQuestionForm()
         {
             InitializeComponent();
-            lstAnswers.SelectionMode = SelectionMode.One; // only one correct answer
+
+            CurrentUserId = LoginForm.UserId;
+            CurrentUserRole = LoginForm.UserMission ?? string.Empty;
+
+            if (CurrentUserRole.Equals(StudentRole, StringComparison.OrdinalIgnoreCase))
+            {
+                MessageBox.Show("Unauthorized access. You do not have permission to view this page.",
+                    "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                accessDenied = true;
+                return;
+            }
+        }
+
+        protected override void OnLoad(EventArgs e)
+        {
+            if (accessDenied)
+            {
+                this.BeginInvoke(new Action(() => this.Close()));
+                return;
+            }
+            base.OnLoad(e);
+
+            LoadExamComboBox();
+            LoadQuestions();
         }
 
         private void ChooseOneQuestionForm_Load(object sender, EventArgs e)
         {
-            LoadQuestions();
-            LoadExamComboBox();
+            //LoadExamComboBox();
+            //LoadQuestions();
         }
 
         private void LoadExamComboBox()
         {
             using (var context = new ExaminationSystemContext())
             {
-                var exams = context.Exams.ToList();
-                exams.Insert(0, new Exam { Id = 0, Title = "<None>" }); // placeholder
+                IQueryable<Exam> examsQuery = context.Exams;
+
+                if (CurrentUserRole.Equals(TeacherRole, StringComparison.OrdinalIgnoreCase))
+                {
+                    examsQuery = examsQuery.Where(e => e.UserId == CurrentUserId);
+                }
+
+                var exams = examsQuery.ToList();
+                exams.Insert(0, new Exam { Id = 0, Title = "<None>" });
 
                 cmbAssignExam.DisplayMember = "Title";
                 cmbAssignExam.ValueMember = "Id";
                 cmbAssignExam.DataSource = exams;
-                cmbAssignExam.SelectedIndex = 0; // default to <None>
+                cmbAssignExam.SelectedIndex = 0;
             }
         }
-
 
         private void LoadQuestions()
         {
@@ -43,7 +81,7 @@ namespace ExaminationSystem.Forms.Question
             using (var context = new ExaminationSystemContext())
             {
                 var exams = context.Exams.ToList();
-                exams.Insert(0, new Exam { Id = 0, Title = "<None>" });
+               // exams.Insert(0, new Exam { Id = 0, Title = "<None>" });
 
                 if (dgvQs.Columns["AddToExam"] == null)
                 {
@@ -65,25 +103,28 @@ namespace ExaminationSystem.Forms.Question
                     ((DataGridViewComboBoxColumn)dgvQs.Columns["AddToExam"]).DataSource = exams;
                 }
 
-                var questions = context.Questions
+                IQueryable<ChooseOneQuestion> query = context.Questions
                     .OfType<ChooseOneQuestion>()
                     .Include(q => q.Answers)
-                    .Include(q => q.Exam)
-                    .Select(q => new
-                    {
-                        q.Id,
-                        q.Header,
-                        q.Body,
-                        ExamId = q.ExamId
-                    })
-                    .ToList();
+                    .Include(q => q.Exam);
+
+                if (CurrentUserRole.Equals(TeacherRole, StringComparison.OrdinalIgnoreCase))
+                {
+                    query = query.Where(q => q.Exam != null && q.Exam.UserId == CurrentUserId);
+                }
+
+                var questions = query.Select(q => new
+                {
+                    q.Id,
+                    q.Header,
+                    q.Body,
+                    ExamId = q.ExamId
+                }).ToList();
 
                 foreach (var q in questions)
                 {
                     int rowIndex = dgvQs.Rows.Add("Display", "Delete", null, q.Id, q.Header, q.Body);
-                    var row = dgvQs.Rows[rowIndex];
-
-                    row.Cells["AddToExam"].Value = q.ExamId;
+                    dgvQs.Rows[rowIndex].Cells["AddToExam"].Value = q.ExamId;
                 }
 
                 if (dgvQs.Columns["Id"] != null)
@@ -102,25 +143,32 @@ namespace ExaminationSystem.Forms.Question
         private void dgvQs_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
+            if (dgvQs.Columns[e.ColumnIndex].Name != "AddToExam") return;
 
-            if (dgvQs.Columns[e.ColumnIndex].Name == "AddToExam")
+            int questionId = (int)dgvQs.Rows[e.RowIndex].Cells["Id"].Value;
+            var selectedValue = dgvQs.Rows[e.RowIndex].Cells["AddToExam"].Value;
+
+            using (var context = new ExaminationSystemContext())
             {
-                int questionId = (int)dgvQs.Rows[e.RowIndex].Cells["Id"].Value;
-                var selectedValue = dgvQs.Rows[e.RowIndex].Cells["AddToExam"].Value;
+                var question = context.Questions.Include(q => q.Exam).FirstOrDefault(q => q.Id == questionId);
+                if (question == null) return;
 
-                using (var context = new ExaminationSystemContext())
+                int? newExamId = selectedValue == null ? null : (int?)selectedValue;
+
+                if (CurrentUserRole.Equals(TeacherRole, StringComparison.OrdinalIgnoreCase) && newExamId != null)
                 {
-                    var question = context.Questions.SingleOrDefault(q => q.Id == questionId);
-                    if (question != null)
+                    var exam = context.Exams.Find(newExamId);
+                    if (exam == null || exam.UserId != CurrentUserId)
                     {
-                        if (selectedValue == null)
-                            question.ExamId = null;
-                        else
-                            question.ExamId = (int)selectedValue;
-
-                        context.SaveChanges();
+                        MessageBox.Show("You can only assign questions to your own exams.",
+                            "Permission Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        LoadQuestions();
+                        return;
                     }
                 }
+
+                question.ExamId = newExamId;
+                context.SaveChanges();
             }
         }
 
@@ -135,22 +183,36 @@ namespace ExaminationSystem.Forms.Question
             {
                 var question = context.Questions
                     .Include(q => q.Answers)
-                    .SingleOrDefault(q => q.Id == questionId);
-
+                    .Include(q => q.Exam)
+                    .FirstOrDefault(q => q.Id == questionId);
                 if (question == null) return;
 
                 if (colName == "Display")
                 {
-                    var displayForm = new QuestionDisplayForm(question);
-                    displayForm.ShowDialog();
+                    new QuestionDisplayForm(question).ShowDialog();
                     LoadQuestions();
                 }
                 else if (colName == "Delete")
                 {
-                    context.Answers.RemoveRange(question.Answers);
-                    context.Questions.Remove(question);
-                    context.SaveChanges();
-                    LoadQuestions();
+                    if (CurrentUserRole.Equals(TeacherRole, StringComparison.OrdinalIgnoreCase))
+                    {
+                        if (question.Exam == null || question.Exam.UserId != CurrentUserId)
+                        {
+                            MessageBox.Show("You can only delete your own questions.",
+                                "Permission Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+                    }
+
+                    var result = MessageBox.Show("Are you sure you want to delete this question?",
+                        "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        context.Answers.RemoveRange(question.Answers);
+                        context.Questions.Remove(question);
+                        context.SaveChanges();
+                        LoadQuestions();
+                    }
                 }
             }
         }
@@ -170,6 +232,21 @@ namespace ExaminationSystem.Forms.Question
 
         private void btnAddQuestion_Click(object sender, EventArgs e)
         {
+            if (CurrentUserRole.Equals(StudentRole, StringComparison.OrdinalIgnoreCase))
+            {
+                MessageBox.Show("You are not authorized to add questions.",
+                    "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (cmbAssignExam.SelectedValue == null || (int)cmbAssignExam.SelectedValue == 0)
+            {
+                MessageBox.Show("Please assign the question to an exam.",
+                    "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cmbAssignExam.Focus();
+                return;
+            }
+
             if (string.IsNullOrWhiteSpace(txtHeader.Text) ||
                 string.IsNullOrWhiteSpace(rtbBody.Text) ||
                 string.IsNullOrWhiteSpace(txtMarks.Text) ||
@@ -188,47 +265,63 @@ namespace ExaminationSystem.Forms.Question
                 return;
             }
 
+            int selectedExamId = (int)cmbAssignExam.SelectedValue;
+
             using (var context = new ExaminationSystemContext())
             {
+                if (CurrentUserRole.Equals(TeacherRole, StringComparison.OrdinalIgnoreCase))
+                {
+                    var exam = context.Exams.Find(selectedExamId);
+                    if (exam == null || exam.UserId != CurrentUserId)
+                    {
+                        MessageBox.Show("You can only add questions to your own exams.",
+                            "Permission Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                }
+
                 var question = new ChooseOneQuestion
                 {
                     Header = txtHeader.Text.Trim(),
                     Body = rtbBody.Text.Trim(),
                     Marks = marks,
-                    ExamId = (int)cmbAssignExam.SelectedValue == 0 ? null : (int?)cmbAssignExam.SelectedValue
+                    ExamId = selectedExamId == 0 ? null : (int?)selectedExamId
                 };
 
                 for (int i = 0; i < lstAnswers.Items.Count; i++)
                 {
-                    var ans = new Answer
+                    question.Answers.Add(new Answer
                     {
                         Text = lstAnswers.Items[i].ToString(),
                         IsCorrect = (i == lstAnswers.SelectedIndex),
                         Question = question
-                    };
-                    question.Answers.Add(ans);
+                    });
                 }
 
                 context.Questions.Add(question);
                 context.SaveChanges();
             }
 
-
             MessageBox.Show("Choose One Question saved successfully!",
-                            "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            LoadQuestions();
+                "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             txtHeader.Clear();
             rtbBody.Clear();
             txtMarks.Clear();
             lstAnswers.Items.Clear();
             cmbAssignExam.SelectedIndex = 0;
-
+            LoadQuestions();
         }
-
 
         private void SearchQuestions(string searchText)
         {
+            if (CurrentUserRole.Equals(StudentRole, StringComparison.OrdinalIgnoreCase))
+            {
+                MessageBox.Show("You are not authorized to search questions.",
+                    "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             dgvQs.Rows.Clear();
 
             using (var context = new ExaminationSystemContext())
@@ -236,7 +329,6 @@ namespace ExaminationSystem.Forms.Question
                 var exams = context.Exams.ToList();
                 exams.Insert(0, new Exam { Id = 0, Title = "<None>" });
 
-                // Always reuse the existing column, don't create new ones
                 DataGridViewComboBoxColumn examColumn;
                 if (dgvQs.Columns["AddToExam"] == null)
                 {
@@ -258,11 +350,15 @@ namespace ExaminationSystem.Forms.Question
                     examColumn.DataSource = exams;
                 }
 
-                var query = context.Questions
+                IQueryable<ChooseOneQuestion> query = context.Questions
                     .OfType<ChooseOneQuestion>()
                     .Include(q => q.Answers)
-                    .Include(q => q.Exam)
-                    .AsQueryable();
+                    .Include(q => q.Exam);
+
+                if (CurrentUserRole.Equals(TeacherRole, StringComparison.OrdinalIgnoreCase))
+                {
+                    query = query.Where(q => q.Exam != null && q.Exam.UserId == CurrentUserId);
+                }
 
                 if (!string.IsNullOrWhiteSpace(searchText))
                 {
@@ -303,10 +399,6 @@ namespace ExaminationSystem.Forms.Question
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
-
         }
     }
 }
-
-
-   

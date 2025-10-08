@@ -26,6 +26,10 @@ namespace ExaminationSystem
 
             //Application.Run(new teacherExam());
 
+           // Application.Run(new ExamForm2(1, 3));
+           
+            Application.Run(new LoginForm());
+
 
         }
     }
