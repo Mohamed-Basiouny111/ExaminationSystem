@@ -19,12 +19,15 @@ namespace ExaminationSystem
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-<<<<<<< HEAD
+
+            Application.Run(new ChooseAllQuestionForm());
+            //Application.Run(new UserForm());
+            //Application.Run(new LoginForm());
+
+            //Application.Run(new teacherExam());
 
            // Application.Run(new ExamForm2(1, 3));
-=======
            
->>>>>>> master
             Application.Run(new LoginForm());
 
 
