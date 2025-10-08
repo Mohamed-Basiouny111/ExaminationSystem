@@ -40,6 +40,8 @@ namespace ExaminationSystem.Forms.Subject
                 x.Id,
                 x.Name
             }).OrderByDescending(e => e.Id).ToList();
+            dgvUser.DefaultCellStyle.SelectionForeColor = Color.White;
+            dgvUser.DefaultCellStyle.SelectionBackColor = Color.FromArgb(0, 150, 136);
             dgvUser.ClearSelection();
             txtSubjectName.Text = txtSearch.Text = story = "";
             txtSubjectName.Focus();
