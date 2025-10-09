@@ -285,8 +285,11 @@ namespace ExaminationSystem.Forms.ExamForm
             {
                 ShowCorrectAnswersDetails();
             }
-
+            
             this.Close();
+            new FormBase().Show();
+
+
         }
 
         private void CalculateScoreAndFinish()

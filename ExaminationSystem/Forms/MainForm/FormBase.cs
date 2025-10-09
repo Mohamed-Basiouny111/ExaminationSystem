@@ -1,5 +1,12 @@
-﻿using ExaminationSystem.Forms;
+﻿using DocumentFormat.OpenXml.Math;
+using DocumentFormat.OpenXml.Office.SpreadSheetML.Y2023.MsForms;
+using ExaminationSystem.Data;
+using ExaminationSystem.Forms;
+using ExaminationSystem.Forms.ExamForm;
+using ExaminationSystem.Forms.Question;
 using ExaminationSystem.Forms.ReportForms;
+using ExaminationSystem.Forms.Subject;
+using ExaminationSystem.Forms.TeacherForn;
 using ExaminationSystem.Forms.UsersForm;
 using ExaminationSystem.Models;
 using System;
@@ -12,6 +19,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ExaminationSystem
 {
@@ -19,6 +27,10 @@ namespace ExaminationSystem
     {
         private Button currentButton;
         private Form activeForm;
+        private ExaminationSystemContext db = new ExaminationSystemContext();
+        // login student property used in start exam
+
+
 
         public FormBase()
         {
@@ -28,6 +40,7 @@ namespace ExaminationSystem
             this.ControlBox = false;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
             LName.Text = LoginForm.UserName;
+
         }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -72,6 +85,8 @@ namespace ExaminationSystem
         {
             if (activeForm != null)
                 activeForm.Close();
+            panelDesktopPane.Controls.Clear();
+
             ActivateButton(btnSender);
             activeForm = childForm;
             childForm.TopLevel = false;
@@ -83,43 +98,19 @@ namespace ExaminationSystem
             childForm.Show();
             LTitle.Text = childForm.Text;
             btnCloseChildForm.Visible = true;
-        }
 
-        private void btnAddQues_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender);
 
         }
 
-        private void btnUpdateQues_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender);
-        }
+      
 
-        private void btnDeleteorView_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender);
-        }
+       
 
-        private void btnShowResult_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender);
-            OpenChildForm(new ExamAttemptForm(), sender);
+      
 
-        }
+       
 
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender);
-            this.Close();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new UserForm(), sender);
-        }
-
-        private void btnCloseChildForm_Click(object sender, EventArgs e)
+        public void btnCloseChildForm_Click(object sender, EventArgs e)
         {
             if (activeForm != null)
                 activeForm.Close();
@@ -134,6 +125,7 @@ namespace ExaminationSystem
             panelLogo.BackColor = Color.FromArgb(39, 39, 58);
             currentButton = null;
             btnCloseChildForm.Visible = false;
+           
         }
 
         private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)
@@ -175,19 +167,114 @@ namespace ExaminationSystem
             if (LoginForm.UserMission == "Admin")
             {
                 //Example For Condition
-               
+
             }
             else if (LoginForm.UserMission == "Teacher")
             {
-                button2.Visible = false;
+                btnAddUser.Visible = false;
+
             }
             else if (LoginForm.UserMission == "Student")
             {
-                button2.Visible = false;
+                btnAddSub.Visible = false;
+                btnQuesAll.Visible = false;
+                btnQuesOne.Visible = false;
+                btnQuesTF.Visible = false;
+                btnAddExam.Visible = false;
+                btnAddUser.Visible = false;
+
+                var exams = db.Exams.Where(x => x.Mode.Equals(ExamMode.Starting)).Select(x => x).ToList();
+
+                foreach (var item in exams)
+                {
+                    var examAteend = db.ExamAttempts.Where(x => item.Id == x.ExamId && x.StudentId == LoginForm.UserId).Select(x => x).ToList();
+
+                    if (examAteend.Count > 0)
+                    {
+
+                        Button btn = new Button();
+                        btn.Text = item.Title;
+                        btn.Dock = DockStyle.Top;
+                        btn.FlatAppearance.BorderSize = 0;
+                        btn.FlatStyle = FlatStyle.Flat;
+                        btn.Font = new Font("Cambria", 18F, FontStyle.Bold);
+                        btn.ForeColor = Color.Black;
+                        btn.Image = Properties.Resources.login__2_;
+                        btn.ImageAlign = ContentAlignment.MiddleLeft;
+                        btn.Location = new Point(0, 0);
+                        btn.Name = item.Title;
+                        btn.Padding = new Padding(21, 0, 0, 0);
+                        btn.Size = new Size(1163, 60);
+                        btn.TextAlign = ContentAlignment.MiddleLeft;
+                        btn.TextImageRelation = TextImageRelation.ImageBeforeText;
+                        btn.UseVisualStyleBackColor = true;
+
+                        // Fix: Use a lambda to capture the correct examId and userId for the event handler
+                        btn.Click += (s, ev) => btnStartExam(s, LoginForm.UserId, item.Id);
+
+
+                        this.panelDesktopPane.Controls.Add(btn);
+                    }
+                    else
+                    {
+                        break;
+                    }
+
+
+
+                }
+
             }
 
+        }
 
 
+
+
+
+
+        private void btnStartExam(object sender, int userId, int examId)
+        {
+
+            OpenChildForm(new ExamForm2(userId, examId), sender);
+
+        }
+
+        private void btnAddSub_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new SubjectForm() , sender);
+        }
+
+        private void btnAddQuesAll_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new ChooseAllQuestionForm(), sender);
+        }
+
+        private void btnAddQuesOne_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new ChooseOneQuestionForm(), sender);
+        }
+
+        private void btnAddQuesTF_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new TrueFalseQuestionForm(), sender);
+        }
+
+
+        private void btnAddExam_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new teacherExam() , sender);
+        }
+
+        private void btnAddUser_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new UserForm(), sender);
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender);
+            this.Close();
 
         }
     }
