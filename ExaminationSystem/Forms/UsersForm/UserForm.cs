@@ -39,6 +39,9 @@ namespace ExaminationSystem.Forms.UsersForm
             txtFullName.Text = txtUserName.Text = txtSearch.Text = txtPassword.Text = story = "";
 
             dgvUser.DataSource = UserLayerBL.getAllUsers().OrderByDescending(x => x.Id).Take(50).ToList();
+
+            dgvUser.DefaultCellStyle.SelectionForeColor = Color.White;
+            dgvUser.DefaultCellStyle.SelectionBackColor = Color.FromArgb(0, 150, 136);
             dgvUser.ClearSelection();
             userId = 0;
             txtFullName.Focus();

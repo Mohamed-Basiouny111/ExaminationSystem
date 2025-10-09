@@ -57,7 +57,7 @@ namespace ExaminationSystem.Forms.ReportForms
                       .Select(a => new
                       {
                           a.Id,
-                          StudentName = a.Student.FullName,
+                          StudentName = a.Student.UserName,
                           ExamTitle = a.Exam.Title,
                           ExamType = EF.Property<string>(a.Exam, "ExamType"),
                           a.Score,
@@ -67,7 +67,7 @@ namespace ExaminationSystem.Forms.ReportForms
                           Teacher = a.Exam.User.UserName
                       }).OrderByDescending(x => x.Id).Take(100).ToList();
             }
-            else
+            else if (LoginForm.UserMission == "Teacher")
             {
                 dgvUser.DataSource = db.ExamAttempts
                      .Include(a => a.Student)
@@ -76,7 +76,7 @@ namespace ExaminationSystem.Forms.ReportForms
                      .Select(a => new
                      {
                          a.Id,
-                         StudentName = a.Student.FullName,
+                         StudentName = a.Student.UserName,
                          ExamTitle = a.Exam.Title,
                          ExamType = EF.Property<string>(a.Exam, "ExamType"),
                          a.Score,
@@ -86,8 +86,29 @@ namespace ExaminationSystem.Forms.ReportForms
                          Teacher = a.Exam.User.UserName
                      }).Where(u => u.Teacher == LoginForm.UserName).OrderByDescending(x => x.Id).Take(100).ToList();
             }
+            else
+            {
+                dgvUser.DataSource = db.ExamAttempts
+                  .Include(a => a.Student)
+                  .Include(a => a.Exam)
+                  .ThenInclude(u => u.User)
+                  .Select(a => new
+                  {
+                      a.Id,
+                      a.StudentId,
+                      StudentName = a.Student.UserName,
+                      ExamTitle = a.Exam.Title,
+                      ExamType = EF.Property<string>(a.Exam, "ExamType"),
+                      a.Score,
+                      a.StartedAt,
+                      a.FinishedAt
+                      ,
+                      Teacher = a.Exam.User.UserName
+                  }).Where(u => u.StudentName == LoginForm.UserName).OrderByDescending(x => x.Id).Take(100).ToList();
+            }
 
-
+            dgvUser.DefaultCellStyle.SelectionForeColor = Color.White;
+            dgvUser.DefaultCellStyle.SelectionBackColor = Color.FromArgb(0, 150, 136);
             dgvUser.ClearSelection();
 
             txtSearch.Text = "";
@@ -134,7 +155,7 @@ namespace ExaminationSystem.Forms.ReportForms
                       .Select(a => new
                       {
                           a.Id,
-                          StudentName = a.Student.FullName,
+                          StudentName = a.Student.UserName,
                           ExamTitle = a.Exam.Title,
                           ExamType = EF.Property<string>(a.Exam, "ExamType"),
                           a.Score,
@@ -143,6 +164,25 @@ namespace ExaminationSystem.Forms.ReportForms
                            ,
                           Teacher = a.Exam.User.UserName
                       }).OrderByDescending(x => x.Id).Take(100).Skip(j * 100).Take(100).ToList();
+            }
+            else if (LoginForm.UserMission == "Teacher")
+            {
+                dgvUser.DataSource = db.ExamAttempts
+                     .Include(a => a.Student)
+                     .Include(a => a.Exam)
+                     .ThenInclude(u => u.User)
+                     .Select(a => new
+                     {
+                         a.Id,
+                         StudentName = a.Student.UserName,
+                         ExamTitle = a.Exam.Title,
+                         ExamType = EF.Property<string>(a.Exam, "ExamType"),
+                         a.Score,
+                         a.StartedAt,
+                         a.FinishedAt
+                         ,
+                         Teacher = a.Exam.User.UserName
+                     }).Where(u => u.Teacher == LoginForm.UserName).OrderByDescending(x => x.Id).Take(100).Skip(j * 100).Take(100).ToList();
             }
             else
             {
@@ -153,7 +193,7 @@ namespace ExaminationSystem.Forms.ReportForms
                      .Select(a => new
                      {
                          a.Id,
-                         StudentName = a.Student.FullName,
+                         StudentName = a.Student.UserName,
                          ExamTitle = a.Exam.Title,
                          ExamType = EF.Property<string>(a.Exam, "ExamType"),
                          a.Score,
@@ -161,7 +201,7 @@ namespace ExaminationSystem.Forms.ReportForms
                          a.FinishedAt
                          ,
                          Teacher = a.Exam.User.UserName
-                     }).Where(u => u.Teacher == LoginForm.UserName).OrderByDescending(x => x.Id).Take(100).Skip(j * 100).Take(100).ToList();
+                     }).Where(u => u.StudentName == LoginForm.UserName).OrderByDescending(x => x.Id).Take(100).Skip(j * 100).Take(100).ToList();
             }
 
         }
@@ -197,7 +237,7 @@ namespace ExaminationSystem.Forms.ReportForms
                       .Select(a => new
                       {
                           a.Id,
-                          StudentName = a.Student.FullName,
+                          StudentName = a.Student.UserName,
                           ExamTitle = a.Exam.Title,
                           ExamType = EF.Property<string>(a.Exam, "ExamType"),
                           a.Score,
@@ -206,6 +246,25 @@ namespace ExaminationSystem.Forms.ReportForms
                            ,
                           Teacher = a.Exam.User.UserName
                       }).OrderByDescending(x => x.Id).Skip(j * 100).Take(100).ToList();
+            }
+            else if (LoginForm.UserMission == "Teacher")
+            {
+                dgvUser.DataSource = db.ExamAttempts
+                     .Include(a => a.Student)
+                     .Include(a => a.Exam)
+                     .ThenInclude(u => u.User)
+                     .Select(a => new
+                     {
+                         a.Id,
+                         StudentName = a.Student.UserName,
+                         ExamTitle = a.Exam.Title,
+                         ExamType = EF.Property<string>(a.Exam, "ExamType"),
+                         a.Score,
+                         a.StartedAt,
+                         a.FinishedAt
+                         ,
+                         Teacher = a.Exam.User.UserName
+                     }).Where(u => u.Teacher == LoginForm.UserName).OrderByDescending(x => x.Id).Skip(j * 100).Take(100).ToList();
             }
             else
             {
@@ -216,7 +275,7 @@ namespace ExaminationSystem.Forms.ReportForms
                      .Select(a => new
                      {
                          a.Id,
-                         StudentName = a.Student.FullName,
+                         StudentName = a.Student.UserName,
                          ExamTitle = a.Exam.Title,
                          ExamType = EF.Property<string>(a.Exam, "ExamType"),
                          a.Score,
@@ -224,7 +283,7 @@ namespace ExaminationSystem.Forms.ReportForms
                          a.FinishedAt
                          ,
                          Teacher = a.Exam.User.UserName
-                     }).Where(u => u.Teacher == LoginForm.UserName).OrderByDescending(x => x.Id).Skip(j * 100).Take(100).ToList();
+                     }).Where(u => u.StudentName == LoginForm.UserName).OrderByDescending(x => x.Id).Take(100).Skip(j * 100).Take(100).ToList();
             }
 
         }
@@ -317,8 +376,6 @@ namespace ExaminationSystem.Forms.ReportForms
 
         #endregion
 
-
-
         private void btnSearch_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtSearch.Text))
@@ -338,7 +395,7 @@ namespace ExaminationSystem.Forms.ReportForms
                 {
                     a.Id,
                     a.StudentId,
-                    StudentName = a.Student.FullName,
+                    StudentName = a.Student.UserName,
                     ExamTitle = a.Exam.Title,
                     ExamType = EF.Property<string>(a.Exam, "ExamType"),
                     a.Score,
@@ -347,19 +404,22 @@ namespace ExaminationSystem.Forms.ReportForms
                     Teacher = a.Exam.User.UserName
                 });
 
-            if (LoginForm.UserMission != "Admin")
+            if (LoginForm.UserMission == "Teacher")
             {
                 query = query.Where(a => a.Teacher == LoginForm.UserName);
             }
+            else if (LoginForm.UserMission == "Student")
+            {
+                query = query.Where(a => a.StudentName == LoginForm.UserName);
+            }
 
-          
-                query = query.Where(a => a.ExamTitle.Contains(searchText) || a.StudentName.Contains(txtSearch.Text));
-            
+
+            query = query.Where(a => a.ExamTitle.Contains(searchText) || a.StudentName.Contains(txtSearch.Text));
+
 
 
             dgvUser.DataSource = query
                 .OrderByDescending(x => x.Id)
-                .Take(100)
                 .ToList();
         }
 

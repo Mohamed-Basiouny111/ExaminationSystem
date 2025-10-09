@@ -195,7 +195,7 @@
             Delete.ReadOnly = true;
             Delete.Resizable = DataGridViewTriState.False;
             Delete.ToolTipText = "Delete This Product";
-            Delete.Width = 99;
+            Delete.Width = 85;
             // 
             // Edit
             // 
@@ -206,7 +206,7 @@
             Edit.Name = "Edit";
             Edit.ReadOnly = true;
             Edit.Resizable = DataGridViewTriState.False;
-            Edit.Width = 70;
+            Edit.Width = 59;
             // 
             // id
             // 
@@ -254,7 +254,7 @@
             txtSearch.Location = new Point(17, 52);
             txtSearch.Margin = new Padding(17, 5, 17, 5);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(465, 38);
+            txtSearch.Size = new Size(465, 32);
             txtSearch.TabIndex = 2;
             txtSearch.TextAlign = HorizontalAlignment.Center;
             txtSearch.KeyDown += txtSearch_KeyDown;
@@ -266,10 +266,10 @@
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Cambria", 15.75F, FontStyle.Bold);
-            label1.Location = new Point(95, 7);
+            label1.Location = new Point(127, 7);
             label1.Margin = new Padding(5, 7, 5, 5);
             label1.Name = "label1";
-            label1.Size = new Size(308, 32);
+            label1.Size = new Size(244, 25);
             label1.TabIndex = 1;
             label1.Text = "Search By Subject Name";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -415,10 +415,10 @@
             SubName.AutoSize = true;
             SubName.BackColor = Color.Transparent;
             SubName.Font = new Font("Cambria", 15.75F, FontStyle.Bold);
-            SubName.Location = new Point(344, 7);
+            SubName.Location = new Point(363, 7);
             SubName.Margin = new Padding(5, 7, 5, 5);
             SubName.Name = "SubName";
-            SubName.Size = new Size(181, 32);
+            SubName.Size = new Size(143, 25);
             SubName.TabIndex = 1;
             SubName.Text = "Subject Name";
             SubName.TextAlign = ContentAlignment.MiddleCenter;
@@ -430,7 +430,7 @@
             txtSubjectName.Location = new Point(60, 60);
             txtSubjectName.Margin = new Padding(60, 5, 60, 5);
             txtSubjectName.Name = "txtSubjectName";
-            txtSubjectName.Size = new Size(749, 38);
+            txtSubjectName.Size = new Size(749, 32);
             txtSubjectName.TabIndex = 12;
             txtSubjectName.TextAlign = HorizontalAlignment.Center;
             txtSubjectName.KeyDown += txtSubjectName_KeyDown;
@@ -448,7 +448,7 @@
             // 
             // SubjectForm
             // 
-            AutoScaleDimensions = new SizeF(16F, 32F);
+            AutoScaleDimensions = new SizeF(12F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 249, 245);
             ClientSize = new Size(879, 668);
