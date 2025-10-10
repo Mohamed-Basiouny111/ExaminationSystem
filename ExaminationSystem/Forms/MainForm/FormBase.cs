@@ -102,19 +102,21 @@ namespace ExaminationSystem
 
         }
 
-      
 
-       
 
-      
 
-       
+
+
+
+
 
         public void btnCloseChildForm_Click(object sender, EventArgs e)
         {
             if (activeForm != null)
                 activeForm.Close();
             Reset();
+            FormBase_Load(sender, e);
+
 
         }
         private void Reset()
@@ -125,7 +127,7 @@ namespace ExaminationSystem
             panelLogo.BackColor = Color.FromArgb(39, 39, 58);
             currentButton = null;
             btnCloseChildForm.Visible = false;
-           
+
         }
 
         private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)
@@ -172,10 +174,14 @@ namespace ExaminationSystem
             else if (LoginForm.UserMission == "Teacher")
             {
                 btnAddUser.Visible = false;
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
 
 >>>>>>> Stashed changes
+=======
+                
+>>>>>>> master
 
             }
             else if (LoginForm.UserMission == "Student")
@@ -186,6 +192,7 @@ namespace ExaminationSystem
                 btnQuesTF.Visible = false;
                 btnAddExam.Visible = false;
                 btnAddUser.Visible = false;
+                btnShowAnswer.Visible = false;
 
                 //  btnExamAttempt.Visible = false;
 
@@ -248,7 +255,7 @@ namespace ExaminationSystem
 
         private void btnAddSub_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new SubjectForm() , sender);
+            OpenChildForm(new SubjectForm(), sender);
         }
 
         private void btnAddQuesAll_Click(object sender, EventArgs e)
@@ -269,7 +276,7 @@ namespace ExaminationSystem
 
         private void btnAddExam_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new teacherExam() , sender);
+            OpenChildForm(new teacherExam(), sender);
         }
 
         private void btnAddUser_Click(object sender, EventArgs e)
@@ -283,6 +290,7 @@ namespace ExaminationSystem
             this.Close();
 
         }
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
 
@@ -292,11 +300,16 @@ namespace ExaminationSystem
         {
             OpenChildForm(new ExamAttemptForm(), sender);
         }
+=======
+>>>>>>> master
 
         private void btnShowAnswer_Click(object sender, EventArgs e)
         {
             OpenChildForm(new StudentAnswerForm(), sender);
         }
+<<<<<<< HEAD
 >>>>>>> Stashed changes
+=======
+>>>>>>> master
     }
 }
