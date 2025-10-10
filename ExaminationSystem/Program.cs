@@ -5,6 +5,7 @@ using ExaminationSystem.Forms.ExamForm;
 using ExaminationSystem.Forms.Question;
 using ExaminationSystem.Models;
 using ExaminationSystem.Forms.ReportForms;
+using ExaminationSystem.Forms.Subject;
 
 namespace ExaminationSystem
 {
@@ -20,13 +21,8 @@ namespace ExaminationSystem
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
-            //Application.Run(new ChooseAllQuestionForm());
-            //Application.Run(new UserForm());
-            //Application.Run(new LoginForm());
-
-            //Application.Run(new teacherExam());
-
            // Application.Run(new ExamForm2(1, 3));
+
            
             Application.Run(new LoginForm());
 

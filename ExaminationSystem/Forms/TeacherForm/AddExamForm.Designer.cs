@@ -62,8 +62,9 @@
             panel1.Controls.Add(label4);
             panel1.Controls.Add(txtExamTitle);
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(531, 125);
+            panel1.Size = new Size(465, 94);
             panel1.TabIndex = 0;
             // 
             // label4
@@ -71,19 +72,20 @@
             label4.AutoSize = true;
             label4.BackColor = SystemColors.ControlLightLight;
             label4.Font = new Font("Cambria", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(24, 38);
+            label4.Location = new Point(21, 28);
             label4.Name = "label4";
-            label4.Size = new Size(162, 36);
+            label4.Size = new Size(130, 28);
             label4.TabIndex = 23;
             label4.Text = "Exam Title";
             // 
             // txtExamTitle
             // 
             txtExamTitle.Font = new Font("Cambria", 18F, FontStyle.Bold);
-            txtExamTitle.Location = new Point(228, 35);
+            txtExamTitle.Location = new Point(200, 26);
+            txtExamTitle.Margin = new Padding(3, 2, 3, 2);
             txtExamTitle.Multiline = true;
             txtExamTitle.Name = "txtExamTitle";
-            txtExamTitle.Size = new Size(259, 62);
+            txtExamTitle.Size = new Size(227, 48);
             txtExamTitle.TabIndex = 14;
             txtExamTitle.Enter += PerformFocus;
             txtExamTitle.KeyDown += txtExamTitle_KeyDown;
@@ -96,9 +98,10 @@
             panel2.Controls.Add(numQuestionCount);
             panel2.Controls.Add(label6);
             panel2.Controls.Add(cmbSubject);
-            panel2.Location = new Point(86, 131);
+            panel2.Location = new Point(75, 98);
+            panel2.Margin = new Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(957, 125);
+            panel2.Size = new Size(837, 94);
             panel2.TabIndex = 0;
             // 
             // Nquestions
@@ -106,9 +109,9 @@
             Nquestions.AutoSize = true;
             Nquestions.BackColor = SystemColors.ControlLightLight;
             Nquestions.Font = new Font("Cambria", 18F, FontStyle.Bold);
-            Nquestions.Location = new Point(433, 16);
+            Nquestions.Location = new Point(379, 12);
             Nquestions.Name = "Nquestions";
-            Nquestions.Size = new Size(304, 36);
+            Nquestions.Size = new Size(241, 28);
             Nquestions.TabIndex = 26;
             Nquestions.Text = "Number of questions";
             // 
@@ -117,26 +120,30 @@
             Duration.AutoSize = true;
             Duration.BackColor = SystemColors.HighlightText;
             Duration.Font = new Font("Cambria", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Duration.Location = new Point(433, 78);
+            Duration.Location = new Point(379, 58);
             Duration.Name = "Duration";
-            Duration.Size = new Size(273, 36);
+            Duration.Size = new Size(221, 28);
             Duration.TabIndex = 29;
             Duration.Text = "Duration(Minutes)";
             // 
             // numDurationMinutes
             // 
-            numDurationMinutes.Location = new Point(787, 25);
+            numDurationMinutes.Font = new Font("Cambria", 16F, FontStyle.Bold);
+            numDurationMinutes.Location = new Point(633, 10);
+            numDurationMinutes.Margin = new Padding(3, 2, 3, 2);
             numDurationMinutes.Name = "numDurationMinutes";
-            numDurationMinutes.Size = new Size(150, 27);
+            numDurationMinutes.Size = new Size(132, 33);
             numDurationMinutes.TabIndex = 28;
             numDurationMinutes.Enter += PerformFocus;
             numDurationMinutes.KeyDown += numQuestionCount_KeyDown;
             // 
             // numQuestionCount
             // 
-            numQuestionCount.Location = new Point(787, 87);
+            numQuestionCount.Font = new Font("Cambria", 16F, FontStyle.Bold);
+            numQuestionCount.Location = new Point(633, 57);
+            numQuestionCount.Margin = new Padding(3, 2, 3, 2);
             numQuestionCount.Name = "numQuestionCount";
-            numQuestionCount.Size = new Size(150, 27);
+            numQuestionCount.Size = new Size(132, 33);
             numQuestionCount.TabIndex = 27;
             numQuestionCount.Enter += PerformFocus;
             numQuestionCount.KeyDown += numDurationMinutes_KeyDown;
@@ -146,9 +153,9 @@
             label6.AutoSize = true;
             label6.BackColor = SystemColors.HighlightText;
             label6.Font = new Font("Cambria", 18F, FontStyle.Bold);
-            label6.Location = new Point(24, 25);
+            label6.Location = new Point(21, 19);
             label6.Name = "label6";
-            label6.Size = new Size(202, 36);
+            label6.Size = new Size(160, 28);
             label6.TabIndex = 25;
             label6.Text = "Subject Name";
             label6.TextAlign = ContentAlignment.MiddleCenter;
@@ -157,13 +164,14 @@
             // 
             cmbSubject.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbSubject.FlatStyle = FlatStyle.Popup;
-            cmbSubject.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cmbSubject.Font = new Font("Cambria", 16F, FontStyle.Bold);
             cmbSubject.FormattingEnabled = true;
             cmbSubject.Items.AddRange(new object[] { "JS", "OOP", "C#" });
-            cmbSubject.Location = new Point(24, 61);
+            cmbSubject.Location = new Point(21, 46);
+            cmbSubject.Margin = new Padding(3, 2, 3, 2);
             cmbSubject.MaxDropDownItems = 10;
             cmbSubject.Name = "cmbSubject";
-            cmbSubject.Size = new Size(368, 30);
+            cmbSubject.Size = new Size(322, 33);
             cmbSubject.TabIndex = 24;
             cmbSubject.KeyDown += cmbSubject_KeyDown;
             // 
@@ -172,9 +180,10 @@
             panel3.Controls.Add(rbFinal);
             panel3.Controls.Add(rbPractice);
             panel3.Controls.Add(label1);
-            panel3.Location = new Point(537, 12);
+            panel3.Location = new Point(470, 9);
+            panel3.Margin = new Padding(3, 2, 3, 2);
             panel3.Name = "panel3";
-            panel3.Size = new Size(758, 110);
+            panel3.Size = new Size(663, 82);
             panel3.TabIndex = 1;
             // 
             // rbFinal
@@ -182,9 +191,10 @@
             rbFinal.AutoSize = true;
             rbFinal.BackColor = Color.White;
             rbFinal.Font = new Font("Cambria", 18F, FontStyle.Bold);
-            rbFinal.Location = new Point(467, 31);
+            rbFinal.Location = new Point(409, 23);
+            rbFinal.Margin = new Padding(3, 2, 3, 2);
             rbFinal.Name = "rbFinal";
-            rbFinal.Size = new Size(188, 40);
+            rbFinal.Size = new Size(151, 32);
             rbFinal.TabIndex = 26;
             rbFinal.TabStop = true;
             rbFinal.Text = "Final Exam";
@@ -195,9 +205,10 @@
             rbPractice.AutoSize = true;
             rbPractice.BackColor = Color.White;
             rbPractice.Font = new Font("Cambria", 18F, FontStyle.Bold);
-            rbPractice.Location = new Point(209, 31);
+            rbPractice.Location = new Point(183, 23);
+            rbPractice.Margin = new Padding(3, 2, 3, 2);
             rbPractice.Name = "rbPractice";
-            rbPractice.Size = new Size(230, 40);
+            rbPractice.Size = new Size(187, 32);
             rbPractice.TabIndex = 25;
             rbPractice.TabStop = true;
             rbPractice.Text = "Practice Exam";
@@ -208,9 +219,9 @@
             label1.AutoSize = true;
             label1.BackColor = SystemColors.ControlLightLight;
             label1.Font = new Font("Cambria", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(24, 35);
+            label1.Location = new Point(21, 26);
             label1.Name = "label1";
-            label1.Size = new Size(166, 36);
+            label1.Size = new Size(132, 28);
             label1.TabIndex = 24;
             label1.Text = "Exam Type";
             // 
@@ -218,9 +229,10 @@
             // 
             btnSaveExam.BackColor = Color.FromArgb(0, 150, 136);
             btnSaveExam.Font = new Font("Cambria", 18F, FontStyle.Bold);
-            btnSaveExam.Location = new Point(110, 273);
+            btnSaveExam.Location = new Point(96, 205);
+            btnSaveExam.Margin = new Padding(3, 2, 3, 2);
             btnSaveExam.Name = "btnSaveExam";
-            btnSaveExam.Size = new Size(208, 79);
+            btnSaveExam.Size = new Size(182, 59);
             btnSaveExam.TabIndex = 2;
             btnSaveExam.Text = "Save";
             btnSaveExam.UseVisualStyleBackColor = false;
@@ -255,13 +267,12 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dgvExams.DefaultCellStyle = dataGridViewCellStyle2;
             dgvExams.GridColor = Color.Black;
-            dgvExams.Location = new Point(86, 372);
-            dgvExams.Margin = new Padding(3, 4, 3, 4);
+            dgvExams.Location = new Point(75, 279);
             dgvExams.Name = "dgvExams";
             dgvExams.ReadOnly = true;
             dgvExams.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dgvExams.RowHeadersWidth = 30;
-            dgvExams.Size = new Size(985, 473);
+            dgvExams.Size = new Size(862, 355);
             dgvExams.TabIndex = 120;
             dgvExams.DoubleClick += dgvExams_DoubleClick;
             // 
@@ -269,9 +280,10 @@
             // 
             btnDelete.BackColor = Color.FromArgb(0, 150, 136);
             btnDelete.Font = new Font("Cambria", 18F, FontStyle.Bold);
-            btnDelete.Location = new Point(538, 273);
+            btnDelete.Location = new Point(471, 205);
+            btnDelete.Margin = new Padding(3, 2, 3, 2);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(215, 79);
+            btnDelete.Size = new Size(188, 59);
             btnDelete.TabIndex = 5;
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = false;
@@ -281,9 +293,10 @@
             // 
             btnCancel.BackColor = Color.FromArgb(0, 150, 136);
             btnCancel.Font = new Font("Cambria", 18F, FontStyle.Bold);
-            btnCancel.Location = new Point(324, 273);
+            btnCancel.Location = new Point(284, 205);
+            btnCancel.Margin = new Padding(3, 2, 3, 2);
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(208, 79);
+            btnCancel.Size = new Size(182, 59);
             btnCancel.TabIndex = 6;
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = false;
@@ -293,9 +306,10 @@
             // 
             btnOpenStatusForm.BackColor = Color.FromArgb(0, 150, 136);
             btnOpenStatusForm.Font = new Font("Cambria", 18F, FontStyle.Bold);
-            btnOpenStatusForm.Location = new Point(761, 273);
+            btnOpenStatusForm.Location = new Point(666, 205);
+            btnOpenStatusForm.Margin = new Padding(3, 2, 3, 2);
             btnOpenStatusForm.Name = "btnOpenStatusForm";
-            btnOpenStatusForm.Size = new Size(215, 79);
+            btnOpenStatusForm.Size = new Size(188, 59);
             btnOpenStatusForm.TabIndex = 121;
             btnOpenStatusForm.Text = "Change Mode";
             btnOpenStatusForm.UseVisualStyleBackColor = false;
@@ -303,10 +317,10 @@
             // 
             // teacherExam
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 249, 245);
-            ClientSize = new Size(1310, 896);
+            ClientSize = new Size(1146, 672);
             Controls.Add(btnOpenStatusForm);
             Controls.Add(btnCancel);
             Controls.Add(btnDelete);
@@ -315,6 +329,7 @@
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "teacherExam";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Add Exam";
