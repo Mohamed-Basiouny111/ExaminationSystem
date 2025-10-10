@@ -48,6 +48,7 @@
             btnClose = new Button();
             LTitle = new Label();
             panelDesktopPane = new Panel();
+            btnShowAnswer = new Button();
             panelMenu.SuspendLayout();
             panelLogo.SuspendLayout();
             panelTitleBar.SuspendLayout();
@@ -57,6 +58,7 @@
             // 
             panelMenu.BackColor = Color.FromArgb(51, 51, 76);
             panelMenu.Controls.Add(btnLogout);
+            panelMenu.Controls.Add(btnShowAnswer);
             panelMenu.Controls.Add(btnAddUser);
             panelMenu.Controls.Add(btnAddExam);
             panelMenu.Controls.Add(btnQuesTF);
@@ -79,7 +81,7 @@
             btnLogout.ForeColor = Color.MistyRose;
             btnLogout.Image = (Image)resources.GetObject("btnLogout.Image");
             btnLogout.ImageAlign = ContentAlignment.MiddleLeft;
-            btnLogout.Location = new Point(0, 554);
+            btnLogout.Location = new Point(0, 617);
             btnLogout.Name = "btnLogout";
             btnLogout.Padding = new Padding(21, 0, 0, 0);
             btnLogout.Size = new Size(316, 60);
@@ -347,6 +349,26 @@
             panelDesktopPane.Size = new Size(1066, 666);
             panelDesktopPane.TabIndex = 2;
             // 
+            // btnShowAnswer
+            // 
+            btnShowAnswer.Dock = DockStyle.Top;
+            btnShowAnswer.FlatAppearance.BorderSize = 0;
+            btnShowAnswer.FlatStyle = FlatStyle.Flat;
+            btnShowAnswer.Font = new Font("Cambria", 13.8F, FontStyle.Bold);
+            btnShowAnswer.ForeColor = Color.MistyRose;
+            btnShowAnswer.Image = (Image)resources.GetObject("btnShowAnswer.Image");
+            btnShowAnswer.ImageAlign = ContentAlignment.MiddleLeft;
+            btnShowAnswer.Location = new Point(0, 554);
+            btnShowAnswer.Name = "btnShowAnswer";
+            btnShowAnswer.Padding = new Padding(21, 0, 0, 0);
+            btnShowAnswer.Size = new Size(316, 63);
+            btnShowAnswer.TabIndex = 9;
+            btnShowAnswer.Text = "Show Answers";
+            btnShowAnswer.TextAlign = ContentAlignment.MiddleLeft;
+            btnShowAnswer.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnShowAnswer.UseVisualStyleBackColor = true;
+            btnShowAnswer.Click += btnShowAnswer_Click;
+            // 
             // FormBase
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -389,5 +411,6 @@
         private Button btnMaximize;
         private Button btnCloseChildForm;
         private Button btnAddUser;
+        private Button btnShowAnswer;
     }
 }
