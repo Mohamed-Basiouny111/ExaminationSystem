@@ -38,21 +38,22 @@
             label5 = new Label();
             txtMarks = new TextBox();
             txtHeader = new TextBox();
-            label2 = new Label();
-            rtbBody = new RichTextBox();
-            label4 = new Label();
-            txtAnswer = new TextBox();
             btnAddQuestion = new Button();
-            cmbAssignExam = new ComboBox();
-            lstAnswers = new ListBox();
-            label6 = new Label();
             btnSearch = new Button();
             txtSearch = new TextBox();
             btnResetSearch = new Button();
             btnAddAnswer = new Button();
+            label6 = new Label();
+            cmbAssignExam = new ComboBox();
+            label4 = new Label();
+            txtAnswer = new TextBox();
+            rtbBody = new RichTextBox();
+            label2 = new Label();
+            lstAnswers = new ListBox();
+            btnDeleteAnswer = new Button();
             dgvQs = new DataGridView();
-            Display = new DataGridViewButtonColumn();
-            Delete = new DataGridViewButtonColumn();
+            Display = new DataGridViewImageColumn();
+            Delete = new DataGridViewImageColumn();
             Id = new DataGridViewTextBoxColumn();
             Header = new DataGridViewTextBoxColumn();
             Body = new DataGridViewTextBoxColumn();
@@ -76,18 +77,19 @@
             tableLayoutPanel1.Controls.Add(label5, 1, 0);
             tableLayoutPanel1.Controls.Add(txtMarks, 1, 2);
             tableLayoutPanel1.Controls.Add(txtHeader, 0, 2);
-            tableLayoutPanel1.Controls.Add(label2, 2, 1);
-            tableLayoutPanel1.Controls.Add(rtbBody, 2, 2);
-            tableLayoutPanel1.Controls.Add(label4, 0, 3);
-            tableLayoutPanel1.Controls.Add(txtAnswer, 0, 4);
             tableLayoutPanel1.Controls.Add(btnAddQuestion, 1, 6);
-            tableLayoutPanel1.Controls.Add(cmbAssignExam, 2, 4);
-            tableLayoutPanel1.Controls.Add(lstAnswers, 0, 5);
-            tableLayoutPanel1.Controls.Add(label6, 2, 3);
             tableLayoutPanel1.Controls.Add(btnSearch, 2, 7);
             tableLayoutPanel1.Controls.Add(txtSearch, 1, 7);
             tableLayoutPanel1.Controls.Add(btnResetSearch, 0, 7);
             tableLayoutPanel1.Controls.Add(btnAddAnswer, 1, 4);
+            tableLayoutPanel1.Controls.Add(label6, 2, 1);
+            tableLayoutPanel1.Controls.Add(cmbAssignExam, 2, 2);
+            tableLayoutPanel1.Controls.Add(label4, 2, 3);
+            tableLayoutPanel1.Controls.Add(txtAnswer, 2, 4);
+            tableLayoutPanel1.Controls.Add(rtbBody, 0, 4);
+            tableLayoutPanel1.Controls.Add(label2, 0, 3);
+            tableLayoutPanel1.Controls.Add(lstAnswers, 2, 5);
+            tableLayoutPanel1.Controls.Add(btnDeleteAnswer, 1, 5);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -95,9 +97,9 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 17.9167557F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10.4445219F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.02439F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 11F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 16.666666F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 30F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 11.333333F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20.333334F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 26F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 76F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 65F));
             tableLayoutPanel1.Size = new Size(950, 443);
@@ -157,48 +159,6 @@
             txtHeader.TabIndex = 127;
             txtHeader.TextAlign = HorizontalAlignment.Center;
             // 
-            // label2
-            // 
-            label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label2.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
-            label2.Location = new Point(635, 54);
-            label2.Name = "label2";
-            label2.Size = new Size(312, 31);
-            label2.TabIndex = 133;
-            label2.Text = "Body";
-            label2.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // rtbBody
-            // 
-            rtbBody.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            rtbBody.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
-            rtbBody.Location = new Point(635, 88);
-            rtbBody.Name = "rtbBody";
-            rtbBody.Size = new Size(312, 36);
-            rtbBody.TabIndex = 128;
-            rtbBody.Text = "";
-            // 
-            // label4
-            // 
-            label4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label4.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
-            label4.Location = new Point(3, 127);
-            label4.Name = "label4";
-            label4.Size = new Size(310, 33);
-            label4.TabIndex = 136;
-            label4.Text = "Answer";
-            label4.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // txtAnswer
-            // 
-            txtAnswer.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            txtAnswer.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
-            txtAnswer.Location = new Point(3, 163);
-            txtAnswer.Name = "txtAnswer";
-            txtAnswer.Size = new Size(310, 39);
-            txtAnswer.TabIndex = 138;
-            txtAnswer.TextAlign = HorizontalAlignment.Center;
-            // 
             // btnAddQuestion
             // 
             btnAddQuestion.Anchor = AnchorStyles.Left | AnchorStyles.Right;
@@ -209,42 +169,10 @@
             btnAddQuestion.Name = "btnAddQuestion";
             btnAddQuestion.Size = new Size(310, 66);
             btnAddQuestion.TabIndex = 135;
-            btnAddQuestion.Text = "Add new question";
+            btnAddQuestion.Text = "save question";
             btnAddQuestion.TextImageRelation = TextImageRelation.TextBeforeImage;
             btnAddQuestion.UseVisualStyleBackColor = false;
             btnAddQuestion.Click += btnAddQuestion_Click;
-            // 
-            // cmbAssignExam
-            // 
-            cmbAssignExam.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            cmbAssignExam.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbAssignExam.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
-            cmbAssignExam.FormattingEnabled = true;
-            cmbAssignExam.Location = new Point(635, 163);
-            cmbAssignExam.Name = "cmbAssignExam";
-            cmbAssignExam.Size = new Size(312, 40);
-            cmbAssignExam.TabIndex = 141;
-            // 
-            // lstAnswers
-            // 
-            lstAnswers.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            lstAnswers.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
-            lstAnswers.FormattingEnabled = true;
-            lstAnswers.Location = new Point(3, 213);
-            lstAnswers.Name = "lstAnswers";
-            lstAnswers.Size = new Size(310, 68);
-            lstAnswers.TabIndex = 140;
-            // 
-            // label6
-            // 
-            label6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label6.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
-            label6.Location = new Point(635, 127);
-            label6.Name = "label6";
-            label6.Size = new Size(312, 33);
-            label6.TabIndex = 142;
-            label6.Text = "Assign To Exam";
-            label6.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // btnSearch
             // 
@@ -288,11 +216,11 @@
             // 
             // btnAddAnswer
             // 
-            btnAddAnswer.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnAddAnswer.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnAddAnswer.BackColor = Color.FromArgb(0, 150, 136);
             btnAddAnswer.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
             btnAddAnswer.Image = Properties.Resources.tick_box_32;
-            btnAddAnswer.Location = new Point(319, 163);
+            btnAddAnswer.Location = new Point(319, 164);
             btnAddAnswer.Name = "btnAddAnswer";
             btnAddAnswer.Size = new Size(310, 44);
             btnAddAnswer.TabIndex = 139;
@@ -300,6 +228,95 @@
             btnAddAnswer.TextImageRelation = TextImageRelation.TextBeforeImage;
             btnAddAnswer.UseVisualStyleBackColor = false;
             btnAddAnswer.Click += btnAddAnswer_Click;
+            // 
+            // label6
+            // 
+            label6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label6.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
+            label6.Location = new Point(635, 54);
+            label6.Name = "label6";
+            label6.Size = new Size(312, 31);
+            label6.TabIndex = 142;
+            label6.Text = "Assign To Exam";
+            label6.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // cmbAssignExam
+            // 
+            cmbAssignExam.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            cmbAssignExam.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbAssignExam.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
+            cmbAssignExam.FormattingEnabled = true;
+            cmbAssignExam.Location = new Point(635, 88);
+            cmbAssignExam.Name = "cmbAssignExam";
+            cmbAssignExam.Size = new Size(312, 40);
+            cmbAssignExam.TabIndex = 141;
+            // 
+            // label4
+            // 
+            label4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label4.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
+            label4.Location = new Point(635, 127);
+            label4.Name = "label4";
+            label4.Size = new Size(312, 34);
+            label4.TabIndex = 136;
+            label4.Text = "Answer";
+            label4.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // txtAnswer
+            // 
+            txtAnswer.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtAnswer.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
+            txtAnswer.Location = new Point(635, 164);
+            txtAnswer.Name = "txtAnswer";
+            txtAnswer.Size = new Size(312, 39);
+            txtAnswer.TabIndex = 138;
+            txtAnswer.TextAlign = HorizontalAlignment.Center;
+            // 
+            // rtbBody
+            // 
+            rtbBody.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            rtbBody.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
+            rtbBody.Location = new Point(3, 164);
+            rtbBody.Name = "rtbBody";
+            rtbBody.Size = new Size(310, 55);
+            rtbBody.TabIndex = 128;
+            rtbBody.Text = "";
+            // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label2.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
+            label2.Location = new Point(3, 127);
+            label2.Name = "label2";
+            label2.Size = new Size(310, 34);
+            label2.TabIndex = 133;
+            label2.Text = "Body";
+            label2.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lstAnswers
+            // 
+            lstAnswers.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            lstAnswers.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
+            lstAnswers.FormattingEnabled = true;
+            lstAnswers.Location = new Point(635, 225);
+            lstAnswers.Name = "lstAnswers";
+            lstAnswers.Size = new Size(312, 68);
+            lstAnswers.TabIndex = 140;
+            // 
+            // btnDeleteAnswer
+            // 
+            btnDeleteAnswer.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            btnDeleteAnswer.BackColor = Color.FromArgb(0, 150, 136);
+            btnDeleteAnswer.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
+            btnDeleteAnswer.Image = Properties.Resources.delete__5_;
+            btnDeleteAnswer.Location = new Point(319, 239);
+            btnDeleteAnswer.Name = "btnDeleteAnswer";
+            btnDeleteAnswer.Size = new Size(310, 43);
+            btnDeleteAnswer.TabIndex = 151;
+            btnDeleteAnswer.Text = "delete option";
+            btnDeleteAnswer.TextImageRelation = TextImageRelation.TextBeforeImage;
+            btnDeleteAnswer.UseVisualStyleBackColor = false;
+            btnDeleteAnswer.Click += btnDeleteAnswer_Click;
             // 
             // dgvQs
             // 
@@ -356,23 +373,23 @@
             // 
             Display.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Display.FillWeight = 50F;
-            Display.HeaderText = "Display";
+            Display.HeaderText = "Edit";
+            Display.Image = Properties.Resources.edit__2_1;
             Display.MinimumWidth = 6;
             Display.Name = "Display";
             Display.ReadOnly = true;
-            Display.Text = "Display";
-            Display.UseColumnTextForButtonValue = true;
+            Display.Resizable = DataGridViewTriState.True;
             // 
             // Delete
             // 
             Delete.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Delete.FillWeight = 50F;
             Delete.HeaderText = "Delete";
+            Delete.Image = Properties.Resources.delete__5_;
             Delete.MinimumWidth = 6;
             Delete.Name = "Delete";
             Delete.ReadOnly = true;
-            Delete.Text = "Delete";
-            Delete.UseColumnTextForButtonValue = true;
+            Delete.Resizable = DataGridViewTriState.True;
             // 
             // Id
             // 
@@ -448,8 +465,9 @@
         private Button btnResetSearch;
         private BindingSource chooseOneQuestionBindingSource;
         private BindingSource examBindingSource;
-        private DataGridViewButtonColumn Display;
-        private DataGridViewButtonColumn Delete;
+        private Button btnDeleteAnswer;
+        private DataGridViewImageColumn Display;
+        private DataGridViewImageColumn Delete;
         private DataGridViewTextBoxColumn Id;
         private DataGridViewTextBoxColumn Header;
         private DataGridViewTextBoxColumn Body;
