@@ -32,6 +32,8 @@
             panelMenu = new Panel();
             btnLogout = new Button();
             btnAddUser = new Button();
+            btnShowAnswer = new Button();
+            btnExamAttempt = new Button();
             btnAddExam = new Button();
             btnQuesTF = new Button();
             btnQuesOne = new Button();
@@ -58,6 +60,8 @@
             panelMenu.BackColor = Color.FromArgb(51, 51, 76);
             panelMenu.Controls.Add(btnLogout);
             panelMenu.Controls.Add(btnAddUser);
+            panelMenu.Controls.Add(btnShowAnswer);
+            panelMenu.Controls.Add(btnExamAttempt);
             panelMenu.Controls.Add(btnAddExam);
             panelMenu.Controls.Add(btnQuesTF);
             panelMenu.Controls.Add(btnQuesOne);
@@ -79,7 +83,11 @@
             btnLogout.ForeColor = Color.MistyRose;
             btnLogout.Image = (Image)resources.GetObject("btnLogout.Image");
             btnLogout.ImageAlign = ContentAlignment.MiddleLeft;
+<<<<<<< Updated upstream
             btnLogout.Location = new Point(0, 554);
+=======
+            btnLogout.Location = new Point(0, 680);
+>>>>>>> Stashed changes
             btnLogout.Name = "btnLogout";
             btnLogout.Padding = new Padding(21, 0, 0, 0);
             btnLogout.Size = new Size(316, 60);
@@ -99,7 +107,7 @@
             btnAddUser.ForeColor = Color.MistyRose;
             btnAddUser.Image = Properties.Resources.add_user__1___1_;
             btnAddUser.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAddUser.Location = new Point(0, 494);
+            btnAddUser.Location = new Point(0, 620);
             btnAddUser.Name = "btnAddUser";
             btnAddUser.Padding = new Padding(21, 0, 0, 0);
             btnAddUser.Size = new Size(316, 60);
@@ -109,6 +117,46 @@
             btnAddUser.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnAddUser.UseVisualStyleBackColor = true;
             btnAddUser.Click += btnAddUser_Click;
+            // 
+            // btnShowAnswer
+            // 
+            btnShowAnswer.Dock = DockStyle.Top;
+            btnShowAnswer.FlatAppearance.BorderSize = 0;
+            btnShowAnswer.FlatStyle = FlatStyle.Flat;
+            btnShowAnswer.Font = new Font("Cambria", 13.8F, FontStyle.Bold);
+            btnShowAnswer.ForeColor = Color.MistyRose;
+            btnShowAnswer.Image = (Image)resources.GetObject("btnShowAnswer.Image");
+            btnShowAnswer.ImageAlign = ContentAlignment.MiddleLeft;
+            btnShowAnswer.Location = new Point(0, 557);
+            btnShowAnswer.Name = "btnShowAnswer";
+            btnShowAnswer.Padding = new Padding(21, 0, 0, 0);
+            btnShowAnswer.Size = new Size(316, 63);
+            btnShowAnswer.TabIndex = 10;
+            btnShowAnswer.Text = "Show Answers";
+            btnShowAnswer.TextAlign = ContentAlignment.MiddleLeft;
+            btnShowAnswer.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnShowAnswer.UseVisualStyleBackColor = true;
+            btnShowAnswer.Click += btnShowAnswer_Click;
+            // 
+            // btnExamAttempt
+            // 
+            btnExamAttempt.Dock = DockStyle.Top;
+            btnExamAttempt.FlatAppearance.BorderSize = 0;
+            btnExamAttempt.FlatStyle = FlatStyle.Flat;
+            btnExamAttempt.Font = new Font("Cambria", 13.8F, FontStyle.Bold);
+            btnExamAttempt.ForeColor = Color.MistyRose;
+            btnExamAttempt.Image = Properties.Resources.login__2_;
+            btnExamAttempt.ImageAlign = ContentAlignment.MiddleLeft;
+            btnExamAttempt.Location = new Point(0, 494);
+            btnExamAttempt.Name = "btnExamAttempt";
+            btnExamAttempt.Padding = new Padding(21, 0, 0, 0);
+            btnExamAttempt.Size = new Size(316, 63);
+            btnExamAttempt.TabIndex = 9;
+            btnExamAttempt.Text = "Exam Attempt";
+            btnExamAttempt.TextAlign = ContentAlignment.MiddleLeft;
+            btnExamAttempt.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnExamAttempt.UseVisualStyleBackColor = true;
+            btnExamAttempt.Click += btnExamAttempt_Click;
             // 
             // btnAddExam
             // 
@@ -389,5 +437,10 @@
         private Button btnMaximize;
         private Button btnCloseChildForm;
         private Button btnAddUser;
+<<<<<<< Updated upstream
+=======
+        private Button btnExamAttempt;
+        private Button btnShowAnswer;
+>>>>>>> Stashed changes
     }
 }

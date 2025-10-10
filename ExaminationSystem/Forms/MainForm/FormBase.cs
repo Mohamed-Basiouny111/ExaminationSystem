@@ -172,6 +172,10 @@ namespace ExaminationSystem
             else if (LoginForm.UserMission == "Teacher")
             {
                 btnAddUser.Visible = false;
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 
             }
             else if (LoginForm.UserMission == "Student")
@@ -182,6 +186,8 @@ namespace ExaminationSystem
                 btnQuesTF.Visible = false;
                 btnAddExam.Visible = false;
                 btnAddUser.Visible = false;
+
+                //  btnExamAttempt.Visible = false;
 
                 var exams = db.Exams.Where(x => x.Mode.Equals(ExamMode.Starting)).Select(x => x).ToList();
 
@@ -277,5 +283,20 @@ namespace ExaminationSystem
             this.Close();
 
         }
+<<<<<<< Updated upstream
+=======
+
+        
+
+        private void btnExamAttempt_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new ExamAttemptForm(), sender);
+        }
+
+        private void btnShowAnswer_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new StudentAnswerForm(), sender);
+        }
+>>>>>>> Stashed changes
     }
 }
