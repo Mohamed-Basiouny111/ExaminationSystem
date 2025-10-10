@@ -31,8 +31,8 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             dgvQs = new DataGridView();
-            Display = new DataGridViewButtonColumn();
-            Delete = new DataGridViewButtonColumn();
+            Display = new DataGridViewImageColumn();
+            Delete = new DataGridViewImageColumn();
             Id = new DataGridViewTextBoxColumn();
             Header = new DataGridViewTextBoxColumn();
             Body = new DataGridViewTextBoxColumn();
@@ -48,11 +48,11 @@
             label2 = new Label();
             btnadd = new Button();
             tableLayoutPanel1 = new TableLayoutPanel();
-            cmbAssignExam = new ComboBox();
-            label6 = new Label();
             btnSearch = new Button();
             btnResetSearch = new Button();
             txtSearch = new TextBox();
+            label6 = new Label();
+            cmbAssignExam = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgvQs).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
@@ -104,19 +104,23 @@
             // 
             Display.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Display.FillWeight = 50F;
-            Display.HeaderText = "Display";
+            Display.HeaderText = "Edit";
+            Display.Image = Properties.Resources.edit__2_1;
             Display.MinimumWidth = 6;
             Display.Name = "Display";
             Display.ReadOnly = true;
+            Display.Resizable = DataGridViewTriState.True;
             // 
             // Delete
             // 
             Delete.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Delete.FillWeight = 50F;
             Delete.HeaderText = "Delete";
+            Delete.Image = Properties.Resources.delete__5_;
             Delete.MinimumWidth = 6;
             Delete.Name = "Delete";
             Delete.ReadOnly = true;
+            Delete.Resizable = DataGridViewTriState.True;
             // 
             // Id
             // 
@@ -164,9 +168,9 @@
             // 
             rtbBody.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             rtbBody.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
-            rtbBody.Location = new Point(635, 96);
+            rtbBody.Location = new Point(3, 186);
             rtbBody.Name = "rtbBody";
-            rtbBody.Size = new Size(312, 34);
+            rtbBody.Size = new Size(310, 71);
             rtbBody.TabIndex = 128;
             rtbBody.Text = "";
             // 
@@ -207,7 +211,7 @@
             // 
             label4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label4.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
-            label4.Location = new Point(3, 133);
+            label4.Location = new Point(319, 133);
             label4.Name = "label4";
             label4.Size = new Size(310, 50);
             label4.TabIndex = 136;
@@ -219,9 +223,9 @@
             rbFalse.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             rbFalse.AutoSize = true;
             rbFalse.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
-            rbFalse.Location = new Point(423, 186);
+            rbFalse.Location = new Point(740, 186);
             rbFalse.Name = "rbFalse";
-            rbFalse.Size = new Size(102, 48);
+            rbFalse.Size = new Size(102, 71);
             rbFalse.TabIndex = 131;
             rbFalse.TabStop = true;
             rbFalse.Text = "False";
@@ -232,9 +236,9 @@
             rbTrue.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             rbTrue.AutoSize = true;
             rbTrue.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
-            rbTrue.Location = new Point(109, 186);
+            rbTrue.Location = new Point(425, 186);
             rbTrue.Name = "rbTrue";
-            rbTrue.Size = new Size(98, 48);
+            rbTrue.Size = new Size(98, 71);
             rbTrue.TabIndex = 129;
             rbTrue.TabStop = true;
             rbTrue.Text = "True";
@@ -244,9 +248,9 @@
             // 
             label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label2.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
-            label2.Location = new Point(635, 59);
+            label2.Location = new Point(3, 133);
             label2.Name = "label2";
-            label2.Size = new Size(312, 34);
+            label2.Size = new Size(310, 50);
             label2.TabIndex = 133;
             label2.Text = "Body";
             label2.TextAlign = ContentAlignment.MiddleCenter;
@@ -258,11 +262,11 @@
             btnadd.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
             btnadd.Image = Properties.Resources.icons8_add_50;
             btnadd.ImageAlign = ContentAlignment.MiddleRight;
-            btnadd.Location = new Point(319, 249);
+            btnadd.Location = new Point(319, 263);
             btnadd.Name = "btnadd";
-            btnadd.Size = new Size(310, 67);
+            btnadd.Size = new Size(310, 62);
             btnadd.TabIndex = 135;
-            btnadd.Text = "Add new question";
+            btnadd.Text = "save question";
             btnadd.TextImageRelation = TextImageRelation.TextBeforeImage;
             btnadd.UseVisualStyleBackColor = false;
             btnadd.Click += btnAdd_Click;
@@ -279,17 +283,17 @@
             tableLayoutPanel1.Controls.Add(label5, 1, 0);
             tableLayoutPanel1.Controls.Add(txtMarks, 1, 2);
             tableLayoutPanel1.Controls.Add(txtHeader, 0, 2);
-            tableLayoutPanel1.Controls.Add(label2, 2, 1);
-            tableLayoutPanel1.Controls.Add(rtbBody, 2, 2);
-            tableLayoutPanel1.Controls.Add(label4, 0, 3);
-            tableLayoutPanel1.Controls.Add(rbTrue, 0, 4);
-            tableLayoutPanel1.Controls.Add(rbFalse, 1, 4);
-            tableLayoutPanel1.Controls.Add(cmbAssignExam, 2, 4);
-            tableLayoutPanel1.Controls.Add(label6, 2, 3);
             tableLayoutPanel1.Controls.Add(btnadd, 1, 5);
             tableLayoutPanel1.Controls.Add(btnSearch, 2, 6);
             tableLayoutPanel1.Controls.Add(btnResetSearch, 0, 6);
             tableLayoutPanel1.Controls.Add(txtSearch, 1, 6);
+            tableLayoutPanel1.Controls.Add(label6, 2, 1);
+            tableLayoutPanel1.Controls.Add(cmbAssignExam, 2, 2);
+            tableLayoutPanel1.Controls.Add(label4, 1, 3);
+            tableLayoutPanel1.Controls.Add(label2, 0, 3);
+            tableLayoutPanel1.Controls.Add(rbFalse, 2, 4);
+            tableLayoutPanel1.Controls.Add(rbTrue, 1, 4);
+            tableLayoutPanel1.Controls.Add(rtbBody, 0, 4);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -298,33 +302,11 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10.4445219F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 12.2666664F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 15.343915F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 16.5644169F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 27.6073627F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 23.4756088F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20.7317066F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 75F));
             tableLayoutPanel1.Size = new Size(950, 407);
             tableLayoutPanel1.TabIndex = 139;
-            // 
-            // cmbAssignExam
-            // 
-            cmbAssignExam.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            cmbAssignExam.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbAssignExam.Font = new Font("Calibri", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            cmbAssignExam.FormattingEnabled = true;
-            cmbAssignExam.Location = new Point(635, 186);
-            cmbAssignExam.Name = "cmbAssignExam";
-            cmbAssignExam.Size = new Size(312, 36);
-            cmbAssignExam.TabIndex = 143;
-            // 
-            // label6
-            // 
-            label6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label6.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
-            label6.Location = new Point(635, 133);
-            label6.Name = "label6";
-            label6.Size = new Size(312, 50);
-            label6.TabIndex = 144;
-            label6.Text = "Assign To Exam";
-            label6.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // btnSearch
             // 
@@ -370,6 +352,28 @@
             txtSearch.TabIndex = 147;
             txtSearch.TextAlign = HorizontalAlignment.Center;
             // 
+            // label6
+            // 
+            label6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label6.Font = new Font("Cambria", 16.2F, FontStyle.Bold);
+            label6.Location = new Point(635, 59);
+            label6.Name = "label6";
+            label6.Size = new Size(312, 34);
+            label6.TabIndex = 144;
+            label6.Text = "Assign To Exam";
+            label6.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // cmbAssignExam
+            // 
+            cmbAssignExam.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            cmbAssignExam.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbAssignExam.Font = new Font("Calibri", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cmbAssignExam.FormattingEnabled = true;
+            cmbAssignExam.Location = new Point(635, 96);
+            cmbAssignExam.Name = "cmbAssignExam";
+            cmbAssignExam.Size = new Size(312, 36);
+            cmbAssignExam.TabIndex = 143;
+            // 
             // TrueFalseQuestionForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -402,15 +406,15 @@
         private Label label2;
         private Button btnadd;
         private TableLayoutPanel tableLayoutPanel1;
-        private DataGridViewButtonColumn Display;
-        private DataGridViewButtonColumn Delete;
-        private DataGridViewTextBoxColumn Id;
-        private DataGridViewTextBoxColumn Header;
-        private DataGridViewTextBoxColumn Body;
         private ComboBox cmbAssignExam;
         private Label label6;
         private Button btnSearch;
         private Button btnResetSearch;
         private TextBox txtSearch;
+        private DataGridViewImageColumn Display;
+        private DataGridViewImageColumn Delete;
+        private DataGridViewTextBoxColumn Id;
+        private DataGridViewTextBoxColumn Header;
+        private DataGridViewTextBoxColumn Body;
     }
 }
