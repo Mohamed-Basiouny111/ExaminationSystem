@@ -31,11 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormBase));
             panelMenu = new Panel();
             btnLogout = new Button();
-            button2 = new Button();
-            btnShowResult = new Button();
-            btnDeleteorView = new Button();
-            btnUpdateQues = new Button();
-            btnAddQues = new Button();
+            btnAddUser = new Button();
+            btnShowAnswer = new Button();
+            btnExamAttempt = new Button();
+            btnAddExam = new Button();
+            btnQuesTF = new Button();
+            btnQuesOne = new Button();
+            btnQuesAll = new Button();
+            btnAddSub = new Button();
             panelLogo = new Panel();
             LName = new Label();
             profile = new Button();
@@ -47,6 +50,7 @@
             btnClose = new Button();
             LTitle = new Label();
             panelDesktopPane = new Panel();
+            btnUpdateMode = new Button();
             panelMenu.SuspendLayout();
             panelLogo.SuspendLayout();
             panelTitleBar.SuspendLayout();
@@ -56,17 +60,20 @@
             // 
             panelMenu.BackColor = Color.FromArgb(51, 51, 76);
             panelMenu.Controls.Add(btnLogout);
-            panelMenu.Controls.Add(button2);
-            panelMenu.Controls.Add(btnShowResult);
-            panelMenu.Controls.Add(btnDeleteorView);
-            panelMenu.Controls.Add(btnUpdateQues);
-            panelMenu.Controls.Add(btnAddQues);
+            panelMenu.Controls.Add(btnUpdateMode);
+            panelMenu.Controls.Add(btnAddUser);
+            panelMenu.Controls.Add(btnShowAnswer);
+            panelMenu.Controls.Add(btnExamAttempt);
+            panelMenu.Controls.Add(btnAddExam);
+            panelMenu.Controls.Add(btnQuesTF);
+            panelMenu.Controls.Add(btnQuesOne);
+            panelMenu.Controls.Add(btnQuesAll);
+            panelMenu.Controls.Add(btnAddSub);
             panelMenu.Controls.Add(panelLogo);
             panelMenu.Dock = DockStyle.Left;
             panelMenu.Location = new Point(0, 0);
-            panelMenu.Margin = new Padding(3, 2, 3, 2);
             panelMenu.Name = "panelMenu";
-            panelMenu.Size = new Size(192, 565);
+            panelMenu.Size = new Size(316, 753);
             panelMenu.TabIndex = 0;
             // 
             // btnLogout
@@ -74,15 +81,14 @@
             btnLogout.Dock = DockStyle.Top;
             btnLogout.FlatAppearance.BorderSize = 0;
             btnLogout.FlatStyle = FlatStyle.Flat;
-            btnLogout.Font = new Font("Cambria", 18F, FontStyle.Bold);
+            btnLogout.Font = new Font("Cambria", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLogout.ForeColor = Color.MistyRose;
             btnLogout.Image = (Image)resources.GetObject("btnLogout.Image");
             btnLogout.ImageAlign = ContentAlignment.MiddleLeft;
-            btnLogout.Location = new Point(0, 359);
-            btnLogout.Margin = new Padding(3, 2, 3, 2);
+            btnLogout.Location = new Point(0, 705);
             btnLogout.Name = "btnLogout";
-            btnLogout.Padding = new Padding(18, 0, 0, 0);
-            btnLogout.Size = new Size(192, 45);
+            btnLogout.Padding = new Padding(21, 0, 0, 0);
+            btnLogout.Size = new Size(316, 60);
             btnLogout.TabIndex = 5;
             btnLogout.Text = "Log out";
             btnLogout.TextAlign = ContentAlignment.MiddleLeft;
@@ -90,110 +96,165 @@
             btnLogout.UseVisualStyleBackColor = true;
             btnLogout.Click += btnLogout_Click;
             // 
-            // button2
+            // btnAddUser
             // 
-            button2.Dock = DockStyle.Top;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Cambria", 18F, FontStyle.Bold);
-            button2.ForeColor = Color.MistyRose;
-            button2.Image = (Image)resources.GetObject("button2.Image");
-            button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(0, 314);
-            button2.Margin = new Padding(3, 2, 3, 2);
-            button2.Name = "button2";
-            button2.Padding = new Padding(18, 0, 0, 0);
-            button2.Size = new Size(192, 45);
-            button2.TabIndex = 6;
-            button2.Text = "Users";
-            button2.TextAlign = ContentAlignment.MiddleLeft;
-            button2.TextImageRelation = TextImageRelation.ImageBeforeText;
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            btnAddUser.Dock = DockStyle.Top;
+            btnAddUser.FlatAppearance.BorderSize = 0;
+            btnAddUser.FlatStyle = FlatStyle.Flat;
+            btnAddUser.Font = new Font("Cambria", 13.8F, FontStyle.Bold);
+            btnAddUser.ForeColor = Color.MistyRose;
+            btnAddUser.Image = Properties.Resources.add_user__1___1_;
+            btnAddUser.ImageAlign = ContentAlignment.MiddleLeft;
+            btnAddUser.Location = new Point(0, 585);
+            btnAddUser.Name = "btnAddUser";
+            btnAddUser.Padding = new Padding(21, 0, 0, 0);
+            btnAddUser.Size = new Size(316, 60);
+            btnAddUser.TabIndex = 8;
+            btnAddUser.Text = "Users";
+            btnAddUser.TextAlign = ContentAlignment.MiddleLeft;
+            btnAddUser.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnAddUser.UseVisualStyleBackColor = true;
+            btnAddUser.Click += btnAddUser_Click;
             // 
-            // btnShowResult
+            // btnShowAnswer
             // 
-            btnShowResult.Dock = DockStyle.Top;
-            btnShowResult.FlatAppearance.BorderSize = 0;
-            btnShowResult.FlatStyle = FlatStyle.Flat;
-            btnShowResult.Font = new Font("Cambria", 18F, FontStyle.Bold);
-            btnShowResult.ForeColor = Color.MistyRose;
-            btnShowResult.Image = (Image)resources.GetObject("btnShowResult.Image");
-            btnShowResult.ImageAlign = ContentAlignment.MiddleLeft;
-            btnShowResult.Location = new Point(0, 269);
-            btnShowResult.Margin = new Padding(3, 2, 3, 2);
-            btnShowResult.Name = "btnShowResult";
-            btnShowResult.Padding = new Padding(18, 0, 0, 0);
-            btnShowResult.Size = new Size(192, 45);
-            btnShowResult.TabIndex = 4;
-            btnShowResult.Text = "Report";
-            btnShowResult.TextAlign = ContentAlignment.MiddleLeft;
-            btnShowResult.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnShowResult.UseVisualStyleBackColor = true;
-            btnShowResult.Click += btnShowResult_Click;
+            btnShowAnswer.Dock = DockStyle.Top;
+            btnShowAnswer.FlatAppearance.BorderSize = 0;
+            btnShowAnswer.FlatStyle = FlatStyle.Flat;
+            btnShowAnswer.Font = new Font("Cambria", 13.8F, FontStyle.Bold);
+            btnShowAnswer.ForeColor = Color.MistyRose;
+            btnShowAnswer.Image = (Image)resources.GetObject("btnShowAnswer.Image");
+            btnShowAnswer.ImageAlign = ContentAlignment.MiddleLeft;
+            btnShowAnswer.Location = new Point(0, 522);
+            btnShowAnswer.Name = "btnShowAnswer";
+            btnShowAnswer.Padding = new Padding(21, 0, 0, 0);
+            btnShowAnswer.Size = new Size(316, 63);
+            btnShowAnswer.TabIndex = 9;
+            btnShowAnswer.Text = "Show Answers";
+            btnShowAnswer.TextAlign = ContentAlignment.MiddleLeft;
+            btnShowAnswer.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnShowAnswer.UseVisualStyleBackColor = true;
+            btnShowAnswer.Click += btnShowAnswer_Click;
             // 
-            // btnDeleteorView
+            // btnExamAttempt
             // 
-            btnDeleteorView.Dock = DockStyle.Top;
-            btnDeleteorView.FlatAppearance.BorderSize = 0;
-            btnDeleteorView.FlatStyle = FlatStyle.Flat;
-            btnDeleteorView.Font = new Font("Cambria", 18F, FontStyle.Bold);
-            btnDeleteorView.ForeColor = Color.MistyRose;
-            btnDeleteorView.Image = Properties.Resources.delete__4_;
-            btnDeleteorView.ImageAlign = ContentAlignment.MiddleLeft;
-            btnDeleteorView.Location = new Point(0, 224);
-            btnDeleteorView.Margin = new Padding(3, 2, 3, 2);
-            btnDeleteorView.Name = "btnDeleteorView";
-            btnDeleteorView.Padding = new Padding(18, 0, 0, 0);
-            btnDeleteorView.Size = new Size(192, 45);
-            btnDeleteorView.TabIndex = 3;
-            btnDeleteorView.Text = "Delete  ";
-            btnDeleteorView.TextAlign = ContentAlignment.MiddleLeft;
-            btnDeleteorView.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnDeleteorView.UseVisualStyleBackColor = true;
-            btnDeleteorView.Click += btnDeleteorView_Click;
+            btnExamAttempt.Dock = DockStyle.Top;
+            btnExamAttempt.FlatAppearance.BorderSize = 0;
+            btnExamAttempt.FlatStyle = FlatStyle.Flat;
+            btnExamAttempt.Font = new Font("Cambria", 13.8F, FontStyle.Bold);
+            btnExamAttempt.ForeColor = Color.MistyRose;
+            btnExamAttempt.Image = Properties.Resources.login__2_;
+            btnExamAttempt.ImageAlign = ContentAlignment.MiddleLeft;
+            btnExamAttempt.Location = new Point(0, 459);
+            btnExamAttempt.Name = "btnExamAttempt";
+            btnExamAttempt.Padding = new Padding(21, 0, 0, 0);
+            btnExamAttempt.Size = new Size(316, 63);
+            btnExamAttempt.TabIndex = 9;
+            btnExamAttempt.Text = "Exam Attempt";
+            btnExamAttempt.TextAlign = ContentAlignment.MiddleLeft;
+            btnExamAttempt.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnExamAttempt.UseVisualStyleBackColor = true;
+            btnExamAttempt.Click += btnExamAttempt_Click;
             // 
-            // btnUpdateQues
+            // btnAddExam
             // 
-            btnUpdateQues.Dock = DockStyle.Top;
-            btnUpdateQues.FlatAppearance.BorderSize = 0;
-            btnUpdateQues.FlatStyle = FlatStyle.Flat;
-            btnUpdateQues.Font = new Font("Cambria", 18F, FontStyle.Bold);
-            btnUpdateQues.ForeColor = Color.MistyRose;
-            btnUpdateQues.Image = (Image)resources.GetObject("btnUpdateQues.Image");
-            btnUpdateQues.ImageAlign = ContentAlignment.MiddleLeft;
-            btnUpdateQues.Location = new Point(0, 179);
-            btnUpdateQues.Margin = new Padding(3, 2, 3, 2);
-            btnUpdateQues.Name = "btnUpdateQues";
-            btnUpdateQues.Padding = new Padding(18, 0, 0, 0);
-            btnUpdateQues.Size = new Size(192, 45);
-            btnUpdateQues.TabIndex = 2;
-            btnUpdateQues.Text = "Update ";
-            btnUpdateQues.TextAlign = ContentAlignment.MiddleLeft;
-            btnUpdateQues.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnUpdateQues.UseVisualStyleBackColor = true;
-            btnUpdateQues.Click += btnUpdateQues_Click;
+            btnAddExam.Dock = DockStyle.Top;
+            btnAddExam.FlatAppearance.BorderSize = 0;
+            btnAddExam.FlatStyle = FlatStyle.Flat;
+            btnAddExam.Font = new Font("Cambria", 13.8F, FontStyle.Bold);
+            btnAddExam.ForeColor = Color.MistyRose;
+            btnAddExam.Image = Properties.Resources.icons8_add_50;
+            btnAddExam.ImageAlign = ContentAlignment.MiddleLeft;
+            btnAddExam.Location = new Point(0, 399);
+            btnAddExam.Name = "btnAddExam";
+            btnAddExam.Padding = new Padding(21, 0, 0, 0);
+            btnAddExam.Size = new Size(316, 60);
+            btnAddExam.TabIndex = 6;
+            btnAddExam.Text = "Add Exam";
+            btnAddExam.TextAlign = ContentAlignment.MiddleLeft;
+            btnAddExam.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnAddExam.UseVisualStyleBackColor = true;
+            btnAddExam.Click += btnAddExam_Click;
             // 
-            // btnAddQues
+            // btnQuesTF
             // 
-            btnAddQues.Dock = DockStyle.Top;
-            btnAddQues.FlatAppearance.BorderSize = 0;
-            btnAddQues.FlatStyle = FlatStyle.Flat;
-            btnAddQues.Font = new Font("Cambria", 18F, FontStyle.Bold);
-            btnAddQues.ForeColor = Color.MistyRose;
-            btnAddQues.Image = (Image)resources.GetObject("btnAddQues.Image");
-            btnAddQues.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAddQues.Location = new Point(0, 134);
-            btnAddQues.Margin = new Padding(3, 2, 3, 2);
-            btnAddQues.Name = "btnAddQues";
-            btnAddQues.Padding = new Padding(18, 0, 0, 0);
-            btnAddQues.Size = new Size(192, 45);
-            btnAddQues.TabIndex = 1;
-            btnAddQues.Text = "Add Question";
-            btnAddQues.TextAlign = ContentAlignment.MiddleLeft;
-            btnAddQues.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnAddQues.UseVisualStyleBackColor = true;
-            btnAddQues.Click += btnAddQues_Click;
+            btnQuesTF.Dock = DockStyle.Top;
+            btnQuesTF.FlatAppearance.BorderSize = 0;
+            btnQuesTF.FlatStyle = FlatStyle.Flat;
+            btnQuesTF.Font = new Font("Cambria", 13.8F, FontStyle.Bold);
+            btnQuesTF.ForeColor = Color.MistyRose;
+            btnQuesTF.Image = Properties.Resources.edit__2_;
+            btnQuesTF.ImageAlign = ContentAlignment.MiddleLeft;
+            btnQuesTF.Location = new Point(0, 339);
+            btnQuesTF.Name = "btnQuesTF";
+            btnQuesTF.Padding = new Padding(21, 0, 0, 0);
+            btnQuesTF.Size = new Size(316, 60);
+            btnQuesTF.TabIndex = 4;
+            btnQuesTF.Text = "Question T or F";
+            btnQuesTF.TextAlign = ContentAlignment.MiddleLeft;
+            btnQuesTF.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnQuesTF.UseVisualStyleBackColor = true;
+            btnQuesTF.Click += btnAddQuesTF_Click;
+            // 
+            // btnQuesOne
+            // 
+            btnQuesOne.Dock = DockStyle.Top;
+            btnQuesOne.FlatAppearance.BorderSize = 0;
+            btnQuesOne.FlatStyle = FlatStyle.Flat;
+            btnQuesOne.Font = new Font("Cambria", 13.8F, FontStyle.Bold);
+            btnQuesOne.ForeColor = Color.MistyRose;
+            btnQuesOne.Image = Properties.Resources.option;
+            btnQuesOne.ImageAlign = ContentAlignment.MiddleLeft;
+            btnQuesOne.Location = new Point(0, 279);
+            btnQuesOne.Name = "btnQuesOne";
+            btnQuesOne.Padding = new Padding(21, 0, 0, 0);
+            btnQuesOne.Size = new Size(316, 60);
+            btnQuesOne.TabIndex = 3;
+            btnQuesOne.Text = "Question Choose One";
+            btnQuesOne.TextAlign = ContentAlignment.MiddleLeft;
+            btnQuesOne.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnQuesOne.UseVisualStyleBackColor = true;
+            btnQuesOne.Click += btnAddQuesOne_Click;
+            // 
+            // btnQuesAll
+            // 
+            btnQuesAll.Dock = DockStyle.Top;
+            btnQuesAll.FlatAppearance.BorderSize = 0;
+            btnQuesAll.FlatStyle = FlatStyle.Flat;
+            btnQuesAll.Font = new Font("Cambria", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnQuesAll.ForeColor = Color.MistyRose;
+            btnQuesAll.Image = Properties.Resources.edit__2_;
+            btnQuesAll.ImageAlign = ContentAlignment.MiddleLeft;
+            btnQuesAll.Location = new Point(0, 207);
+            btnQuesAll.Name = "btnQuesAll";
+            btnQuesAll.Padding = new Padding(21, 0, 0, 0);
+            btnQuesAll.Size = new Size(316, 72);
+            btnQuesAll.TabIndex = 2;
+            btnQuesAll.Text = "Question Choose All";
+            btnQuesAll.TextAlign = ContentAlignment.MiddleLeft;
+            btnQuesAll.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnQuesAll.UseVisualStyleBackColor = true;
+            btnQuesAll.Click += btnAddQuesAll_Click;
+            // 
+            // btnAddSub
+            // 
+            btnAddSub.Dock = DockStyle.Top;
+            btnAddSub.FlatAppearance.BorderSize = 0;
+            btnAddSub.FlatStyle = FlatStyle.Flat;
+            btnAddSub.Font = new Font("Cambria", 13.8F, FontStyle.Bold);
+            btnAddSub.ForeColor = Color.MistyRose;
+            btnAddSub.Image = (Image)resources.GetObject("btnAddSub.Image");
+            btnAddSub.ImageAlign = ContentAlignment.MiddleLeft;
+            btnAddSub.Location = new Point(0, 144);
+            btnAddSub.Name = "btnAddSub";
+            btnAddSub.Padding = new Padding(21, 0, 0, 0);
+            btnAddSub.Size = new Size(316, 63);
+            btnAddSub.TabIndex = 1;
+            btnAddSub.Text = "Add Subject";
+            btnAddSub.TextAlign = ContentAlignment.MiddleLeft;
+            btnAddSub.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnAddSub.UseVisualStyleBackColor = true;
+            btnAddSub.Click += btnAddSub_Click;
             // 
             // panelLogo
             // 
@@ -204,9 +265,8 @@
             panelLogo.Dock = DockStyle.Top;
             panelLogo.ImeMode = ImeMode.On;
             panelLogo.Location = new Point(0, 0);
-            panelLogo.Margin = new Padding(3, 2, 3, 2);
             panelLogo.Name = "panelLogo";
-            panelLogo.Size = new Size(192, 134);
+            panelLogo.Size = new Size(316, 144);
             panelLogo.TabIndex = 0;
             // 
             // LName
@@ -214,9 +274,9 @@
             LName.AutoSize = true;
             LName.Font = new Font("Cambria", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             LName.ForeColor = SystemColors.ControlLight;
-            LName.Location = new Point(52, 7);
+            LName.Location = new Point(36, 43);
             LName.Name = "LName";
-            LName.Size = new Size(75, 28);
+            LName.Size = new Size(94, 36);
             LName.TabIndex = 2;
             LName.Text = "Name";
             // 
@@ -224,19 +284,17 @@
             // 
             profile.BackColor = Color.White;
             profile.Image = (Image)resources.GetObject("profile.Image");
-            profile.Location = new Point(37, 37);
-            profile.Margin = new Padding(3, 2, 3, 2);
+            profile.Location = new Point(159, 12);
             profile.Name = "profile";
-            profile.Size = new Size(97, 85);
+            profile.Size = new Size(111, 113);
             profile.TabIndex = 1;
             profile.UseVisualStyleBackColor = false;
             // 
             // button1
             // 
-            button1.Location = new Point(347, -6);
-            button1.Margin = new Padding(3, 2, 3, 2);
+            button1.Location = new Point(397, -8);
             button1.Name = "button1";
-            button1.Size = new Size(82, 22);
+            button1.Size = new Size(94, 29);
             button1.TabIndex = 0;
             button1.Text = "button1";
             button1.UseVisualStyleBackColor = true;
@@ -250,10 +308,9 @@
             panelTitleBar.Controls.Add(btnClose);
             panelTitleBar.Controls.Add(LTitle);
             panelTitleBar.Dock = DockStyle.Top;
-            panelTitleBar.Location = new Point(192, 0);
-            panelTitleBar.Margin = new Padding(3, 2, 3, 2);
+            panelTitleBar.Location = new Point(316, 0);
             panelTitleBar.Name = "panelTitleBar";
-            panelTitleBar.Size = new Size(1017, 65);
+            panelTitleBar.Size = new Size(1066, 87);
             panelTitleBar.TabIndex = 1;
             panelTitleBar.MouseDown += panelTitleBar_MouseDown;
             // 
@@ -263,10 +320,9 @@
             btnCloseChildForm.FlatStyle = FlatStyle.Flat;
             btnCloseChildForm.Font = new Font("Lucida Sans", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCloseChildForm.ForeColor = Color.White;
-            btnCloseChildForm.Location = new Point(29, 20);
-            btnCloseChildForm.Margin = new Padding(3, 2, 3, 2);
+            btnCloseChildForm.Location = new Point(33, 27);
             btnCloseChildForm.Name = "btnCloseChildForm";
-            btnCloseChildForm.Size = new Size(26, 39);
+            btnCloseChildForm.Size = new Size(30, 52);
             btnCloseChildForm.TabIndex = 4;
             btnCloseChildForm.Text = "x";
             btnCloseChildForm.UseVisualStyleBackColor = true;
@@ -279,10 +335,9 @@
             bntMinimize.FlatStyle = FlatStyle.Flat;
             bntMinimize.Font = new Font("Microsoft Sans Serif", 17F, FontStyle.Regular, GraphicsUnit.Point, 0);
             bntMinimize.ForeColor = Color.White;
-            bntMinimize.Location = new Point(903, 2);
-            bntMinimize.Margin = new Padding(3, 2, 3, 2);
+            bntMinimize.Location = new Point(936, 3);
             bntMinimize.Name = "bntMinimize";
-            bntMinimize.Size = new Size(26, 28);
+            bntMinimize.Size = new Size(30, 37);
             bntMinimize.TabIndex = 3;
             bntMinimize.Text = "o";
             bntMinimize.UseVisualStyleBackColor = true;
@@ -295,10 +350,9 @@
             btnMaximize.FlatStyle = FlatStyle.Flat;
             btnMaximize.Font = new Font("Microsoft Sans Serif", 17F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnMaximize.ForeColor = Color.White;
-            btnMaximize.Location = new Point(934, 2);
-            btnMaximize.Margin = new Padding(3, 2, 3, 2);
+            btnMaximize.Location = new Point(971, 3);
             btnMaximize.Name = "btnMaximize";
-            btnMaximize.Size = new Size(26, 28);
+            btnMaximize.Size = new Size(30, 37);
             btnMaximize.TabIndex = 2;
             btnMaximize.Text = "o";
             btnMaximize.UseVisualStyleBackColor = true;
@@ -311,10 +365,9 @@
             btnClose.FlatStyle = FlatStyle.Flat;
             btnClose.Font = new Font("Microsoft Sans Serif", 17F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnClose.ForeColor = Color.White;
-            btnClose.Location = new Point(966, 2);
-            btnClose.Margin = new Padding(3, 2, 3, 2);
+            btnClose.Location = new Point(1008, 3);
             btnClose.Name = "btnClose";
-            btnClose.Size = new Size(26, 28);
+            btnClose.Size = new Size(30, 37);
             btnClose.TabIndex = 1;
             btnClose.Text = "o";
             btnClose.UseVisualStyleBackColor = true;
@@ -326,31 +379,49 @@
             LTitle.AutoSize = true;
             LTitle.Font = new Font("Cambria", 18F, FontStyle.Bold);
             LTitle.ForeColor = SystemColors.ButtonFace;
-            LTitle.Location = new Point(476, 20);
+            LTitle.Location = new Point(496, 27);
             LTitle.Name = "LTitle";
-            LTitle.Size = new Size(77, 28);
+            LTitle.Size = new Size(97, 36);
             LTitle.TabIndex = 0;
             LTitle.Text = "Home";
             // 
             // panelDesktopPane
             // 
             panelDesktopPane.Dock = DockStyle.Fill;
-            panelDesktopPane.Location = new Point(192, 65);
-            panelDesktopPane.Margin = new Padding(3, 2, 3, 2);
+            panelDesktopPane.Location = new Point(316, 87);
             panelDesktopPane.Name = "panelDesktopPane";
-            panelDesktopPane.Size = new Size(1017, 500);
+            panelDesktopPane.Size = new Size(1066, 666);
             panelDesktopPane.TabIndex = 2;
+            // 
+            // btnUpdateMode
+            // 
+            btnUpdateMode.Dock = DockStyle.Top;
+            btnUpdateMode.FlatAppearance.BorderSize = 0;
+            btnUpdateMode.FlatStyle = FlatStyle.Flat;
+            btnUpdateMode.Font = new Font("Cambria", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnUpdateMode.ForeColor = Color.MistyRose;
+            btnUpdateMode.Image = Properties.Resources.menu__3_;
+            btnUpdateMode.ImageAlign = ContentAlignment.MiddleLeft;
+            btnUpdateMode.Location = new Point(0, 645);
+            btnUpdateMode.Name = "btnUpdateMode";
+            btnUpdateMode.Padding = new Padding(21, 0, 0, 0);
+            btnUpdateMode.Size = new Size(316, 60);
+            btnUpdateMode.TabIndex = 10;
+            btnUpdateMode.Text = "Update Mode";
+            btnUpdateMode.TextAlign = ContentAlignment.MiddleLeft;
+            btnUpdateMode.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnUpdateMode.UseVisualStyleBackColor = true;
+            btnUpdateMode.Click += btnUpdateMode_Click;
             // 
             // FormBase
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1209, 565);
+            ClientSize = new Size(1382, 753);
             Controls.Add(panelDesktopPane);
             Controls.Add(panelTitleBar);
             Controls.Add(panelMenu);
-            Margin = new Padding(3, 2, 3, 2);
-            MinimumSize = new Size(877, 481);
+            MinimumSize = new Size(1000, 626);
             Name = "FormBase";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormBaseTeacher";
@@ -366,22 +437,29 @@
         #endregion
 
         private Panel panelMenu;
-        private Button btnAddQues;
+        private Button btnAddSub;
         private Panel panelLogo;
         private Button btnLogout;
-        private Button btnShowResult;
-        private Button btnDeleteorView;
-        private Button btnUpdateQues;
+        private Button btnQuesTF;
+        private Button btnQuesOne;
+        private Button btnQuesAll;
         private Panel panelTitleBar;
         private Label LTitle;
         private Button profile;
         private Button button1;
         private Label LName;
         private Panel panelDesktopPane;
-        private Button button2;
+        private Button btnAddExam;
         private Button btnClose;
         private Button bntMinimize;
         private Button btnMaximize;
         private Button btnCloseChildForm;
+        private Button btnAddUser;
+
+        private Button btnExamAttempt;
+        
+
+        private Button btnShowAnswer;
+        private Button btnUpdateMode;
     }
 }

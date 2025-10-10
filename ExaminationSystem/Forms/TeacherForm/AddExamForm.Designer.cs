@@ -48,6 +48,7 @@
             dgvExams = new DataGridView();
             btnDelete = new Button();
             btnCancel = new Button();
+            btnOpenStatusForm = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numDurationMinutes).BeginInit();
@@ -217,7 +218,7 @@
             // 
             btnSaveExam.BackColor = Color.FromArgb(0, 150, 136);
             btnSaveExam.Font = new Font("Cambria", 18F, FontStyle.Bold);
-            btnSaveExam.Location = new Point(228, 273);
+            btnSaveExam.Location = new Point(110, 273);
             btnSaveExam.Name = "btnSaveExam";
             btnSaveExam.Size = new Size(208, 79);
             btnSaveExam.TabIndex = 2;
@@ -268,7 +269,7 @@
             // 
             btnDelete.BackColor = Color.FromArgb(0, 150, 136);
             btnDelete.Font = new Font("Cambria", 18F, FontStyle.Bold);
-            btnDelete.Location = new Point(742, 273);
+            btnDelete.Location = new Point(538, 273);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(215, 79);
             btnDelete.TabIndex = 5;
@@ -280,7 +281,7 @@
             // 
             btnCancel.BackColor = Color.FromArgb(0, 150, 136);
             btnCancel.Font = new Font("Cambria", 18F, FontStyle.Bold);
-            btnCancel.Location = new Point(486, 273);
+            btnCancel.Location = new Point(324, 273);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(208, 79);
             btnCancel.TabIndex = 6;
@@ -288,12 +289,25 @@
             btnCancel.UseVisualStyleBackColor = false;
             btnCancel.Click += btnCancel_Click;
             // 
+            // btnOpenStatusForm
+            // 
+            btnOpenStatusForm.BackColor = Color.FromArgb(0, 150, 136);
+            btnOpenStatusForm.Font = new Font("Cambria", 18F, FontStyle.Bold);
+            btnOpenStatusForm.Location = new Point(761, 273);
+            btnOpenStatusForm.Name = "btnOpenStatusForm";
+            btnOpenStatusForm.Size = new Size(215, 79);
+            btnOpenStatusForm.TabIndex = 121;
+            btnOpenStatusForm.Text = "Change Mode";
+            btnOpenStatusForm.UseVisualStyleBackColor = false;
+            btnOpenStatusForm.Click += btnOpenStatusForm_Click;
+            // 
             // teacherExam
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 249, 245);
-            ClientSize = new Size(1202, 896);
+            ClientSize = new Size(1310, 896);
+            Controls.Add(btnOpenStatusForm);
             Controls.Add(btnCancel);
             Controls.Add(btnDelete);
             Controls.Add(dgvExams);
@@ -337,5 +351,6 @@
         private DataGridView dgvExams;
         private Button btnDelete;
         private Button btnCancel;
+        private Button btnOpenStatusForm;
     }
 }
