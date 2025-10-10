@@ -19,92 +19,45 @@ namespace ExaminationSystem.Forms.Exam_Status_Form
         private int CurrentUserId = -1;
         private string CurrentUserRole = string.Empty;
         private int SelectedExamId = -1;
-
         public ExamStatusForm()
         {
             InitializeComponent();
 
             this.CurrentUserId = LoginForm.UserId;
             this.CurrentUserRole = LoginForm.UserMission;
-            //LoadExamModes();
-
             this.Load += new EventHandler(ExamStatusForm_Load);
             dgvExams.SelectionChanged += dgvExams_SelectionChanged;
 
             btnUpdateStatus.Click += btnUpdateStatus_Click;
+
+            if (this.CurrentUserId <= 0)
+            {
+                MessageBox.Show("User ID is not set or invalid.", "Authentication Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                btnUpdateStatus.Enabled = false;
+            }
         }
         private void ExamStatusForm_Load(object sender, EventArgs e)
         {
-            LoadExams();
             LoadExamModes();
+            LoadExams();
             SetInitialState();
         }
 
-        private void dgvExams_SelectionChanged(object sender, EventArgs e)
-        {
-            if (dgvExams.SelectedRows.Count > 0)
-            {
-                DataGridViewRow row = dgvExams.SelectedRows[0];
-
-                if (row.Cells["Id"].Value == null)
-                {
-                    SelectedExamId = -1;
-                    lblSelectedExamTitle.Text = "No Exam Selected (Invalid Row)";
-                    SetInitialState();
-                    return;
-                }
-
-                SelectedExamId = (int)row.Cells["Id"].Value;
-
-                string examTitle = row.Cells["Title"].Value?.ToString() ?? "N/A";
-                lblSelectedExamTitle.Text = $"Selected Exam: {examTitle}";
-
-                string currentMode = row.Cells["Mode"].Value?.ToString() ?? ExamMode.Queued.ToString();
-                if (Enum.TryParse(currentMode, out ExamMode mode))
-                {
-                    cmbExamMode.SelectedItem = mode;
-                }
-
-                btnUpdateStatus.Enabled = true;
-                cmbExamMode.Enabled = true;
-            }
-            else
-            {
-                SelectedExamId = -1;
-
-                lblSelectedExamTitle.Text = "No Exam Selected";
-                SetInitialState();
-            }
-        }
-
-        private void btnUpdateStatus_Click(object sender, EventArgs e)
-        {
-            if (SelectedExamId == -1)
-            {
-                MessageBox.Show("Please select an exam to update.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            if (cmbExamMode.SelectedItem == null)
-            {
-                MessageBox.Show("Please select a new mode.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            ExamMode newMode = (ExamMode)cmbExamMode.SelectedItem;
-            UpdateExamStatus(SelectedExamId, newMode);
-        }
 
         private void SetInitialState()
         {
             btnUpdateStatus.Enabled = false;
             cmbExamMode.Enabled = false;
-        }
+            lblSelectedExamTitle.Text = "No Exam Selected";
 
+            if (cmbExamMode.Items.Count > 0)
+            {
+                cmbExamMode.SelectedIndex = -1;
+            }
+        }
         void LoadExamModes()
         {
-            cmbExamMode.DataSource = Enum.GetValues(typeof(ExamMode));
-            cmbExamMode.SelectedIndex = -1;
+ 
         }
 
         void LoadExams()
@@ -132,7 +85,7 @@ namespace ExaminationSystem.Forms.Exam_Status_Form
                             Mode = e.Mode.ToString()
                         })
                         .ToList();
-
+                    
                     dgvExams.DataSource = exams;
                     dgvExams.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
 
@@ -148,6 +101,74 @@ namespace ExaminationSystem.Forms.Exam_Status_Form
             }
         }
 
+        private void dgvExams_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvExams.SelectedRows.Count > 0)
+            {
+                DataGridViewRow row = dgvExams.SelectedRows[0];
+
+                if (row.Cells["Id"].Value == null)
+                {
+                    SelectedExamId = -1;
+                    lblSelectedExamTitle.Text = "No Exam Selected (Invalid Row)";
+                    SetInitialState();
+                    return;
+                }
+
+                SelectedExamId = (int)row.Cells["Id"].Value;
+
+                string examTitle = row.Cells["Title"].Value?.ToString() ?? "N/A";
+                lblSelectedExamTitle.Text = $"Selected Exam: {examTitle}";
+
+                string currentMode = row.Cells["Mode"].Value?.ToString() ?? ExamMode.Queued.ToString();
+
+                int index = cmbExamMode.FindStringExact(currentMode);
+                if (index != -1)
+                {
+                    cmbExamMode.SelectedIndex = index;
+                }
+                else
+                {
+                    cmbExamMode.SelectedIndex = -1;
+                }
+
+                btnUpdateStatus.Enabled = true;
+                cmbExamMode.Enabled = true;
+            }
+            else
+            {
+                SelectedExamId = -1;
+                lblSelectedExamTitle.Text = "No Exam Selected";
+                SetInitialState();
+            }
+        }
+        private void btnUpdateStatus_Click(object sender, EventArgs e)
+        {
+            if (SelectedExamId == -1)
+            {
+                MessageBox.Show("Please select an exam to update.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (cmbExamMode.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a new mode.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string selectedModeString = cmbExamMode.SelectedItem.ToString();
+
+            ExamMode newMode;
+
+            if (Enum.TryParse(selectedModeString, out newMode))
+            {
+                UpdateExamStatus(SelectedExamId, newMode);
+            }
+            else
+            {
+                MessageBox.Show($"Internal Error: Failed to determine exam status from selection.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void UpdateExamStatus(int examId, ExamMode newMode)
         {
             try
@@ -190,3 +211,8 @@ namespace ExaminationSystem.Forms.Exam_Status_Form
         }
     }
 }
+
+
+
+
+

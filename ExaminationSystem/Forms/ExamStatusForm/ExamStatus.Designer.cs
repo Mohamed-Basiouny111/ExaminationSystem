@@ -31,10 +31,10 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             dgvExams = new DataGridView();
-            cmbExamMode = new ComboBox();
             btnUpdateStatus = new Button();
             label1 = new Label();
             lblSelectedExamTitle = new Label();
+            cmbExamMode = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgvExams).BeginInit();
             SuspendLayout();
             // 
@@ -76,16 +76,6 @@
             dgvExams.TabIndex = 120;
             dgvExams.SelectionChanged += dgvExams_SelectionChanged;
             // 
-            // cmbExamMode
-            // 
-            cmbExamMode.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbExamMode.Font = new Font("Cambria", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            cmbExamMode.FormattingEnabled = true;
-            cmbExamMode.Location = new Point(130, 48);
-            cmbExamMode.Name = "cmbExamMode";
-            cmbExamMode.Size = new Size(362, 44);
-            cmbExamMode.TabIndex = 1;
-            // 
             // btnUpdateStatus
             // 
             btnUpdateStatus.BackColor = Color.FromArgb(0, 150, 136);
@@ -119,16 +109,29 @@
             lblSelectedExamTitle.TabIndex = 121;
             lblSelectedExamTitle.Text = "No Exam Selected";
             // 
+            // cmbExamMode
+            // 
+            cmbExamMode.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbExamMode.FlatStyle = FlatStyle.Popup;
+            cmbExamMode.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cmbExamMode.FormattingEnabled = true;
+            cmbExamMode.Items.AddRange(new object[] { "Queued", "Starting", "Finished" });
+            cmbExamMode.Location = new Point(130, 48);
+            cmbExamMode.MaxDropDownItems = 10;
+            cmbExamMode.Name = "cmbExamMode";
+            cmbExamMode.Size = new Size(368, 30);
+            cmbExamMode.TabIndex = 122;
+            // 
             // ExamStatusForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 249, 245);
-            ClientSize = new Size(1069, 734);
+            ClientSize = new Size(1075, 734);
+            Controls.Add(cmbExamMode);
             Controls.Add(lblSelectedExamTitle);
             Controls.Add(label1);
             Controls.Add(btnUpdateStatus);
-            Controls.Add(cmbExamMode);
             Controls.Add(dgvExams);
             Name = "ExamStatusForm";
             Text = "ExamStatusForm";
@@ -141,9 +144,9 @@
         #endregion
 
         private DataGridView dgvExams;
-        private ComboBox cmbExamMode;
         private Button btnUpdateStatus;
         private Label label1;
         private Label lblSelectedExamTitle;
+        public ComboBox cmbExamMode;
     }
 }
