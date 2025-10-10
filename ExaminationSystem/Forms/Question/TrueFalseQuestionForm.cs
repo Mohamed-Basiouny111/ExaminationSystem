@@ -14,6 +14,8 @@ namespace ExaminationSystem.Forms.Question
         private const string AdminRole = "Admin";
         private const string TeacherRole = "Teacher";
         private const string StudentRole = "Student";
+        private int? CurrentQuestionId = null;
+
 
         private bool accessDenied = false;
 
@@ -125,7 +127,7 @@ namespace ExaminationSystem.Forms.Question
 
                 foreach (var q in questions)
                 {
-                    int rowIndex = dgvQs.Rows.Add("Display", "Delete", null, q.Id, q.Header, q.Body);
+                    int rowIndex = dgvQs.Rows.Add(null, null, null, q.Id, q.Header, q.Body);
                     dgvQs.Rows[rowIndex].Cells["AddToExam"].Value = q.ExamId;
                 }
 
@@ -138,11 +140,12 @@ namespace ExaminationSystem.Forms.Question
         {
             if (CurrentUserRole.Equals(StudentRole, StringComparison.OrdinalIgnoreCase))
             {
-                MessageBox.Show("You are not authorized to add questions.",
+                MessageBox.Show("You are not authorized to add or edit questions.",
                     "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
+            // Validation
             if (cmbAssignExam.SelectedValue == null || (int)cmbAssignExam.SelectedValue == 0)
             {
                 MessageBox.Show("Please assign the question to an exam.",
@@ -157,59 +160,95 @@ namespace ExaminationSystem.Forms.Question
                 (!rbTrue.Checked && !rbFalse.Checked))
             {
                 MessageBox.Show("Please fill in all fields and select the correct answer.",
-                                "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
-
 
             if (!int.TryParse(txtMarks.Text, out int marks))
             {
                 MessageBox.Show("Marks must be a number.",
-                                "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             int selectedExamId = (int)cmbAssignExam.SelectedValue;
             using (var context = new ExaminationSystemContext())
             {
+                // Teachers can only edit/add in their own exams
                 if (CurrentUserRole.Equals(TeacherRole, StringComparison.OrdinalIgnoreCase) && selectedExamId != 0)
                 {
                     var exam = context.Exams.Find(selectedExamId);
                     if (exam == null || exam.UserId != CurrentUserId)
                     {
-                        MessageBox.Show("You can only add questions to your own exams.",
+                        MessageBox.Show("You can only add or modify questions in your own exams.",
                             "Permission Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
                 }
 
-                var question = new TrueFalseQuestion
+                if (CurrentQuestionId != null)
                 {
-                    Header = txtHeader.Text.Trim(),
-                    Body = rtbBody.Text.Trim(),
-                    Marks = marks,
-                    ExamId = selectedExamId == 0 ? null : (int?)selectedExamId
-                };
+                    var existing = context.Questions
+                        .OfType<TrueFalseQuestion>()
+                        .Include(q => q.Answers)
+                        .FirstOrDefault(q => q.Id == CurrentQuestionId);
 
-                question.Answers.Add(new Answer { Text = "True", IsCorrect = rbTrue.Checked, Question = question });
-                question.Answers.Add(new Answer { Text = "False", IsCorrect = rbFalse.Checked, Question = question });
+                    if (existing == null)
+                    {
+                        MessageBox.Show("Question not found.", "Error",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
 
-                context.Questions.Add(question);
-                context.SaveChanges();
+                    existing.Header = txtHeader.Text.Trim();
+                    existing.Body = rtbBody.Text.Trim();
+                    existing.Marks = marks;
+                    existing.ExamId = selectedExamId == 0 ? null : (int?)selectedExamId;
+
+                    context.Answers.RemoveRange(existing.Answers);
+
+                    existing.Answers.Add(new Answer
+                    {
+                        Text = "True",
+                        IsCorrect = rbTrue.Checked,
+                        QuestionId = existing.Id
+                    });
+                    existing.Answers.Add(new Answer
+                    {
+                        Text = "False",
+                        IsCorrect = rbFalse.Checked,
+                        QuestionId = existing.Id
+                    });
+
+                    context.SaveChanges();
+                    MessageBox.Show("Question updated successfully!",
+                        "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    var question = new TrueFalseQuestion
+                    {
+                        Header = txtHeader.Text.Trim(),
+                        Body = rtbBody.Text.Trim(),
+                        Marks = marks,
+                        ExamId = selectedExamId == 0 ? null : (int?)selectedExamId
+                    };
+
+                    question.Answers.Add(new Answer { Text = "True", IsCorrect = rbTrue.Checked, Question = question });
+                    question.Answers.Add(new Answer { Text = "False", IsCorrect = rbFalse.Checked, Question = question });
+
+                    context.Questions.Add(question);
+                    context.SaveChanges();
+                    MessageBox.Show("Question added successfully!",
+                        "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
 
-            MessageBox.Show("True/False question saved successfully!",
-                                "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            txtHeader.Clear();
-            rtbBody.Clear();
-            txtMarks.Clear();
-            rbTrue.Checked = false;
-            rbFalse.Checked = false;
-            cmbAssignExam.SelectedIndex = 0;
+            // Reset after save
+            ClearForm();
             LoadQuestions();
         }
+
 
         private void dgvQs_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
@@ -262,9 +301,34 @@ namespace ExaminationSystem.Forms.Question
 
                 if (colName == "Display")
                 {
-                    new QuestionDisplayForm(question).ShowDialog();
-                    LoadQuestions();
+                    CurrentQuestionId = question.Id;
+
+                    txtHeader.Text = question.Header;
+                    rtbBody.Text = question.Body;
+                    txtMarks.Text = question.Marks.ToString();
+                    cmbAssignExam.SelectedValue = question.ExamId ?? 0;
+
+                    var correctAnswer = question.Answers.FirstOrDefault(a => a.IsCorrect);
+                    if (correctAnswer != null)
+                    {
+                        if (correctAnswer.Text.Equals("True", StringComparison.OrdinalIgnoreCase))
+                        {
+                            rbTrue.Checked = true;
+                            rbFalse.Checked = false;
+                        }
+                        else
+                        {
+                            rbTrue.Checked = false;
+                            rbFalse.Checked = true;
+                        }
+                    }
+                    else
+                    {
+                        rbTrue.Checked = false;
+                        rbFalse.Checked = false;
+                    }
                 }
+
                 else if (colName == "Delete")
                 {
                     // Teacher can only delete own questions
@@ -382,8 +446,22 @@ namespace ExaminationSystem.Forms.Question
         private void btnResetSearch_Click(object sender, EventArgs e)
         {
             txtSearch.Clear();
+            ClearForm();
             LoadQuestions();
         }
+
+
+        private void ClearForm()
+        {
+            txtHeader.Clear();
+            rtbBody.Clear();
+            txtMarks.Clear();
+            rbTrue.Checked = false;
+            rbFalse.Checked = false;
+            cmbAssignExam.SelectedIndex = 0;
+            CurrentQuestionId = null;
+        }
+
 
     }
 }
