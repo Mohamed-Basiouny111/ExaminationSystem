@@ -21,6 +21,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using Timer = System.Windows.Forms.Timer;
 
 namespace ExaminationSystem
 {
@@ -31,15 +32,63 @@ namespace ExaminationSystem
         private ExaminationSystemContext db = new ExaminationSystemContext();
         // login student property used in start exam
 
+        //timer for Notification exam started
+        private System.Windows.Forms.Timer examTimer;
+        private void InitializeTimer()
+        {
+            examTimer = new Timer();
+            examTimer.Interval = 1000;
+            examTimer.Tick += (s, ev) => CheckExamStatus();
+            examTimer.Start();
+        }
+        private void ExamTimer_Tick(object sender, EventArgs e)
+        {
+            CheckExamStatus();
+        }
+
+        private List<int> notifiedExams = new List<int>();
+
+        private void CheckExamStatus()
+        {
+            try
+            {
+                if (LoginForm.UserMission == "Student")
+                {
+                    var exams = db.Exams
+                        .Where(x => x.Mode == ExamMode.Starting)
+                        .ToList();
+
+                    foreach (var exam in exams)
+                    {
+                        bool hasAttempt = db.ExamAttempts
+                            .Any(x => x.ExamId == exam.Id && x.StudentId == LoginForm.UserId);
+
+                        if (!hasAttempt && !notifiedExams.Contains(exam.Id))
+                        {
+                            examTimer.Stop();
+
+                            MessageBox.Show($"📢 The exam '{exam.Title}' has started! Good luck 👏", "Exam Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
+                            notifiedExams.Add(exam.Id);
+
+                            examTimer.Start();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+        }
         public FormBase()
         {
             InitializeComponent();
             btnCloseChildForm.Visible = false;
             this.Text = string.Empty;
             this.ControlBox = false;
-            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+            //   this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
             LName.Text = LoginForm.UserName;
 
         }
@@ -48,7 +97,6 @@ namespace ExaminationSystem
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-
 
         private void ActivateButton(object btnSender)
         {
@@ -62,7 +110,8 @@ namespace ExaminationSystem
                     currentButton.ForeColor = Color.White;
                     //  this.panelDesktopPane.Controls.Add(childForm);
                     //this.panelDesktopPane.Tag = childForm;
-                    currentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+
+                    currentButton.Font = new System.Drawing.Font("Cambria", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
                 }
 
             }
@@ -75,11 +124,10 @@ namespace ExaminationSystem
                 {
                     previousBtn.BackColor = Color.FromArgb(51, 51, 76);
                     previousBtn.ForeColor = Color.MistyRose;
-                    previousBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    previousBtn.Font = new System.Drawing.Font("Cambria", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 }
             }
         }
-
 
         // to run content of menu in panel desktop
         private void OpenChildForm(Form childForm, object btnSender)
@@ -102,14 +150,6 @@ namespace ExaminationSystem
 
 
         }
-
-
-
-
-
-
-
-
 
         public void btnCloseChildForm_Click(object sender, EventArgs e)
         {
@@ -138,8 +178,6 @@ namespace ExaminationSystem
 
         }
 
-
-
         #region customise btn window state
         private void btnClose_Click_1(object sender, EventArgs e)
         {
@@ -162,9 +200,6 @@ namespace ExaminationSystem
         }
         #endregion
 
-
-
-
         private void FormBase_Load(object sender, EventArgs e)
         {
             if (LoginForm.UserMission == "Admin")
@@ -180,6 +215,9 @@ namespace ExaminationSystem
             }
             else if (LoginForm.UserMission == "Student")
             {
+                //start Notification Timer
+                InitializeTimer();
+
                 btnAddSub.Visible = false;
                 btnQuesAll.Visible = false;
                 btnQuesOne.Visible = false;
@@ -191,13 +229,13 @@ namespace ExaminationSystem
 
                 //  btnExamAttempt.Visible = false;
 
-                var exams = db.Exams.Where(x => x.Mode.Equals(ExamMode.Starting)).Select(x => x).ToList();
+                var exams = db.Exams.Where(x => x.Mode == ExamMode.Starting).ToList();
 
                 foreach (var item in exams)
                 {
-                    var examAteend = db.ExamAttempts.Where(x => item.Id == x.ExamId && x.StudentId == LoginForm.UserId).Select(x => x).ToList();
-
-                    if (examAteend.Count > 0)
+                    bool hasAttempt = db.ExamAttempts
+                           .Any(x => x.ExamId == item.Id && x.StudentId == LoginForm.UserId);
+                    if (!hasAttempt)
                     {
 
                         Button btn = new Button();
@@ -218,15 +256,13 @@ namespace ExaminationSystem
                         btn.UseVisualStyleBackColor = true;
 
                         // Fix: Use a lambda to capture the correct examId and userId for the event handler
+
                         btn.Click += (s, ev) => btnStartExam(s, LoginForm.UserId, item.Id);
 
 
                         this.panelDesktopPane.Controls.Add(btn);
                     }
-                    else
-                    {
-                        break;
-                    }
+
                 }
 
             }
@@ -259,7 +295,6 @@ namespace ExaminationSystem
             OpenChildForm(new TrueFalseQuestionForm(), sender);
         }
 
-
         private void btnAddExam_Click(object sender, EventArgs e)
         {
             OpenChildForm(new teacherExam(), sender);
@@ -277,13 +312,10 @@ namespace ExaminationSystem
 
         }
 
-
-
         private void btnExamAttempt_Click(object sender, EventArgs e)
         {
             OpenChildForm(new ExamAttemptForm(), sender);
         }
-
 
         private void btnShowAnswer_Click(object sender, EventArgs e)
         {

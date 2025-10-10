@@ -460,7 +460,7 @@ namespace ExaminationSystem.Forms.Question
 
         private void btnDeleteAnswer_Click(object sender, EventArgs e)
         {
-        
+
             if (lstAnswers.SelectedItems.Count == 0)
             {
                 MessageBox.Show("Please select at least one answer to delete.",
@@ -479,9 +479,11 @@ namespace ExaminationSystem.Forms.Question
                 lstAnswers.Items.Remove(ans);
             }
 
-        
-        
 
+
+
+        }
+
+       
     }
-}
 }
