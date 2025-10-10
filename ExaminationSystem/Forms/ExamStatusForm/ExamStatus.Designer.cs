@@ -67,12 +67,13 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dgvExams.DefaultCellStyle = dataGridViewCellStyle2;
             dgvExams.GridColor = Color.Black;
-            dgvExams.Location = new Point(12, 245);
+            dgvExams.Location = new Point(10, 184);
+            dgvExams.Margin = new Padding(3, 2, 3, 2);
             dgvExams.Name = "dgvExams";
             dgvExams.ReadOnly = true;
             dgvExams.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dgvExams.RowHeadersWidth = 30;
-            dgvExams.Size = new Size(1045, 454);
+            dgvExams.Size = new Size(914, 340);
             dgvExams.TabIndex = 120;
             dgvExams.SelectionChanged += dgvExams_SelectionChanged;
             // 
@@ -80,9 +81,10 @@
             // 
             btnUpdateStatus.BackColor = Color.FromArgb(0, 150, 136);
             btnUpdateStatus.Font = new Font("Cambria", 18F, FontStyle.Bold);
-            btnUpdateStatus.Location = new Point(354, 138);
+            btnUpdateStatus.Location = new Point(310, 104);
+            btnUpdateStatus.Margin = new Padding(3, 2, 3, 2);
             btnUpdateStatus.Name = "btnUpdateStatus";
-            btnUpdateStatus.Size = new Size(268, 79);
+            btnUpdateStatus.Size = new Size(234, 59);
             btnUpdateStatus.TabIndex = 2;
             btnUpdateStatus.Text = "Update Mode";
             btnUpdateStatus.UseVisualStyleBackColor = false;
@@ -92,9 +94,9 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Cambria", 18F, FontStyle.Bold);
-            label1.Location = new Point(130, 9);
+            label1.Location = new Point(114, 7);
             label1.Name = "label1";
-            label1.Size = new Size(255, 36);
+            label1.Size = new Size(203, 28);
             label1.TabIndex = 3;
             label1.Text = "Select New Status";
             // 
@@ -103,9 +105,9 @@
             lblSelectedExamTitle.AutoSize = true;
             lblSelectedExamTitle.BackColor = Color.White;
             lblSelectedExamTitle.Font = new Font("Cambria", 18F, FontStyle.Bold);
-            lblSelectedExamTitle.Location = new Point(570, 56);
+            lblSelectedExamTitle.Location = new Point(499, 42);
             lblSelectedExamTitle.Name = "lblSelectedExamTitle";
-            lblSelectedExamTitle.Size = new Size(257, 36);
+            lblSelectedExamTitle.Size = new Size(205, 28);
             lblSelectedExamTitle.TabIndex = 121;
             lblSelectedExamTitle.Text = "No Exam Selected";
             // 
@@ -113,28 +115,30 @@
             // 
             cmbExamMode.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbExamMode.FlatStyle = FlatStyle.Popup;
-            cmbExamMode.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cmbExamMode.Font = new Font("Cambria", 18F, FontStyle.Bold);
             cmbExamMode.FormattingEnabled = true;
             cmbExamMode.Items.AddRange(new object[] { "Queued", "Starting", "Finished" });
-            cmbExamMode.Location = new Point(130, 48);
+            cmbExamMode.Location = new Point(114, 36);
+            cmbExamMode.Margin = new Padding(3, 2, 3, 2);
             cmbExamMode.MaxDropDownItems = 10;
             cmbExamMode.Name = "cmbExamMode";
-            cmbExamMode.Size = new Size(368, 30);
+            cmbExamMode.Size = new Size(322, 36);
             cmbExamMode.TabIndex = 122;
             // 
             // ExamStatusForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 249, 245);
-            ClientSize = new Size(1075, 734);
+            ClientSize = new Size(941, 550);
             Controls.Add(cmbExamMode);
             Controls.Add(lblSelectedExamTitle);
             Controls.Add(label1);
             Controls.Add(btnUpdateStatus);
             Controls.Add(dgvExams);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "ExamStatusForm";
-            Text = "ExamStatusForm";
+            Text = "Exam Status";
             Load += ExamStatusForm_Load;
             ((System.ComponentModel.ISupportInitialize)dgvExams).EndInit();
             ResumeLayout(false);
