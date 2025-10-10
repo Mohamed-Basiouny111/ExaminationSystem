@@ -1,11 +1,12 @@
 ﻿using ExaminationSystem.Data;
+using ExaminationSystem.Forms;
+using ExaminationSystem.Forms.Exam_Status_Form;
 using ExaminationSystem.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using Microsoft.EntityFrameworkCore;
-using ExaminationSystem.Forms;
 
 namespace ExaminationSystem.Forms.TeacherForn
 {
@@ -426,6 +427,29 @@ namespace ExaminationSystem.Forms.TeacherForn
         private void numDurationMinutes_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.Enter) { e.SuppressKeyPress = true; btnSaveExam.PerformClick(); }
+        }
+
+        private void btnOpenStatusForm_Click(object sender, EventArgs e)
+        {
+            OpenExamStatusForm();
+        }
+        private void OpenExamStatusForm()
+        {
+            if (this.CurrentUserId <= 0)
+            {
+                MessageBox.Show("User ID is not set. Please log in again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            try
+            {
+                ExamStatusForm statusForm = new ExamStatusForm();
+                statusForm.ShowDialog();
+                LoadExams();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error opening Exam Status Form: {ex.Message}", "Application Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
