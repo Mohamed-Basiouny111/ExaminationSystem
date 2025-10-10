@@ -50,7 +50,7 @@
             btnClose = new Button();
             LTitle = new Label();
             panelDesktopPane = new Panel();
-            btnShowAnswer = new Button();
+            btnUpdateMode = new Button();
             panelMenu.SuspendLayout();
             panelLogo.SuspendLayout();
             panelTitleBar.SuspendLayout();
@@ -60,7 +60,7 @@
             // 
             panelMenu.BackColor = Color.FromArgb(51, 51, 76);
             panelMenu.Controls.Add(btnLogout);
-            panelMenu.Controls.Add(btnShowAnswer);
+            panelMenu.Controls.Add(btnUpdateMode);
             panelMenu.Controls.Add(btnAddUser);
             panelMenu.Controls.Add(btnShowAnswer);
             panelMenu.Controls.Add(btnExamAttempt);
@@ -85,15 +85,7 @@
             btnLogout.ForeColor = Color.MistyRose;
             btnLogout.Image = (Image)resources.GetObject("btnLogout.Image");
             btnLogout.ImageAlign = ContentAlignment.MiddleLeft;
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-            btnLogout.Location = new Point(0, 554);
-=======
-            btnLogout.Location = new Point(0, 680);
->>>>>>> Stashed changes
-=======
-            btnLogout.Location = new Point(0, 617);
->>>>>>> master
+            btnLogout.Location = new Point(0, 705);
             btnLogout.Name = "btnLogout";
             btnLogout.Padding = new Padding(21, 0, 0, 0);
             btnLogout.Size = new Size(316, 60);
@@ -113,7 +105,7 @@
             btnAddUser.ForeColor = Color.MistyRose;
             btnAddUser.Image = Properties.Resources.add_user__1___1_;
             btnAddUser.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAddUser.Location = new Point(0, 620);
+            btnAddUser.Location = new Point(0, 585);
             btnAddUser.Name = "btnAddUser";
             btnAddUser.Padding = new Padding(21, 0, 0, 0);
             btnAddUser.Size = new Size(316, 60);
@@ -133,11 +125,11 @@
             btnShowAnswer.ForeColor = Color.MistyRose;
             btnShowAnswer.Image = (Image)resources.GetObject("btnShowAnswer.Image");
             btnShowAnswer.ImageAlign = ContentAlignment.MiddleLeft;
-            btnShowAnswer.Location = new Point(0, 557);
+            btnShowAnswer.Location = new Point(0, 522);
             btnShowAnswer.Name = "btnShowAnswer";
             btnShowAnswer.Padding = new Padding(21, 0, 0, 0);
             btnShowAnswer.Size = new Size(316, 63);
-            btnShowAnswer.TabIndex = 10;
+            btnShowAnswer.TabIndex = 9;
             btnShowAnswer.Text = "Show Answers";
             btnShowAnswer.TextAlign = ContentAlignment.MiddleLeft;
             btnShowAnswer.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -153,7 +145,7 @@
             btnExamAttempt.ForeColor = Color.MistyRose;
             btnExamAttempt.Image = Properties.Resources.login__2_;
             btnExamAttempt.ImageAlign = ContentAlignment.MiddleLeft;
-            btnExamAttempt.Location = new Point(0, 494);
+            btnExamAttempt.Location = new Point(0, 459);
             btnExamAttempt.Name = "btnExamAttempt";
             btnExamAttempt.Padding = new Padding(21, 0, 0, 0);
             btnExamAttempt.Size = new Size(316, 63);
@@ -173,7 +165,7 @@
             btnAddExam.ForeColor = Color.MistyRose;
             btnAddExam.Image = Properties.Resources.icons8_add_50;
             btnAddExam.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAddExam.Location = new Point(0, 434);
+            btnAddExam.Location = new Point(0, 399);
             btnAddExam.Name = "btnAddExam";
             btnAddExam.Padding = new Padding(21, 0, 0, 0);
             btnAddExam.Size = new Size(316, 60);
@@ -193,7 +185,7 @@
             btnQuesTF.ForeColor = Color.MistyRose;
             btnQuesTF.Image = Properties.Resources.edit__2_;
             btnQuesTF.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQuesTF.Location = new Point(0, 374);
+            btnQuesTF.Location = new Point(0, 339);
             btnQuesTF.Name = "btnQuesTF";
             btnQuesTF.Padding = new Padding(21, 0, 0, 0);
             btnQuesTF.Size = new Size(316, 60);
@@ -213,7 +205,7 @@
             btnQuesOne.ForeColor = Color.MistyRose;
             btnQuesOne.Image = Properties.Resources.option;
             btnQuesOne.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQuesOne.Location = new Point(0, 314);
+            btnQuesOne.Location = new Point(0, 279);
             btnQuesOne.Name = "btnQuesOne";
             btnQuesOne.Padding = new Padding(21, 0, 0, 0);
             btnQuesOne.Size = new Size(316, 60);
@@ -233,7 +225,7 @@
             btnQuesAll.ForeColor = Color.MistyRose;
             btnQuesAll.Image = Properties.Resources.edit__2_;
             btnQuesAll.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQuesAll.Location = new Point(0, 242);
+            btnQuesAll.Location = new Point(0, 207);
             btnQuesAll.Name = "btnQuesAll";
             btnQuesAll.Padding = new Padding(21, 0, 0, 0);
             btnQuesAll.Size = new Size(316, 72);
@@ -253,7 +245,7 @@
             btnAddSub.ForeColor = Color.MistyRose;
             btnAddSub.Image = (Image)resources.GetObject("btnAddSub.Image");
             btnAddSub.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAddSub.Location = new Point(0, 179);
+            btnAddSub.Location = new Point(0, 144);
             btnAddSub.Name = "btnAddSub";
             btnAddSub.Padding = new Padding(21, 0, 0, 0);
             btnAddSub.Size = new Size(316, 63);
@@ -274,7 +266,7 @@
             panelLogo.ImeMode = ImeMode.On;
             panelLogo.Location = new Point(0, 0);
             panelLogo.Name = "panelLogo";
-            panelLogo.Size = new Size(316, 179);
+            panelLogo.Size = new Size(316, 144);
             panelLogo.TabIndex = 0;
             // 
             // LName
@@ -282,7 +274,7 @@
             LName.AutoSize = true;
             LName.Font = new Font("Cambria", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             LName.ForeColor = SystemColors.ControlLight;
-            LName.Location = new Point(59, 9);
+            LName.Location = new Point(36, 43);
             LName.Name = "LName";
             LName.Size = new Size(94, 36);
             LName.TabIndex = 2;
@@ -292,7 +284,7 @@
             // 
             profile.BackColor = Color.White;
             profile.Image = (Image)resources.GetObject("profile.Image");
-            profile.Location = new Point(42, 49);
+            profile.Location = new Point(159, 12);
             profile.Name = "profile";
             profile.Size = new Size(111, 113);
             profile.TabIndex = 1;
@@ -401,25 +393,25 @@
             panelDesktopPane.Size = new Size(1066, 666);
             panelDesktopPane.TabIndex = 2;
             // 
-            // btnShowAnswer
+            // btnUpdateMode
             // 
-            btnShowAnswer.Dock = DockStyle.Top;
-            btnShowAnswer.FlatAppearance.BorderSize = 0;
-            btnShowAnswer.FlatStyle = FlatStyle.Flat;
-            btnShowAnswer.Font = new Font("Cambria", 13.8F, FontStyle.Bold);
-            btnShowAnswer.ForeColor = Color.MistyRose;
-            btnShowAnswer.Image = (Image)resources.GetObject("btnShowAnswer.Image");
-            btnShowAnswer.ImageAlign = ContentAlignment.MiddleLeft;
-            btnShowAnswer.Location = new Point(0, 554);
-            btnShowAnswer.Name = "btnShowAnswer";
-            btnShowAnswer.Padding = new Padding(21, 0, 0, 0);
-            btnShowAnswer.Size = new Size(316, 63);
-            btnShowAnswer.TabIndex = 9;
-            btnShowAnswer.Text = "Show Answers";
-            btnShowAnswer.TextAlign = ContentAlignment.MiddleLeft;
-            btnShowAnswer.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnShowAnswer.UseVisualStyleBackColor = true;
-            btnShowAnswer.Click += btnShowAnswer_Click;
+            btnUpdateMode.Dock = DockStyle.Top;
+            btnUpdateMode.FlatAppearance.BorderSize = 0;
+            btnUpdateMode.FlatStyle = FlatStyle.Flat;
+            btnUpdateMode.Font = new Font("Cambria", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnUpdateMode.ForeColor = Color.MistyRose;
+            btnUpdateMode.Image = Properties.Resources.menu__3_;
+            btnUpdateMode.ImageAlign = ContentAlignment.MiddleLeft;
+            btnUpdateMode.Location = new Point(0, 645);
+            btnUpdateMode.Name = "btnUpdateMode";
+            btnUpdateMode.Padding = new Padding(21, 0, 0, 0);
+            btnUpdateMode.Size = new Size(316, 60);
+            btnUpdateMode.TabIndex = 10;
+            btnUpdateMode.Text = "Update Mode";
+            btnUpdateMode.TextAlign = ContentAlignment.MiddleLeft;
+            btnUpdateMode.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnUpdateMode.UseVisualStyleBackColor = true;
+            btnUpdateMode.Click += btnUpdateMode_Click;
             // 
             // FormBase
             // 
@@ -463,14 +455,11 @@
         private Button btnMaximize;
         private Button btnCloseChildForm;
         private Button btnAddUser;
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
+
         private Button btnExamAttempt;
+        
+
         private Button btnShowAnswer;
->>>>>>> Stashed changes
-=======
-        private Button btnShowAnswer;
->>>>>>> master
+        private Button btnUpdateMode;
     }
 }

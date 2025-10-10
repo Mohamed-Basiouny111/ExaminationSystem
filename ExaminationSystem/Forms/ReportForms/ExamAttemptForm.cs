@@ -423,5 +423,9 @@ namespace ExaminationSystem.Forms.ReportForms
                 .ToList();
         }
 
+        private void ExamAttemptForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

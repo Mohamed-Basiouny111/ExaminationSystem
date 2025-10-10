@@ -2,6 +2,7 @@
 using DocumentFormat.OpenXml.Office.SpreadSheetML.Y2023.MsForms;
 using ExaminationSystem.Data;
 using ExaminationSystem.Forms;
+using ExaminationSystem.Forms.Exam_Status_Form;
 using ExaminationSystem.Forms.ExamForm;
 using ExaminationSystem.Forms.Question;
 using ExaminationSystem.Forms.ReportForms;
@@ -174,14 +175,7 @@ namespace ExaminationSystem
             else if (LoginForm.UserMission == "Teacher")
             {
                 btnAddUser.Visible = false;
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
-=======
-                
->>>>>>> master
 
             }
             else if (LoginForm.UserMission == "Student")
@@ -193,6 +187,7 @@ namespace ExaminationSystem
                 btnAddExam.Visible = false;
                 btnAddUser.Visible = false;
                 btnShowAnswer.Visible = false;
+                btnUpdateMode.Visible = false;
 
                 //  btnExamAttempt.Visible = false;
 
@@ -232,20 +227,11 @@ namespace ExaminationSystem
                     {
                         break;
                     }
-
-
-
                 }
 
             }
 
         }
-
-
-
-
-
-
         private void btnStartExam(object sender, int userId, int examId)
         {
 
@@ -290,26 +276,23 @@ namespace ExaminationSystem
             this.Close();
 
         }
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
 
-        
+
 
         private void btnExamAttempt_Click(object sender, EventArgs e)
         {
             OpenChildForm(new ExamAttemptForm(), sender);
         }
-=======
->>>>>>> master
+
 
         private void btnShowAnswer_Click(object sender, EventArgs e)
         {
             OpenChildForm(new StudentAnswerForm(), sender);
         }
-<<<<<<< HEAD
->>>>>>> Stashed changes
-=======
->>>>>>> master
+
+        private void btnUpdateMode_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new ExamStatusForm(), sender);
+        }
     }
 }
