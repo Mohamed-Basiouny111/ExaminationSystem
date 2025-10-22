@@ -21,12 +21,39 @@ namespace ExaminationSystem
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
-           // Application.Run(new ExamForm2(1, 3));
+            // Application.Run(new ExamForm2(1, 3));
 
-           
+            Application.Run(new UserForm());
             Application.Run(new LoginForm());
 
 
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
