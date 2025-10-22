@@ -253,7 +253,7 @@ namespace ExaminationSystem.Forms.ExamForm
             SaveCurrentSelection();
             _timer?.Stop();
 
-            //CalculateScoreAndFinish();
+            CalculateScoreAndFinish();
 
             //var totalMarks = _questions.Sum(q => q.Marks);
             var message = $"Exam submitted successfully.";
